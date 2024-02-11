@@ -9,7 +9,22 @@ public class Numbers : MonoBehaviour
     private List<int> allNumbers = Enumerable.Range(1, 20).ToList();
     List<int> visibleNumbers = new List<int>();
     List<int> hiddenNumbers = new List<int>();
+    private int mistakesNum;
     
+    // Start is called before the first frame update
+    void Start()
+    {
+        startList();
+        PrintShownLists();
+        PrintHiddenLists();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
     void startList(){
         int cnt = 0;
         visibleNumbers.Clear();
@@ -29,26 +44,36 @@ public class Numbers : MonoBehaviour
         }
 
     }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        // startList();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnMouseDown() {
-        startList();
-        string visibleNumbersStr = string.Join(", ", visibleNumbers);
+    void PrintHiddenLists(){
         string hiddenNumbersStr = string.Join(", ", hiddenNumbers);
+        Debug.Log("======Hidden Numbers: " + hiddenNumbersStr);
+    }
 
+    void PrintShownLists(){
+        string visibleNumbersStr = string.Join(", ", visibleNumbers);
         Debug.Log("Visible Numbers: " + visibleNumbersStr);
-        Debug.Log("Hidden Numbers: " + hiddenNumbersStr);
+    }
+
+    public void CheckMissingNumber(int num)
+    {
+        Debug.Log(num);
+        if (hiddenNumbers.Contains(num)){
+            if (num == hiddenNumbers[0]){
+                hiddenNumbers.RemoveAt(0);
+                Debug.Log($"{num} removed");
+                PrintHiddenLists();
+            }
+            else{
+                Debug.Log("The order was not correct");
+                mistakesNum++;
+            }
+        }
+        else{
+            Debug.Log($"The {num} is not missing");
+            mistakesNum++;
+        }
+        PrintHiddenLists();
     }
 
 
