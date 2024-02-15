@@ -9,6 +9,8 @@ TagManager:
   - Statue2
   - Cup
   - Sphere
+  - Cube
+  - Book
   layers:
   - Default
   - TransparentFX

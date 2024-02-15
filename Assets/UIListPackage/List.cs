@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.XR;
 
 public class List : MonoBehaviour
@@ -10,17 +11,30 @@ public class List : MonoBehaviour
     // public GameObject[] listofTicks;
     public GameObject preview;
     // public GameObject list;
-    private bool found = false; 
     private float timer = 0f;
+    
+    private TrackedPoseDriver trackedPoseDriver;
+
     private void Start()
     {
+        
+    }
+
+    private void Awake()
+    {
+        trackedPoseDriver = gameObject.transform.parent.GetComponent<TrackedPoseDriver>();
     }
 
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= 20)
+        if (timer is > 2 and < 20)
         {
+            trackedPoseDriver.trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
+        }
+        else if (timer >= 20)
+        {
+            trackedPoseDriver.trackingType = TrackedPoseDriver.TrackingType.RotationAndPosition;
             gameObject.SetActive(false);
         }
     }
