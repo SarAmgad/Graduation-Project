@@ -7,16 +7,25 @@ using UnityEngine.SceneManagement;
 public class Numbers : MonoBehaviour
 {
     private List<int> allNumbers = Enumerable.Range(1, 20).ToList();
-    List<int> visibleNumbers = new List<int>();
+    public List<int> visibleNumbers = new List<int>();
     List<int> hiddenNumbers = new List<int>();
     private int mistakesNum;
+    private SpawnManager spawnManager;
     
     // Start is called before the first frame update
     void Start()
     {
-        startList();
-        PrintShownLists();
-        PrintHiddenLists();
+        spawnManager = GetComponent<SpawnManager>();
+        if (spawnManager == null)
+        {
+            Debug.LogError("SpawnManager component not found on the same GameObject as Numbers!");
+        }
+        else
+        {
+            startList();
+            PrintShownLists();
+            PrintHiddenLists();
+        }
     }
 
     // Update is called once per frame
@@ -57,12 +66,13 @@ public class Numbers : MonoBehaviour
 
     public void CheckMissingNumber(int num)
     {
-        Debug.Log(num);
+        // Debug.Log(num);
         if (hiddenNumbers.Contains(num)){
             if (num == hiddenNumbers[0]){
                 hiddenNumbers.RemoveAt(0);
                 Debug.Log($"{num} removed");
                 PrintHiddenLists();
+                spawnManager.InstantiatePrefab(num, false);
             }
             else{
                 Debug.Log("The order was not correct");
