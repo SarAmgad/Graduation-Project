@@ -21,6 +21,8 @@ QualitySettings:
     skinWeights: 1
     globalTextureMipmapLimit: 1
     textureMipmapLimitSettings: []
+    blendWeights: 1
+    textureQuality: 1
     anisotropicTextures: 0
     antiAliasing: 0
     softParticles: 0
@@ -33,6 +35,8 @@ QualitySettings:
     lodBias: 0.3
     maximumLODLevel: 0
     enableLODCrossFade: 1
+    vSyncCount: 0
+    lodBias: 0.3
     streamingMipmapsActive: 0
     streamingMipmapsAddAllCameras: 1
     streamingMipmapsMemoryBudget: 512
@@ -70,6 +74,8 @@ QualitySettings:
     skinWeights: 2
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
+    blendWeights: 2
+    textureQuality: 0
     anisotropicTextures: 0
     antiAliasing: 0
     softParticles: 0
@@ -119,6 +125,8 @@ QualitySettings:
     skinWeights: 2
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
+    blendWeights: 2
+    textureQuality: 0
     anisotropicTextures: 1
     antiAliasing: 0
     softParticles: 0
@@ -168,6 +176,8 @@ QualitySettings:
     skinWeights: 2
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
+    blendWeights: 2
+    textureQuality: 0
     anisotropicTextures: 1
     antiAliasing: 0
     softParticles: 0
@@ -217,6 +227,8 @@ QualitySettings:
     skinWeights: 4
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
+    blendWeights: 4
+    textureQuality: 0
     anisotropicTextures: 2
     antiAliasing: 2
     softParticles: 1
@@ -266,6 +278,8 @@ QualitySettings:
     skinWeights: 4
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
+    blendWeights: 4
+    textureQuality: 0
     anisotropicTextures: 2
     antiAliasing: 2
     softParticles: 1
@@ -301,7 +315,7 @@ QualitySettings:
     terrainMaxTrees: 50
     excludedTargetPlatforms: []
   m_TextureMipmapLimitGroupNames: []
-  m_PerPlatformDefaultQuality:
+    m_PerPlatformDefaultQuality:
     Android: 2
     Lumin: 5
     Nintendo 3DS: 5
