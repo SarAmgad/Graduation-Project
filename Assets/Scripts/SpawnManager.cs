@@ -6,7 +6,6 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] prefabsNumbers;
     private readonly float z = 4.9266f;
-    private int currentIndex = 0;
     private List<Vector3> usedPositions = new List<Vector3>();
     // private string testType;
 
@@ -26,33 +25,7 @@ public class SpawnManager : MonoBehaviour
             visibleNumbers = numbers.visibleNumbers;
             GeneratePositions();
         }
-        Debug.Log(Vector3.Distance(new Vector3(-0.419f,1.595f,4.9266f), new Vector3(-0.508f,1.56602f,4.2966f)) + "-------------");
     }
-    // void Start()
-    // {
-    //     // testType = PlayerPrefs.GetString("TestType");
-    //     // if (currentIndex == 0)  // Ensure that instantiation only happens once
-    //     // {
-    //     //     StartCoroutine(InstantiatePrefabs());
-    //     // }
-        
-    // }
-
-    // IEnumerator InstantiatePrefabs()
-    // {
-    //     while (currentIndex < prefabsNumbers.Length)
-    //     {
-    //         Vector3 spawnPos = GenerateRandomPosition();
-
-    //         Instantiate(prefabsNumbers[currentIndex], spawnPos, prefabsNumbers[currentIndex].transform.rotation);
-
-    //         usedPositions.Add(spawnPos);
-    //         currentIndex++;
-    //         yield return null;
-    //     }
-
-    //     this.enabled = false;
-    // }
 
     void GeneratePositions()
     {
@@ -65,13 +38,12 @@ public class SpawnManager : MonoBehaviour
 
     public void InstantiatePrefab(int i, bool visibleFlag)
     {
-        // float randomX, randomY;
         Vector3 spawnPos;
-        // randomX = Random.Range(-1.695f, 2.301f);
-        // randomY = Random.Range(1.03f, 2.306f);
-        spawnPos = GenerateRandomPosition();
 
-        // spawnPos = new Vector3(randomX, randomY, z);
+        Debug.Log(visibleNumbers[i] - 1 +"------" + i);
+        spawnPos = GenerateRandomPosition();
+        
+
         if (visibleFlag)
             Instantiate(prefabsNumbers[visibleNumbers[i]-1], spawnPos, prefabsNumbers[i].transform.rotation);
         else
@@ -83,8 +55,8 @@ public class SpawnManager : MonoBehaviour
     {
         float randomX, randomY;
         Vector3 spawnPos;
-        int maxAttempts = 500; // Maximum number of attempts to find an unused position
-        int attempts = 0; // Number of attempts made so far
+        int maxAttempts = 1000; 
+        int attempts = 0;
 
         do
         {
@@ -96,20 +68,22 @@ public class SpawnManager : MonoBehaviour
             // Check if position is used
             if (!IsPositionUsed(spawnPos))
             {
-                return spawnPos; // Return the position if it's not used
+                return spawnPos; 
             }
         } while (attempts < maxAttempts);
 
         Debug.LogError("Failed to find an unused position after " + maxAttempts + " attempts.");
-        return Vector3.zero; // Return zero vector if no unused position is found
+        return spawnPos; //If failed to find a postion, assign last position
     }
 
 
     bool IsPositionUsed(Vector3 position)
     {
+        // float dist;
         foreach (Vector3 usedPos in usedPositions)
         {
-            if (Vector3.Distance(position, usedPos) < 1.1f)
+            // dist = ;
+            if (Vector3.Distance(position, usedPos) < 0.6f)
             {
                 return true;
             }
