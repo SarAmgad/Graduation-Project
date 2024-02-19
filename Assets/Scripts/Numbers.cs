@@ -1,8 +1,9 @@
-using System.Collections;
+// using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.SceneManagement;
+using TMPro;
+// using UnityEngine.SceneManagement;
 
 public class Numbers : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Numbers : MonoBehaviour
     List<int> hiddenNumbers = new List<int>();
     private int mistakesNum;
     private SpawnManager spawnManager;
+    [SerializeField] TextMeshProUGUI msgText;
     
     // Start is called before the first frame update
     void Start()
@@ -66,7 +68,7 @@ public class Numbers : MonoBehaviour
 
     public void CheckMissingNumber(int num)
     {
-        // Debug.Log(num);
+        msgText.text = "";
         if (hiddenNumbers.Contains(num)){
             if (num == hiddenNumbers[0]){
                 hiddenNumbers.RemoveAt(0);
@@ -75,13 +77,19 @@ public class Numbers : MonoBehaviour
                 spawnManager.InstantiatePrefab(num, false);
             }
             else{
+                msgText.text = "The order was not correct";
                 Debug.Log("The order was not correct");
                 mistakesNum++;
             }
         }
         else{
+            msgText.text = $"That was not correct. \nThe {num} is not missing";
             Debug.Log($"The {num} is not missing");
             mistakesNum++;
+        }
+        if (mistakesNum == 4)
+        {
+            msgText.text = "You made several mistakes. Please view the task description once more.";
         }
         PrintHiddenLists();
     }
