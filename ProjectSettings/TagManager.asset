@@ -9,6 +9,7 @@ TagManager:
   - Statue2
   - Cup
   - Sphere
+  - Cube
   layers:
   - Default
   - TransparentFX

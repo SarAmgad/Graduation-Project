@@ -7,21 +7,17 @@ using UnityEngine.XR;
 public class List : MonoBehaviour
 {
     // public GameObject[] listofObjs;
-    // public GameObject[] listofTicks;
+    public GameObject[] listofTicks;
     public GameObject preview;
-    // public GameObject list;
     private bool found = false; 
-    private float timer = 0f;
     private void Start()
     {
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= 20)
+        if (found)
         {
-            gameObject.SetActive(false);
         }
     }
 
@@ -35,5 +31,14 @@ public class List : MonoBehaviour
         Instantiate(gameObject, preview.transform.position, gameObject.transform.rotation, preview.transform);
     }
 
-    
+    public void Found(GameObject gameObject)
+    {
+        foreach (var obj in listofTicks)
+        {
+            if (obj.gameObject.CompareTag(gameObject.tag))
+            {
+                obj.SetActive(true);
+            }
+        }
+    }
 }
