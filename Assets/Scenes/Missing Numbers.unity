@@ -500,6 +500,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VR Character IK
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8544e174da6ec0d45bf4fc7e990c304d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5465940246521907071, guid: 8544e174da6ec0d45bf4fc7e990c304d, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.192
@@ -6469,7 +6473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2039592216
 MonoBehaviour:
   m_ObjectHideFlags: 0
