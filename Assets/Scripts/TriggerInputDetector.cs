@@ -38,8 +38,9 @@ public class TriggerInputDetector : MonoBehaviour
             menu.SetActive(true);
         }
         
-        if (_inputData._rightController.TryGetFeatureValue(CommonUsages.secondaryButton, out bool Bbutton))
+        if (_inputData._rightController.TryGetFeatureValue(CommonUsages.secondaryButton, out bool Bbutton) && Bbutton && !menu.activeSelf)
         {
+            list.SetActive(true);
         }
 
         if (_inputData._leftController.TryGetFeatureValue(CommonUsages.deviceRotation,
