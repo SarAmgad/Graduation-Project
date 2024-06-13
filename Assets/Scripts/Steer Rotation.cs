@@ -47,15 +47,15 @@ public class SteerRotation : MonoBehaviour
     {
         if (rightHandOnWheel == true && leftHandOnWheel == false)
         {
-            Quaternion newRot = Quaternion.Euler(0, 0, rightHandOriginalParent.transform.rotation.eulerAngles.y);
-            directionalObject.rotation = newRot;
+            Quaternion newRot = Quaternion.Euler(0, 0, rightHandOriginalParent.transform.rotation.eulerAngles.z);
+            directionalObject.localRotation = newRot;
             transform.parent = directionalObject;
             Debug.Log("TurnVehiclelll1");
         }
         else if (rightHandOnWheel == false && leftHandOnWheel == true)
         {
-            Quaternion newRot = Quaternion.Euler(0, 0, leftHandOriginalParent.transform.rotation.eulerAngles.y);
-            directionalObject.rotation = newRot;
+            Quaternion newRot = Quaternion.Euler(0, 0, leftHandOriginalParent.transform.rotation.eulerAngles.z);
+            directionalObject.localRotation = newRot;
             transform.parent = directionalObject;
             Debug.Log("TurnVehiclelll2");
         }
@@ -64,7 +64,7 @@ public class SteerRotation : MonoBehaviour
             Quaternion newRotRight = Quaternion.Euler(0, 0, rightHandOriginalParent.transform.rotation.eulerAngles.z);
             Quaternion newRotLeft = Quaternion.Euler(0, 0, leftHandOriginalParent.transform.rotation.eulerAngles.z);
             Quaternion finalRot = Quaternion.Slerp(newRotLeft, newRotRight, 1.0f / 2.0f);
-            directionalObject.rotation = finalRot;
+            directionalObject.localRotation = finalRot;
             transform.parent = directionalObject;
             Debug.Log("TurnVehiclelll1");
         }

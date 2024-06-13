@@ -3,7 +3,13 @@ guid: 25d6f6d278ae5b549bb6d045a1105bba
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rightHand: {instanceID: 0}
+  - leftHand: {instanceID: 0}
+  - Vehicle: {instanceID: 0}
+  - directionalObject: {instanceID: 0}
+  - rightHandGripAction: {instanceID: 0}
+  - leftHandGripAction: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
