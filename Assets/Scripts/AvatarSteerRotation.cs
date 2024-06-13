@@ -1,114 +1,81 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class AvatarSteerRotation : MonoBehaviour
+public class AvatarSteerRotation: XRBaseInteractable
 {
-    // Reference to the XR Origin (assuming attached to avatar)
-    public XRBaseInteractor leftInteractor; // Optional: Store references to interactors (if using controller proxies)
-    public XRBaseInteractor rightInteractor;
+    [SerializeField] private Transform wheelTransform;
 
-    public float maxSteeringAngle = 360f; // Maximum steering angle for the avatar
-    public float deadZone = 0.01f; // Threshold for controller movement (adjust as needed)
+    public UnityEvent<float> OnWheelRotated;
 
-    private float previousPosition = 0f; // Store previous controller X-axis position
+    private float currentAngle = 0.0f;
 
-    private void Start()
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
-        // Reset initial X-axis rotation (optional)
-        transform.localRotation = Quaternion.Euler(0f, transform.localRotation.eulerAngles.y, transform.localRotation.eulerAngles.z);
+        base.OnSelectEntered(args);
+        currentAngle = FindWheelAngle();
     }
-    // private void Update()
-    // {
-    //     // Get current controller X-axis position
-    //     //     float currentPosition = leftInteractor.transform.localPosition.x;
 
-    //     //     // Check if position change exceeds dead zone
-    //     //     if (Mathf.Abs(currentPosition - previousPosition) > deadZone && Mathf.Abs(currentPosition - previousPosition) <= 0.3)
-    //     //     {
-    //     //         // Calculate position value for steering (considering dead zone)
-    //     //         //float positionValue =  maxSteeringAngle / (currentPosition - previousPosition);
-    //     //         //positionValue = Mathf.Clamp(Mathf.Abs(currentPosition - previousPosition) - deadZone, 0f, maxSteeringAngle);
-
-    //     //         float direction = Mathf.Sign(currentPosition - previousPosition);
-
-    //     //         // Rotate the avatar around Z-axis based on direction
-    //     //         float rotationAmount = direction * maxSteeringAngle * Mathf.Abs(currentPosition);
-    //     //         transform.Rotate(Vector3.forward, rotationAmount);
-    //     //         Debug.Log("Rotation z: " + rotationAmount);
-
-    //     //         // positionValue += currentPosition * maxSteeringAngle;
-    //     //         // // Update previous position for next comparison
-    //     //         // previousPosition = currentPosition;
-
-    //     //         // // Rotate the avatar around Z-axis based on position value
-    //     //         // transform.localRotation = Quaternion.Euler(
-    //     //         //     transform.localRotation.eulerAngles.x, // Keep current X-axis rotation
-    //     //         //     transform.localRotation.eulerAngles.y, // Keep current Y-axis rotation
-    //     //         //     -Mathf.Sign(currentPosition - previousPosition) * positionValue);
-    //     //         // Debug.Log("Rotation z: " + positionValue);
-    //     //     }
-
-    //     //     // Debug.Log("Controller Position (X-axis): " + currentPosition);
-    //     //     // Debug.Log("Rotation Value Steer (Z-axis): " + transform.localRotation.z);
-
-    //     // }
-    //     float currentPosition = leftInteractor.transform.localPosition.x;
-
-    //     // Check if position change exceeds dead zone
-    //     if (Mathf.Abs(currentPosition - previousPosition) > deadZone)
-    //     {
-    //         // Calculate position change direction
-    //         float direction = Mathf.Sign(currentPosition - previousPosition);
-
-    //         // Calculate the rotation amount based on direction
-    //         float rotationAmount = direction * maxSteeringAngle;
-
-    //         // Calculate the current rotation around the Z-axis
-    //         float currentRotation = transform.localRotation.eulerAngles.z;
-
-    //         // Calculate the target rotation (rotation when the desired angle is reached)
-    //         float targetRotation = Mathf.Clamp(currentRotation + rotationAmount, 0, maxSteeringAngle);
-
-    //         // If the target rotation exceeds the maximum allowed, limit it to the maximum angle
-    //         if (Mathf.Abs(targetRotation) > maxSteeringAngle)
-    //         {
-    //             targetRotation = Mathf.Sign(targetRotation) * maxSteeringAngle;
-    //         }
-
-    //         // Rotate the avatar around Z-axis to the target rotation
-    //         transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x, transform.localRotation.eulerAngles.y, targetRotation );
-    //         Debug.Log("Rotation z: " + targetRotation);
-    //         Debug.Log("Rotation xy: " + (currentPosition - previousPosition));
-
-    //         // Update previous position for next comparison
-    //         previousPosition = currentPosition;
-    //     }
-    // }
-
-    private void Update()
-{
-    // Get current controller X-axis position
-    float currentPosition = leftInteractor.transform.localPosition.x;
-
-    // Check if position change exceeds dead zone
-    if (Mathf.Abs(currentPosition - previousPosition) > deadZone)
+    protected override void OnSelectExited(SelectExitEventArgs args)
     {
-        // Calculate position change direction
-        float direction = Mathf.Sign(currentPosition - previousPosition);
+        base.OnSelectExited(args);
+        currentAngle = FindWheelAngle();
+    }
 
-        // Calculate the rotation amount based on direction
-        float rotationAmount = direction * maxSteeringAngle;
+    public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
+    {
+        base.ProcessInteractable(updatePhase);
 
-        // Calculate the target rotation by adding the rotation amount to the current rotation
-        float targetRotation = transform.localRotation.eulerAngles.z + rotationAmount;
+        if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
+        {
+            if (isSelected)
+                RotateWheel();
+        }
+    }
 
-        // Rotate the avatar around Z-axis to the target rotation
-        transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x, transform.localRotation.eulerAngles.y, targetRotation);
+    private void RotateWheel()
+    {
+        // Convert that direction to an angle, then rotation
+        float totalAngle = FindWheelAngle();
 
-        // Update previous position for next comparison
-        previousPosition = currentPosition;
+        // Apply difference in angle to wheel
+        float angleDifference = currentAngle - totalAngle;
+        wheelTransform.Rotate(transform.forward, -angleDifference, Space.World);
+            
+        // Store angle for next process
+        currentAngle = totalAngle;
+        OnWheelRotated?.Invoke(angleDifference);
+    }
+
+    private float FindWheelAngle()
+    {
+        float totalAngle = 0;
+
+        // Combine directions of current interactors
+        foreach (IXRSelectInteractor interactor in interactorsSelecting)
+        {
+            Vector2 direction = FindLocalPoint(interactor.transform.position);
+            totalAngle += ConvertToAngle(direction) * FindRotationSensitivity();
+        }
+
+        return totalAngle;
+    }
+
+    private Vector2 FindLocalPoint(Vector3 position)
+    {
+        // Convert the hand positions to local, so we can find the angle easier
+        return transform.InverseTransformPoint(position).normalized;
+    }
+
+    private float ConvertToAngle(Vector2 direction)
+    {
+        // Use a consistent up direction to find the angle
+        return Vector2.SignedAngle(Vector2.up, direction);
+    }
+
+    private float FindRotationSensitivity()
+    {
+        // Use a smaller rotation sensitivity with two hands
+        return 1.0f / interactorsSelecting.Count;
     }
 }
-
-}
-
