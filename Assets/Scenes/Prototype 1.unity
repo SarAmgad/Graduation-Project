@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 35603116}
   m_Layer: 0
   m_Name: Rightbox (1)
-  m_TagString: Untagged
+  m_TagString: Rightbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4178,7 +4178,7 @@ GameObject:
   - component: {fileID: 1286302344}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5171,7 +5171,7 @@ GameObject:
   - component: {fileID: 1649519142}
   m_Layer: 0
   m_Name: Leftbox
-  m_TagString: Untagged
+  m_TagString: Leftbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8714,6 +8714,7 @@ GameObject:
   - component: {fileID: 3088243108064854676}
   - component: {fileID: 3088243108076515221}
   - component: {fileID: 3088243108076515223}
+  - component: {fileID: 3088243108076515225}
   m_Layer: 0
   m_Name: CICADA_HI
   m_TagString: Untagged
@@ -9543,7 +9544,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
@@ -9609,8 +9610,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 72.43854, y: 72.41866, z: 136.40771}
-  m_Center: {x: 0, y: 42.275272, z: 2.7861938}
+  m_Size: {x: 72.43854, y: 72.418655, z: 7.8023443}
+  m_Center: {x: 0, y: 42.27527, z: 67.088875}
 --- !u!23 &3088243108076515224
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9653,6 +9654,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3088243108076515225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3088243108074254676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b3de2f8b4e71d4db690c12e33c3540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 10
+  spawnManager: {fileID: 18388355}
 --- !u!23 &3088243108076515226
 MeshRenderer:
   m_ObjectHideFlags: 0
