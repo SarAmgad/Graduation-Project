@@ -8,6 +8,8 @@ TagManager:
   - Rightbox
   - Leftbox
   - Cube
+  - RightAudio
+  - LeftAudio
   layers:
   - Default
   - TransparentFX
