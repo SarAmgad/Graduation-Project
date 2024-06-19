@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3825751527488944503}
   m_Layer: 0
   m_Name: 20
-  m_TagString: Untagged
+  m_TagString: Numbers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 3872748135936240983, guid: cebcf9ba458fdf843a3102ea6a710769, type: 3}
       propertyPath: m_Name
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872748135936240983, guid: cebcf9ba458fdf843a3102ea6a710769, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8044496140458888811, guid: cebcf9ba458fdf843a3102ea6a710769, type: 3}
       propertyPath: m_LocalPosition.x
@@ -193,7 +197,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b41270a04007f4b49a854a5e3a3bc344, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabsNumbers: []

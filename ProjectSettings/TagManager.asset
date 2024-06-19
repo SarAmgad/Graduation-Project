@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Numbers
+  - Sphere
+  - Statue2
+  - Statue
+  - Book
+  - Cup
+  - Cube
+  - Bottle
+  - Lens
+  - Headphones
+  - Hammer
+  - Alarm
+  - Trophy
+  - Can
   layers:
   - Default
   - TransparentFX

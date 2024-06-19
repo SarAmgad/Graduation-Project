@@ -23,6 +23,12 @@ public class StartingScene : MonoBehaviour
         level2 = true;
     }
 
+    public void StartLevel3(){
+        SceneManager.LoadScene(3);
+        level1 = false;
+        level2 = false;
+    }
+
 
     public void BackToStart()
     {

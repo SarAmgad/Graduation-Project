@@ -12,7 +12,10 @@ public class Numbers : MonoBehaviour
     List<int> hiddenNumbers = new List<int>();
     private int mistakesNum;
     private SpawnManager spawnManager;
+    public GameObject startMenu; 
+    public GameObject endCanvas; 
     [SerializeField] TextMeshProUGUI msgText;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -75,6 +78,9 @@ public class Numbers : MonoBehaviour
                 Debug.Log($"{num} removed");
                 PrintHiddenLists();
                 spawnManager.InstantiatePrefab(num, false);
+                if (hiddenNumbers.Count == 0){
+                    endCanvas.SetActive(true);
+                }
             }
             else{
                 msgText.text = "The order was not correct";
@@ -89,7 +95,14 @@ public class Numbers : MonoBehaviour
         }
         if (mistakesNum == 4)
         {
+            mistakesNum = 0;
             msgText.text = "You made several mistakes. Please view the task description once more.";
+            foreach (var gameObj in GameObject.FindGameObjectsWithTag("Numbers")){
+                Destroy(gameObj);
+            }
+            startMenu.SetActive(true);
+            Start();
+            // spawnManager.GeneratePositions();
         }
         PrintHiddenLists();
     }

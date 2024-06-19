@@ -1,5 +1,6 @@
 // using System.Collections;
 using System.Collections.Generic;
+using TMPro.Examples;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -23,16 +24,20 @@ public class SpawnManager : MonoBehaviour
         }
         else {
             visibleNumbers = numbers.visibleNumbers;
-            GeneratePositions();
+            // GeneratePositions();
         }
     }
 
-    void GeneratePositions()
+    public void GeneratePositions()
     {
+        visibleNumbers = numbers.visibleNumbers;
+        usedPositions.Clear();
+        Debug.Log(usedPositions.Count);
         for(int i = 0; i < visibleNumbers.Count; i++)
         {
             InstantiatePrefab(i, true);
         }
+        Debug.Log(usedPositions.Count);
 
     }
 
@@ -40,7 +45,7 @@ public class SpawnManager : MonoBehaviour
     {
         Vector3 spawnPos;
 
-        Debug.Log(visibleNumbers[i] - 1 +"------" + i);
+        // Debug.Log(visibleNumbers[i] - 1 +"------" + i);
         spawnPos = GenerateRandomPosition();
         
 
@@ -83,7 +88,7 @@ public class SpawnManager : MonoBehaviour
         foreach (Vector3 usedPos in usedPositions)
         {
             // dist = ;
-            if (Vector3.Distance(position, usedPos) < 0.6f)
+            if (Vector3.Distance(position, usedPos) < 0.65f)
             {
                 return true;
             }

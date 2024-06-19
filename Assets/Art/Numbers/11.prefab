@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 86034215345168409}
   m_Layer: 0
   m_Name: 11
-  m_TagString: Untagged
+  m_TagString: Numbers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 1937064782912865811, guid: dbe98273886911842ab41838009f2993, type: 3}
       propertyPath: m_Name
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937064782912865811, guid: dbe98273886911842ab41838009f2993, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4319506349113819271, guid: dbe98273886911842ab41838009f2993, type: 3}
       propertyPath: m_LocalPosition.x
@@ -130,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1937064782912865811, guid: dbe98273886911842ab41838009f2993, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4319506349113819271, guid: dbe98273886911842ab41838009f2993, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.069
@@ -190,10 +198,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b41270a04007f4b49a854a5e3a3bc344, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabsNumbers: []
 --- !u!114 &5602863812968406390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +210,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b41270a04007f4b49a854a5e3a3bc344, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabsNumbers: []
