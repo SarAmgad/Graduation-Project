@@ -8680,7 +8680,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1712381300}
         m_TargetAssemblyTypeName: StartingScene, Assembly-CSharp
-        m_MethodName: BackToStart
+        m_MethodName: StartLevel3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
