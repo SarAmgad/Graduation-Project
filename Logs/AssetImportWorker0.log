@@ -225,3 +225,11 @@ Received Import Request.
 Start importing Assets/Ready Player Me using Guid(8ad6a3946f570f943bdccdda2cf2ad14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00429a6975412192ccd011fb7aef6ab6') in 0.002818 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 408.373342 seconds.
+  path: Assets/Samples
+  artifactKey: Guid(3d036519a0ea64d4ca19dd4e637f65b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples using Guid(3d036519a0ea64d4ca19dd4e637f65b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67f4565d91f8a431db3a3473b567b39a') in 0.000954 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
