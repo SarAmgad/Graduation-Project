@@ -6,14 +6,10 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] prefabsNumbers;
-    private readonly float z = 4.9266f;
+    private readonly float z = 4.9469f;
     private List<Vector3> usedPositions = new List<Vector3>();
-    // private string testType;
-
     private Numbers numbers;
     List<int> visibleNumbers;
-    
-    
 
     void Start()
     {
@@ -24,7 +20,6 @@ public class SpawnManager : MonoBehaviour
         }
         else {
             visibleNumbers = numbers.visibleNumbers;
-            // GeneratePositions();
         }
     }
 
@@ -32,23 +27,16 @@ public class SpawnManager : MonoBehaviour
     {
         visibleNumbers = numbers.visibleNumbers;
         usedPositions.Clear();
-        Debug.Log(usedPositions.Count);
         for(int i = 0; i < visibleNumbers.Count; i++)
         {
             InstantiatePrefab(i, true);
         }
-        Debug.Log(usedPositions.Count);
-
     }
 
     public void InstantiatePrefab(int i, bool visibleFlag)
     {
         Vector3 spawnPos;
-
-        // Debug.Log(visibleNumbers[i] - 1 +"------" + i);
         spawnPos = GenerateRandomPosition();
-        
-
         if (visibleFlag)
             Instantiate(prefabsNumbers[visibleNumbers[i]-1], spawnPos, prefabsNumbers[i].transform.rotation);
         else
@@ -65,8 +53,8 @@ public class SpawnManager : MonoBehaviour
 
         do
         {
-            randomX = Random.Range(-1.695f, 2.301f);
-            randomY = Random.Range(1.03f, 2.306f);
+            randomX = Random.Range(-1.65f, 2.35f);
+            randomY = Random.Range(1, 2.3f);
             spawnPos = new Vector3(randomX, randomY, z);
             attempts++;
 

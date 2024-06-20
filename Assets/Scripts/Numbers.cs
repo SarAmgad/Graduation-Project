@@ -12,8 +12,7 @@ public class Numbers : MonoBehaviour
     List<int> hiddenNumbers = new List<int>();
     private int mistakesNum;
     private SpawnManager spawnManager;
-    public GameObject startMenu; 
-    public GameObject endCanvas; 
+    public GameObject startMenu, endCanvas, mistakeCanvas, resultUi; 
     [SerializeField] TextMeshProUGUI msgText;
     
     
@@ -28,15 +27,8 @@ public class Numbers : MonoBehaviour
         else
         {
             startList();
-            PrintShownLists();
             PrintHiddenLists();
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void startList(){
@@ -61,50 +53,46 @@ public class Numbers : MonoBehaviour
 
     void PrintHiddenLists(){
         string hiddenNumbersStr = string.Join(", ", hiddenNumbers);
-        Debug.Log("======Hidden Numbers: " + hiddenNumbersStr);
-    }
-
-    void PrintShownLists(){
-        string visibleNumbersStr = string.Join(", ", visibleNumbers);
-        Debug.Log("Visible Numbers: " + visibleNumbersStr);
+        Debug.Log("Hidden Numbers: " + hiddenNumbersStr);
     }
 
     public void CheckMissingNumber(int num)
     {
         msgText.text = "";
+        resultUi.SetActive(false);
         if (hiddenNumbers.Contains(num)){
             if (num == hiddenNumbers[0]){
                 hiddenNumbers.RemoveAt(0);
-                Debug.Log($"{num} removed");
-                PrintHiddenLists();
                 spawnManager.InstantiatePrefab(num, false);
                 if (hiddenNumbers.Count == 0){
                     endCanvas.SetActive(true);
                 }
             }
             else{
+                resultUi.SetActive(true);
                 msgText.text = "The order was not correct";
-                Debug.Log("The order was not correct");
                 mistakesNum++;
             }
         }
         else{
+            resultUi.SetActive(true);
             msgText.text = $"That was not correct. \nThe {num} is not missing";
-            Debug.Log($"The {num} is not missing");
             mistakesNum++;
         }
         if (mistakesNum == 4)
         {
             mistakesNum = 0;
-            msgText.text = "You made several mistakes. Please view the task description once more.";
-            foreach (var gameObj in GameObject.FindGameObjectsWithTag("Numbers")){
-                Destroy(gameObj);
-            }
-            startMenu.SetActive(true);
-            Start();
-            // spawnManager.GeneratePositions();
+            mistakeCanvas.SetActive(true);
         }
         PrintHiddenLists();
+    }
+
+    public void Replay(){
+        foreach (var gameObj in GameObject.FindGameObjectsWithTag("Numbers")){
+            Destroy(gameObj);
+        }
+        startMenu.SetActive(true);
+        Start();
     }
 
 
