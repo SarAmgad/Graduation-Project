@@ -8,6 +8,7 @@ public class SteerRotation : MonoBehaviour
 {
     // Right Hand 
     public GameObject rightHand;
+    public GameObject wheel;
     private Transform rightHandOriginalParent;
     private bool rightHandOnWheel = false;
     public float moveSpeed = 15.0f;
@@ -19,7 +20,7 @@ public class SteerRotation : MonoBehaviour
 
     public Transform[] snappPositions;
 
-    // Wheels to contol with the wheel
+    // Wheels to control with the wheel
     public GameObject Vehicle;
     private Rigidbody VehicleRigidBody;
 
@@ -35,6 +36,8 @@ public class SteerRotation : MonoBehaviour
     void Start()
     {
         VehicleRigidBody = Vehicle.GetComponent<Rigidbody>();
+        // Make sure the wheel is parented to the vehicle at the start
+        wheel.transform.parent = Vehicle.transform;
     }
 
     void Update()
@@ -42,39 +45,44 @@ public class SteerRotation : MonoBehaviour
         ReleaseHandsFromWheel();
         ConvertHandRotationToSteeringWheelRotation();
         TurnVehicle();
-        currentSteeringWheelRotation = -transform.rotation.eulerAngles.z;
+        currentSteeringWheelRotation = -wheel.transform.localEulerAngles.z;
     }
+
     private void ConvertHandRotationToSteeringWheelRotation()
     {
         Vector3 forwardMovement = moveSpeed * Time.deltaTime * Vehicle.transform.forward;
-        if (rightHandOnWheel == true && leftHandOnWheel == false)
+
+        // Capture the current rotation
+        Vector3 currentRotation = wheel.transform.localEulerAngles;
+
+        if (rightHandOnWheel && !leftHandOnWheel)
         {
-            Quaternion newRot = Quaternion.Euler(0, 0, rightHandOriginalParent.transform.rotation.eulerAngles.z);
-            directionalObject.localRotation = newRot;
-            transform.parent = directionalObject;
-            Debug.Log("TurnVehiclelll1");
+            float newRotationZ = rightHandOriginalParent.localEulerAngles.z;
+            wheel.transform.localEulerAngles = new Vector3(currentRotation.x, currentRotation.y, newRotationZ);
+            Debug.Log("TurnVehicle Right Hand");
 
             VehicleRigidBody.MovePosition(VehicleRigidBody.position + forwardMovement);
         }
-        else if (rightHandOnWheel == false && leftHandOnWheel == true)
+        else if (!rightHandOnWheel && leftHandOnWheel)
         {
-            Quaternion newRot = Quaternion.Euler(0, 0, leftHandOriginalParent.transform.rotation.eulerAngles.z);
-            directionalObject.localRotation = newRot;
-            transform.parent = directionalObject;
+            float newRotationZ = leftHandOriginalParent.localEulerAngles.z;
+            wheel.transform.localEulerAngles = new Vector3(currentRotation.x, currentRotation.y, newRotationZ);
+            Debug.Log("TurnVehicle Left Hand");
+
             VehicleRigidBody.MovePosition(VehicleRigidBody.position + forwardMovement);
-            Debug.Log("TurnVehiclelll2");
         }
-        else if (rightHandOnWheel == true && leftHandOnWheel == true)
+        else if (rightHandOnWheel && leftHandOnWheel)
         {
-            Quaternion newRotRight = Quaternion.Euler(0, 0, rightHandOriginalParent.transform.rotation.eulerAngles.z);
-            Quaternion newRotLeft = Quaternion.Euler(0, 0, leftHandOriginalParent.transform.rotation.eulerAngles.z);
-            Quaternion finalRot = Quaternion.Slerp(newRotLeft, newRotRight, 1.0f / 2.0f);
-            directionalObject.localRotation = finalRot;
-            transform.parent = directionalObject;
+            float newRotationRightZ = rightHandOriginalParent.localEulerAngles.z;
+            float newRotationLeftZ = leftHandOriginalParent.localEulerAngles.z;
+            float finalRotationZ = (newRotationRightZ + newRotationLeftZ) / 2.0f;
+            wheel.transform.localEulerAngles = new Vector3(currentRotation.x, currentRotation.y, finalRotationZ);
+            Debug.Log("TurnVehicle Both Hands");
+
             VehicleRigidBody.MovePosition(VehicleRigidBody.position + forwardMovement);
-            Debug.Log("TurnVehiclelll1");
         }
     }
+
     private void TurnVehicle()
     {
         var turn = currentSteeringWheelRotation;
@@ -82,10 +90,9 @@ public class SteerRotation : MonoBehaviour
         {
             turn += 360;
         }
-        Debug.Log("Vehicleeee Rotattte" + turn);
+        Debug.Log("Vehicle Rotate: " + turn);
 
         VehicleRigidBody.MoveRotation(Quaternion.RotateTowards(Vehicle.transform.rotation, Quaternion.Euler(0, turn, 0), Time.deltaTime * turnDampening));
-
     }
 
     private void ReleaseHandsFromWheel()
@@ -97,7 +104,7 @@ public class SteerRotation : MonoBehaviour
             rightHand.transform.position = rightHandOriginalParent.position;
             rightHand.transform.rotation = rightHandOriginalParent.rotation;
             rightHandOnWheel = false;
-            Debug.Log("Release Handddd");
+            Debug.Log("Release Right Hand");
         }
 
         // Check if the left hand is on the wheel and the grip button is released
@@ -110,9 +117,9 @@ public class SteerRotation : MonoBehaviour
         }
 
         // Reset steering wheel to not be a parent of directional object if the wheel is released
-        if (leftHandOnWheel == false && rightHandOnWheel == false)
+        if (!leftHandOnWheel && !rightHandOnWheel)
         {
-            transform.parent = transform.root;
+            wheel.transform.parent = Vehicle.transform;
         }
     }
 
@@ -124,21 +131,16 @@ public class SteerRotation : MonoBehaviour
             if (!rightHandOnWheel && rightHandGripAction.action.ReadValue<float>() > 0.1f)
             {
                 PlaceHandOnWheel(ref rightHand, ref rightHandOriginalParent, ref rightHandOnWheel);
-
-                Debug.Log("On TriggerrrrrrrRight");
+                Debug.Log("On Trigger Right Hand");
             }
 
             // Check if left hand is on the wheel and grip button is pressed
             if (!leftHandOnWheel && leftHandGripAction.action.ReadValue<float>() > 0.1f)
             {
                 PlaceHandOnWheel(ref leftHand, ref leftHandOriginalParent, ref leftHandOnWheel);
-
-                Debug.Log("On TriggerrrrrrrLeftt");
+                Debug.Log("On Trigger Left Hand");
             }
-
-            Debug.Log("eeeeeee");
         }
-
     }
 
     private void PlaceHandOnWheel(ref GameObject hand, ref Transform originalParent, ref bool handOnWheel)
@@ -163,11 +165,6 @@ public class SteerRotation : MonoBehaviour
         hand.transform.position = bestSnapp.transform.position;
 
         handOnWheel = true;
-        Debug.Log("Placeeeee onnnn wheeel");
+        Debug.Log("Place on Wheel");
     }
-
-
-
-
-
 }
