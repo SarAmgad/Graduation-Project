@@ -2,6 +2,7 @@
 // using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using TMPro.Examples;
 
 public class Keypad : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class Keypad : MonoBehaviour
     public void InsertChar(string c)
     {
         inputField.text += c;
+    }
+
+    private void OnCollision(Collision other) {
+        Debug.Log("Entereed"  );
+        // inputField.text += c;
     }
 
     public void DeleteChar()
