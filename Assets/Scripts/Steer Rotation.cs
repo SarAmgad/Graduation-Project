@@ -72,8 +72,8 @@ public class SteerRotation : MonoBehaviour
     {
         Vector2 thumbstickValueLeft = leftHandThumb.action.ReadValue<Vector2>();
         Vector2 thumbstickValueRight = rightHandThumb.action.ReadValue<Vector2>();
-       // float moveDirectionLeft = thumbstickValueLeft.y;
-        float moveDirectionLeft = move;
+        float moveDirectionLeft = thumbstickValueLeft.y;
+        // float moveDirectionLeft = move;
         float moveDirectionRight = thumbstickValueRight.y;
 
         ReleaseHandsFromWheel();
@@ -128,7 +128,7 @@ public class SteerRotation : MonoBehaviour
         }
         Debug.Log("Vehicle Rotate: " + turn);
 
-        VehicleRigidBody.MoveRotation(Quaternion.RotateTowards(Vehicle.transform.rotation, Quaternion.Euler(0, turn , 0), Time.deltaTime * turnDampening));
+        VehicleRigidBody.MoveRotation(Quaternion.RotateTowards(Vehicle.transform.rotation, Quaternion.Euler(0, turn, 0), Time.deltaTime * turnDampening));
     }
 
     private void ReleaseHandsFromWheel()
@@ -264,7 +264,7 @@ public class SteerRotation : MonoBehaviour
         Debug.Log("Target Angle: " + targetAngle);
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, targetAngle, 0f));
-        float rotationSpeed = 180f; 
+        float rotationSpeed = 180f;
         float maxRotationDegreesPerSecond = rotationSpeed * Time.deltaTime;
         Needle.transform.localRotation = Quaternion.RotateTowards(Needle.transform.localRotation, targetRotation, maxRotationDegreesPerSecond);
     }
