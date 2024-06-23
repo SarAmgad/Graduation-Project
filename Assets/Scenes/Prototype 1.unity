@@ -3565,6 +3565,7 @@ GameObject:
   - component: {fileID: 798755430}
   - component: {fileID: 798755432}
   - component: {fileID: 798755431}
+  - component: {fileID: 798755433}
   m_Layer: 0
   m_Name: SteeringWheel
   m_TagString: Untagged
@@ -3654,6 +3655,18 @@ MonoBehaviour:
   rightHandThumb: {fileID: 3037362290306913553, guid: 23e5ae8545239d041a35dddc535baa82, type: 3}
   leftHandThumb: {fileID: 3037362290306913553, guid: 23e5ae8545239d041a35dddc535baa82, type: 3}
   move: 0
+--- !u!114 &798755433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798755429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8640f304254e9479109d8879243ab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &812643910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7231,6 +7244,10 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_Name
       value: XR Device Simulator
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
