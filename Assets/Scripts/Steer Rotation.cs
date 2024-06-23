@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+
 
 public class SteerRotation : MonoBehaviour
 {
+    private InputData _inputData;
     public GameObject rightHand;
     public GameObject wheel;
     private Transform rightHandOriginalParent;
     private bool rightHandOnWheel = false;
     public float maxMoveSpeed = 220f;
     public float minMoveSpeed = 0f;
+
 
     public GameObject Needle;
 
@@ -24,9 +30,9 @@ public class SteerRotation : MonoBehaviour
     public GameObject Vehicle;
     private Rigidbody VehicleRigidBody;
 
-    public float currentSteeringWheelRotation = -180;
+    public float currentSteeringWheelRotation = 0;
 
-    private float turnDampening = 250;
+    private float turnDampening = 300;
 
     public Transform directionalObject;
 
@@ -35,8 +41,9 @@ public class SteerRotation : MonoBehaviour
 
     public InputActionReference rightHandThumb;
     public InputActionReference leftHandThumb;
-
     public float move;
+
+
 
     public bool RightHandOnWheel
     {
@@ -52,6 +59,7 @@ public class SteerRotation : MonoBehaviour
 
     void Start()
     {
+        _inputData = GetComponent<InputData>();
         VehicleRigidBody = Vehicle.GetComponent<Rigidbody>();
         wheel.transform.parent = Vehicle.transform;
     }
@@ -73,6 +81,7 @@ public class SteerRotation : MonoBehaviour
         Vector2 thumbstickValueLeft = leftHandThumb.action.ReadValue<Vector2>();
         Vector2 thumbstickValueRight = rightHandThumb.action.ReadValue<Vector2>();
         float moveDirectionLeft = thumbstickValueLeft.y;
+
         // float moveDirectionLeft = move;
         float moveDirectionRight = thumbstickValueRight.y;
 
@@ -80,15 +89,25 @@ public class SteerRotation : MonoBehaviour
         ConvertHandRotationToSteeringWheelRotation(moveDirectionLeft);
         TurnVehicle();
 
-        currentSteeringWheelRotation = -wheel.transform.localEulerAngles.z;
-        UpdateSpeedometer(moveDirectionLeft);
-        //   Vector3 forwardMovement = moveDirectionLeft * Time.deltaTime * Vehicle.transform.forward;
+        currentSteeringWheelRotation = wheel.transform.localEulerAngles.z;
+        
+        // if (_inputData._leftController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out Vector2 joyStickValueL))
+        // {
+        //     UpdateSpeedometer(joyStickValueL.y);
+        // }
+
+        if (_inputData._rightController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out Vector2 joyStickValueR))
+        {
+            // Debug.Log("Value Righttttttttttt  " + joyStickValueR.y);
+            UpdateSpeedometer(joyStickValueR.y);
+        }
+
 
     }
 
     private void ConvertHandRotationToSteeringWheelRotation(float moveSpeed)
     {
-        Debug.Log("Move Direction Function: " + moveSpeed);
+        // Debug.Log("Move Direction Function: " + moveSpeed);
         Vector3 currentRotation = wheel.transform.localEulerAngles;
         Vector3 forwardMovement = 20f * moveSpeed * Time.deltaTime * Vehicle.transform.forward;
 
@@ -96,14 +115,14 @@ public class SteerRotation : MonoBehaviour
         {
             float newRotationZ = rightHandOriginalParent.localEulerAngles.z;
             wheel.transform.localEulerAngles = new Vector3(currentRotation.x, currentRotation.y, newRotationZ);
-            Debug.Log("TurnVehicle Right Hand");
+            // Debug.Log("TurnVehicle Right Hand");
             VehicleRigidBody.MovePosition(VehicleRigidBody.position + forwardMovement);
         }
         else if (!RightHandOnWheel && LeftHandOnWheel)
         {
             float newRotationZ = leftHandOriginalParent.localEulerAngles.z;
             wheel.transform.localEulerAngles = new Vector3(currentRotation.x, currentRotation.y, newRotationZ);
-            Debug.Log("TurnVehicle Left Hand");
+            // Debug.Log("TurnVehicle Left Hand");
             VehicleRigidBody.MovePosition(VehicleRigidBody.position + forwardMovement);
         }
         else if (RightHandOnWheel && LeftHandOnWheel)
@@ -112,11 +131,11 @@ public class SteerRotation : MonoBehaviour
             float newRotationLeftZ = leftHandOriginalParent.localEulerAngles.z;
             float finalRotationZ = (newRotationRightZ + newRotationLeftZ) / 2.0f;
             wheel.transform.localEulerAngles = new Vector3(currentRotation.x, currentRotation.y, finalRotationZ);
-            Debug.Log("TurnVehicle Both Hands");
+            // Debug.Log("TurnVehicle Both Hands");
             VehicleRigidBody.MovePosition(VehicleRigidBody.position + forwardMovement);
         }
 
-        Debug.Log("Move Direction: " + forwardMovement);
+        // Debug.Log("Move Direction: " + forwardMovement);
     }
 
     private void TurnVehicle()
@@ -126,7 +145,7 @@ public class SteerRotation : MonoBehaviour
         {
             turn += 360;
         }
-        Debug.Log("Vehicle Rotate: " + turn);
+        // Debug.Log("Vehicle Rotate: " + turn);
 
         VehicleRigidBody.MoveRotation(Quaternion.RotateTowards(Vehicle.transform.rotation, Quaternion.Euler(0, turn, 0), Time.deltaTime * turnDampening));
     }
@@ -139,7 +158,7 @@ public class SteerRotation : MonoBehaviour
             rightHand.transform.position = rightHandOriginalParent.position;
             rightHand.transform.rotation = rightHandOriginalParent.rotation;
             RightHandOnWheel = false;
-            Debug.Log("Release Right Hand");
+            // Debug.Log("Release Right Hand");
         }
 
         if (LeftHandOnWheel && leftHandGripAction.action.ReadValue<float>() <= 0.1f)
@@ -164,14 +183,14 @@ public class SteerRotation : MonoBehaviour
             {
                 PlaceHandOnWheel(rightHand, ref rightHandOriginalParent);
                 RightHandOnWheel = true;
-                Debug.Log("On Trigger Right Hand");
+                // Debug.Log("On Trigger Right Hand");
             }
 
             if (!LeftHandOnWheel && leftHandGripAction.action.ReadValue<float>() > 0.1f)
             {
                 PlaceHandOnWheel(leftHand, ref leftHandOriginalParent);
                 LeftHandOnWheel = true;
-                Debug.Log("On Trigger Left Hand");
+                // Debug.Log("On Trigger Left Hand");
             }
         }
     }
@@ -197,7 +216,7 @@ public class SteerRotation : MonoBehaviour
         hand.transform.parent = bestSnapp.transform;
         hand.transform.position = bestSnapp.transform.position;
 
-        Debug.Log("Place on Wheel");
+        // Debug.Log("Place on Wheel");
     }
     // void UpdateSpeedometer(float moveSpeed)
     // {
@@ -255,19 +274,25 @@ public class SteerRotation : MonoBehaviour
         {
             targetAngle = 360f * moveSpeed - 180f;
         }
-        else
+        else if (moveSpeed > 0.5f && moveSpeed <= 1)
         {
             targetAngle = 360f * moveSpeed + 160f;
         }
+        else 
+        {
+            targetAngle = Needle.transform.localRotation.y;
+        }
         // Debug.Log to verify values (optional)
-        Debug.Log("MoveSpeed: " + moveSpeed);
-        Debug.Log("Target Angle: " + targetAngle);
+        // Debug.Log("MoveSpeed: " + moveSpeed);
+        // Debug.Log("Target Angle: " + targetAngle);
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, targetAngle, 0f));
-        float rotationSpeed = 180f;
-        float maxRotationDegreesPerSecond = rotationSpeed * Time.deltaTime;
-        Needle.transform.localRotation = Quaternion.RotateTowards(Needle.transform.localRotation, targetRotation, maxRotationDegreesPerSecond);
+        // float rotationSpeed = 180f;
+        // float maxRotationDegreesPerSecond = rotationSpeed * Time.deltaTime;
+        // Quaternion currentRotation = Needle.transform.localRotation;
+        // Needle.transform.localRotation = Quaternion.Slerp(currentRotation, targetRotation, Time.deltaTime * 5f);
+        Needle.transform.localRotation = targetRotation;
+        // Needle.transform.localRotation = Quaternion.RotateTowards(Needle.transform.localRotation, targetRotation, maxRotationDegreesPerSecond);
     }
 
 }
-
