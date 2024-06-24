@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4233346629621587056}
   - component: {fileID: 3449518268728798968}
   - component: {fileID: 668156083911134127}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Press
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2015394544632266431}
   - component: {fileID: 5314801515272523082}
   - component: {fileID: 7660764278738742902}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Button Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 8225933241926933777}
   - component: {fileID: 8868949236287798037}
   - component: {fileID: 4470233001881751554}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Keyboard button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 8222218568971799629}
   - component: {fileID: 6507044792995190204}
   - component: {fileID: 6573559442307255154}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 8082320102796918697}
   - component: {fileID: 5431080570307413183}
   - component: {fileID: 5395939992751168535}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
