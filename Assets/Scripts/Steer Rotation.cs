@@ -583,13 +583,18 @@ public class SteerRotation : MonoBehaviour
     void Update()
     {
         float currentLeftHandRotation = leftHand.transform.localRotation.z;
+        // if (currentLeftHandRotation < 0)
+        // {
+        //     currentLeftHandRotation += 360;
+        // }
+
         if (!leftHandOnWheel && !rightHandOnWheel)
         {
             wheel.transform.localRotation = Quaternion.RotateTowards(wheel.transform.localRotation, initialWheelRotation, Time.deltaTime * turnDampening);
             Vehicle.transform.localRotation = Quaternion.RotateTowards(Vehicle.transform.localRotation, initialVehicleRotation, Time.deltaTime * turnDampening);
         }
 
-        if (leftHandOnWheel && leftHandGripAction.action.ReadValue<float>() > 0.1f )
+        if (leftHandOnWheel && leftHandGripAction.action.ReadValue<float>() > 0.1f)
         {
             if (!leftHandInitialRotationCaptured)
             {
@@ -601,13 +606,19 @@ public class SteerRotation : MonoBehaviour
                 // float currentLeftHandRotation = leftHand.transform.localRotation.z;
                 float rotationDifference = currentLeftHandRotation - initialLeftHandRotation;
 
+                Debug.Log("Rotation Difference" + rotationDifference);
+
                 float angle;
                 Vector3 axis;
                 //rotationDifference.ToAngleAxis(out angle, out axis);
 
                 if (Math.Abs(rotationDifference) > 0.1f)
                 {
-                    ConvertHandRotationToSteeringWheelRotation(rotationDifference);
+                    // if (currentLeftHandRotation > 0)
+                    //     currentLeftHandRotation = -currentLeftHandRotation;
+                    // else if (rotationDifference < 0)
+                    //     currentSteeringWheelRotation = -wheel.transform.localRotation.eulerAngles.z;
+                    ConvertHandRotationToSteeringWheelRotation(currentLeftHandRotation );
 
                 }
             }
@@ -630,7 +641,7 @@ public class SteerRotation : MonoBehaviour
         Vector3 currentRotation = wheel.transform.localEulerAngles;
         wheel.transform.localEulerAngles = new Vector3(currentRotation.x, currentRotation.y, currentRotation.z + rotationDelta);
 
-        VehicleRigidBody.MoveRotation(Quaternion.RotateTowards(Vehicle.transform.rotation, Quaternion.Euler(0, currentRotation.z + rotationDelta, 0), Time.deltaTime * turnDampening));
+        TurnVehicle(rotationDelta);
     }
 
     private void ReleaseHandsFromWheel()
@@ -655,6 +666,10 @@ public class SteerRotation : MonoBehaviour
             {
                 leftHandOnWheel = true;
                 initialLeftHandRotation = leftHand.transform.localRotation.z;
+                if (initialLeftHandRotation < 0)
+                {
+                    initialLeftHandRotation += 360;
+                }
                 leftHandInitialRotationCaptured = true;
             }
         }
@@ -678,5 +693,17 @@ public class SteerRotation : MonoBehaviour
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, targetAngle, 0f));
         Needle.transform.localRotation = targetRotation;
+    }
+
+    private void TurnVehicle(float rotationDelta)
+    {
+        var turn = Vehicle.transform.localEulerAngles.y;
+        // if (turn < 0)
+        // {
+        //     turn = 1 - turn;
+        // }
+        Debug.Log("Vehicle Rotate: " + (rotationDelta));
+        Vehicle.transform.localEulerAngles = new Vector3(Vehicle.transform.localEulerAngles.x, turn + rotationDelta, Vehicle.transform.localEulerAngles.z);
+        // VehicleRigidBody.MoveRotation(Quaternion.RotateTowards(Vehicle.transform.rotation, Quaternion.Euler(0, Math.Abs(Vehicle.transform.rotation.y + rotationDelta), 0), Time.deltaTime * turnDampening));
     }
 }
