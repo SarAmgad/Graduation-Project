@@ -10,6 +10,8 @@ TagManager:
   - Cube
   - RightAudio
   - LeftAudio
+  - PlayerHandR
+  - PlayerHandL
   layers:
   - Default
   - TransparentFX
