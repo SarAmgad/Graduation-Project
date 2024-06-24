@@ -141,9 +141,11 @@ public class Questionnaire : MonoBehaviour
 
     public void SaveToCSV()
     {
+        Debug.Log("SavetoCSV");
         string name = PlayerPrefs.GetString("name");
         string email = PlayerPrefs.GetString("email");
         string filePath = Path.Combine(Application.persistentDataPath, $"{name}.csv");
+        Debug.Log("aaaaaaaaaa"+filePath);
 
         using (StreamWriter writer = new StreamWriter(filePath))
         {
