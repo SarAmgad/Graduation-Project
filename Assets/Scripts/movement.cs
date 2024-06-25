@@ -122,17 +122,17 @@ public class movement : MonoBehaviour
             // Check for other tags if not an audio collider
             if (other.gameObject.tag == "Rightbox")
             {
-            
+
                 spawnManager.SpawnManagerTriggerRight(position, rotation);
             }
             else if (other.gameObject.tag == "Leftbox")
             {
-                
+
                 spawnManager.SpawnManagerTriggerLeft(position, rotation);
             }
-            else if(other.gameObject.tag == "Cube")
+            else if (other.gameObject.tag == "Cube")
             {
-                
+
                 spawnManager.SpawnManagerTrigger(position, rotation);
                 Debug.Log("Triggered Entered");
             }
