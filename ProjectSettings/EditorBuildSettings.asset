@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LivingRoom.unity
     guid: bcb4b8e026e7feb4baaa5f9d599f13f7
   - enabled: 1
+    path: Assets/Scenes/Office_renamed.unity
+    guid: d07d2ebcb9ca0134cbf55e23218c8c89
+  - enabled: 0
     path: Assets/Scenes/Office.unity
     guid: 67fee0092bd79f74096c78d9e33d3fed
   - enabled: 1
