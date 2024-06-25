@@ -398,7 +398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 95222586}
   - component: {fileID: 95222587}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ForwardLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 117892386}
   - component: {fileID: 117892388}
   - component: {fileID: 117892387}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,6 +693,10 @@ PrefabInstance:
     - target: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
       propertyPath: m_Name
       value: '125to140 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6440091624859749152, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
       propertyPath: m_Enabled
@@ -2164,7 +2168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 413231350}
   - component: {fileID: 413231351}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ForwardLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2278,7 +2282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 455997829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SteeringWheelDirectionalObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2615,7 +2619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557619547}
   - component: {fileID: 557619548}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3153,7 +3157,7 @@ MonoBehaviour:
   moveSpeed: 20
   leftHand: {fileID: 1680045233}
   Vehicle: {fileID: 3088243108074254676}
-  turnDampening: 60
+  turnDampening: 50
   rightHandGripAction: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   leftHandGripAction: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &798755433
@@ -3231,6 +3235,10 @@ PrefabInstance:
     - target: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
       propertyPath: m_Name
       value: 100to120
+      objectReference: {fileID: 0}
+    - target: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6440091624859749152, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
       propertyPath: m_Enabled
@@ -3369,6 +3377,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 160to180
       objectReference: {fileID: 0}
+    - target: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6440091624859749152, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3423,7 +3435,7 @@ GameObject:
   - component: {fileID: 886645244}
   - component: {fileID: 886645243}
   - component: {fileID: 886645242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3686,7 +3698,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 973863547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4154,6 +4166,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3088243108074745204}
     m_Modifications:
+    - target: {fileID: -9132504855075687619, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
       propertyPath: m_LocalScale.x
       value: 34.020184
@@ -4206,6 +4222,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -8.689
       objectReference: {fileID: 0}
+    - target: {fileID: -7258082840066814703, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7180057129560165361, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -1882766485879950866, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0007
@@ -4238,9 +4262,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -180
       objectReference: {fileID: 0}
+    - target: {fileID: -156844462085143067, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
       propertyPath: m_Name
       value: Car_Meter
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3730159393356484680, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3759663638330071920, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007573913000823350, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531177151384624928, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4367,7 +4415,7 @@ GameObject:
   - component: {fileID: 1149334427}
   - component: {fileID: 1149334429}
   - component: {fileID: 1149334428}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4678,6 +4726,10 @@ PrefabInstance:
     - target: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
       propertyPath: m_Name
       value: 60to80
+      objectReference: {fileID: 0}
+    - target: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
       propertyPath: m_IsActive
@@ -5118,7 +5170,7 @@ GameObject:
   - component: {fileID: 1419397846}
   - component: {fileID: 1419397848}
   - component: {fileID: 1419397847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5257,7 +5309,7 @@ GameObject:
   - component: {fileID: 1442842939}
   - component: {fileID: 1442842941}
   - component: {fileID: 1442842940}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5333,7 +5385,7 @@ GameObject:
   - component: {fileID: 1466037308}
   - component: {fileID: 1466037307}
   - component: {fileID: 1466037306}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5881,7 +5933,7 @@ GameObject:
   - component: {fileID: 1676610337}
   - component: {fileID: 1676610339}
   - component: {fileID: 1676610338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7004,7 +7056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1819250269}
   - component: {fileID: 1819250270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpeedChange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7112,6 +7164,10 @@ PrefabInstance:
     - target: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
       propertyPath: m_Name
       value: 140to160
+      objectReference: {fileID: 0}
+    - target: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6440091624859749152, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
       propertyPath: m_Enabled
@@ -7425,7 +7481,7 @@ GameObject:
   - component: {fileID: 1874005769}
   - component: {fileID: 1874005771}
   - component: {fileID: 1874005770}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7560,7 +7616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1939960405}
   - component: {fileID: 1939960406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpeedChange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7614,7 +7670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1948172246}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7757,7 +7813,7 @@ GameObject:
   - component: {fileID: 2058759660}
   - component: {fileID: 2058759662}
   - component: {fileID: 2058759661}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7947,6 +8003,10 @@ PrefabInstance:
       value: 80to100
       objectReference: {fileID: 0}
     - target: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -8035,7 +8095,7 @@ GameObject:
   - component: {fileID: 2088504462}
   - component: {fileID: 2088504461}
   - component: {fileID: 2088504460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Faster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8680,7 +8740,7 @@ GameObject:
   - component: {fileID: 8249952021449695155}
   - component: {fileID: 7548867010731273915}
   - component: {fileID: 7762478048759024551}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DOOR_R_CHROME
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9408,7 +9468,7 @@ GameObject:
   - component: {fileID: 5957392719112873484}
   - component: {fileID: 7387706215827133199}
   - component: {fileID: 938806992586290383}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DOOR_L_MATTE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9574,7 +9634,7 @@ GameObject:
   - component: {fileID: 3088243108074745184}
   - component: {fileID: 3088243108075515200}
   - component: {fileID: 3088243108076515200}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: right_door_glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9592,7 +9652,7 @@ GameObject:
   - component: {fileID: 3088243108074745186}
   - component: {fileID: 3088243108075515202}
   - component: {fileID: 3088243108076515202}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: right_front_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9610,7 +9670,7 @@ GameObject:
   - component: {fileID: 3088243108074745188}
   - component: {fileID: 3088243108075515204}
   - component: {fileID: 3088243108076515204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rear_lamp_glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9628,7 +9688,7 @@ GameObject:
   - component: {fileID: 3088243108074745190}
   - component: {fileID: 3088243108075515206}
   - component: {fileID: 3088243108076515206}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RIGHT_DOOR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9646,7 +9706,7 @@ GameObject:
   - component: {fileID: 3088243108074745196}
   - component: {fileID: 3088243108075515212}
   - component: {fileID: 3088243108076515212}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: right_rear_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9682,7 +9742,7 @@ GameObject:
   - component: {fileID: 3088243108074745200}
   - component: {fileID: 3088243108075515216}
   - component: {fileID: 3088243108076515216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9700,7 +9760,7 @@ GameObject:
   - component: {fileID: 3088243108074745202}
   - component: {fileID: 3088243108075515218}
   - component: {fileID: 3088243108076515218}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: inside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9723,7 +9783,7 @@ GameObject:
   - component: {fileID: 3088243108076515223}
   - component: {fileID: 3088243108076515225}
   - component: {fileID: 3088243108076515227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CICADA_HI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9741,7 +9801,7 @@ GameObject:
   - component: {fileID: 3088243108074745206}
   - component: {fileID: 3088243108075515222}
   - component: {fileID: 3088243108076515222}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: front_lamp_glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9759,7 +9819,7 @@ GameObject:
   - component: {fileID: 3088243108074745208}
   - component: {fileID: 3088243108075515224}
   - component: {fileID: 3088243108076515224}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: left_front_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9777,7 +9837,7 @@ GameObject:
   - component: {fileID: 3088243108074745210}
   - component: {fileID: 3088243108075515226}
   - component: {fileID: 3088243108076515226}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: left_rear_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9795,7 +9855,7 @@ GameObject:
   - component: {fileID: 3088243108074745212}
   - component: {fileID: 3088243108075515228}
   - component: {fileID: 3088243108076515228}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LEFT_DOOR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9813,7 +9873,7 @@ GameObject:
   - component: {fileID: 3088243108074745214}
   - component: {fileID: 3088243108075515230}
   - component: {fileID: 3088243108076515230}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: left_door_glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10949,6 +11009,10 @@ PrefabInstance:
       value: CICADA_COLLIDER
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d4728cf79224dc34d86ed621c62afa7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d4728cf79224dc34d86ed621c62afa7c, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -11802,13 +11866,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4806299823234709702}
     m_Modifications:
+    - target: {fileID: -8838590192537081496, guid: 828ab6930cf96984f99615e6ea09c0f7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6303307662669068370, guid: 828ab6930cf96984f99615e6ea09c0f7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5511779646080447219, guid: 828ab6930cf96984f99615e6ea09c0f7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 828ab6930cf96984f99615e6ea09c0f7, type: 3}
       propertyPath: m_Name
       value: CICADA_LOW
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 828ab6930cf96984f99615e6ea09c0f7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 828ab6930cf96984f99615e6ea09c0f7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 828ab6930cf96984f99615e6ea09c0f7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 828ab6930cf96984f99615e6ea09c0f7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 828ab6930cf96984f99615e6ea09c0f7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 828ab6930cf96984f99615e6ea09c0f7, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 828ab6930cf96984f99615e6ea09c0f7, type: 3}
       propertyPath: m_RootOrder
@@ -12581,7 +12677,7 @@ GameObject:
   - component: {fileID: 5865753761787331610}
   - component: {fileID: 3434211742733080426}
   - component: {fileID: 5504558409526268581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DOOR_L_CHROME
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12663,7 +12759,7 @@ GameObject:
   - component: {fileID: 1556594749697019445}
   - component: {fileID: 7784708390955188654}
   - component: {fileID: 2741076988893489941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CICADA_CHROME
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12712,7 +12808,7 @@ GameObject:
   - component: {fileID: 6095076138525811534}
   - component: {fileID: 2337001628514439239}
   - component: {fileID: 6271819336397262490}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DOOR_R_MATTE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13480,7 +13576,7 @@ GameObject:
   - component: {fileID: 9154792491823077645}
   - component: {fileID: 6330022129732775335}
   - component: {fileID: 2101191227959113766}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BODY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14677,7 +14773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4806299823234709702}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CICADA_PARENT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
