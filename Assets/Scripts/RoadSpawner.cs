@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoadSpawner : MonoBehaviour
 {
     public List<GameObject> Roads;
-    private float offset = 0f;
+    private float offset = 80f;
     
 
 
@@ -253,7 +253,7 @@ public void SpawnRoad(Direction direction, Vector3 position, Quaternion rotation
     Roads.RemoveAt(0);
 
     // Destroy the old road after removing it from the list
-    Destroy(oldRoad);
+    Destroy(oldRoad,30);
 
     float newZ = 0f;
     float newX = 0f;
