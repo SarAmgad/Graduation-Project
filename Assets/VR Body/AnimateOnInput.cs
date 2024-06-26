@@ -1,27 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
-
-[System.Serializable]
-public class AnimationInput
-{
-    public string animationPropertyName;
-    public InputActionProperty action;
-}
-
-public class AnimateOnInput : MonoBehaviour
-{
-    public List<AnimationInput> animationInputs;
-    public Animator animator;
-
-    // Update is called once per frame
-    void Update()
-    {
-        foreach (var item in animationInputs)
-        {
-            float actionValue = item.action.action.ReadValue<float>();
-            animator.SetFloat(item.animationPropertyName, actionValue);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5973ec1dcb7df4eb4a484bed675d1960330ddf3b79281b341759e4bef5425b87
+size 679

@@ -1,29 +1,3 @@
-namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
-{
-    /// <summary>
-    /// Destroys the GameObject it is attached to after a specified amount of time.
-    /// </summary>
-    public class DestroySelf : MonoBehaviour
-    {
-        [SerializeField]
-        [Tooltip("The amount of time, in seconds, to wait after Start before destroying the GameObject.")]
-        float m_Lifetime = 0.25f;
-
-        /// <summary>
-        /// The amount of time, in seconds, to wait after Start before destroying the GameObject.
-        /// </summary>
-        public float lifetime
-        {
-            get => m_Lifetime;
-            set => m_Lifetime = value;
-        }
-    
-        /// <summary>
-        /// See <see cref="MonoBehaviour"/>.
-        /// </summary>
-        void Start()
-        {
-            Destroy(gameObject, m_Lifetime);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b1d85d5b28ba50eef19e0561dec9454570450ac8d1c7232de46053a15d300552
+size 859
