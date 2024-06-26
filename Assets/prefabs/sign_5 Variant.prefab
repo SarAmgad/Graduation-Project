@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sign_5 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5938425944526019767, guid: 19d134d782b08d94f9075f0f32e96c59, type: 3}
+      propertyPath: m_Center.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7177605327262934421, guid: 19d134d782b08d94f9075f0f32e96c59, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.58942986
