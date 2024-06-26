@@ -329,11 +329,11 @@ public class SteerRotation : MonoBehaviour
         currentLeftHandRotation = leftHand.transform.localEulerAngles.z;
         CheckLeftHandOnWheel();
         CheckRightHandOnWheel();
-        if (!leftHandOnWheel && !rightHandOnWheel)
-        {
-            wheel.transform.localRotation = Quaternion.RotateTowards(wheel.transform.localRotation, initialWheelRotation, Time.deltaTime * turnDampening);
-            Vehicle.transform.localRotation = Quaternion.RotateTowards(Vehicle.transform.localRotation, initialVehicleRotation, Time.deltaTime * turnDampening);
-        }
+        // if (!leftHandOnWheel && !rightHandOnWheel)
+        // {
+        //     wheel.transform.localRotation = Quaternion.RotateTowards(wheel.transform.localRotation, initialWheelRotation, Time.deltaTime * turnDampening);
+        //     Vehicle.transform.localRotation = Quaternion.RotateTowards(Vehicle.transform.localRotation, initialVehicleRotation, Time.deltaTime * turnDampening);
+        // }
         ReleaseHandsFromWheel();
     }
 
@@ -413,7 +413,7 @@ public class SteerRotation : MonoBehaviour
         if (_inputData._rightController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out joyStickValueR))
         {
             UpdateSpeedometer(joyStickValueR.y);
-            Vector3 forwardMovement = joyStickValueR.y * (Vehicle.transform.forward);
+            Vector3 forwardMovement = joyStickValueR.y* 0.1f * (Vehicle.transform.forward);
             VehicleRigidBody.MovePosition(VehicleRigidBody.position + forwardMovement);
             // 
             // VehicleRigidBody.velocity = new Vector3(0,0,forwardMovement.z * moveSpeed);
