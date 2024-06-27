@@ -289,6 +289,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class SteerRotation : MonoBehaviour
@@ -305,7 +306,7 @@ public class SteerRotation : MonoBehaviour
     public GameObject wheel;
     private bool rightHandOnWheel = false;
     public float maxMoveSpeed = 220f;
-    public float moveSpeed = 20f;
+    public float moveSpeed = 100;
     public GameObject leftHand;
     private bool leftHandOnWheel = false;
     public GameObject Vehicle;
@@ -314,6 +315,10 @@ public class SteerRotation : MonoBehaviour
     public InputActionReference rightHandGripAction;
     public InputActionReference leftHandGripAction;
     float currentLeftHandRotation;
+    Vector3 forwardMovement;
+    public Movement movement;
+    Vector2 joyStickValueR = new Vector2(0, 0);
+
 
     void Start()
     {
@@ -321,6 +326,7 @@ public class SteerRotation : MonoBehaviour
         VehicleRigidBody = Vehicle.GetComponent<Rigidbody>();
         initialVehicleRotation = Vehicle.transform.localRotation;
         initialWheelRotation = wheel.transform.localRotation;
+        //forwardMovement = moveSpeed * Time.deltaTime * Vehicle.transform.forward;
 
     }
 
@@ -329,16 +335,31 @@ public class SteerRotation : MonoBehaviour
         currentLeftHandRotation = leftHand.transform.localEulerAngles.z;
         CheckLeftHandOnWheel();
         CheckRightHandOnWheel();
+        VehicleRigidBody.velocity = forwardMovement;
+        if(movement.isEdgeDetected){
+            moveSpeed = 0;
+        }
         // if (!leftHandOnWheel && !rightHandOnWheel)
         // {
         //     wheel.transform.localRotation = Quaternion.RotateTowards(wheel.transform.localRotation, initialWheelRotation, Time.deltaTime * turnDampening);
         //     Vehicle.transform.localRotation = Quaternion.RotateTowards(Vehicle.transform.localRotation, initialVehicleRotation, Time.deltaTime * turnDampening);
         // }
+
+        // if (!movement.isEdgeDetected && joyStickValueR.y > 0)
+        // {
+        //     VehicleRigidBody.velocity = moveSpeed * Time.deltaTime * Vehicle.transform.forward;
+        // }
+
+
+        //        Debug.Log("VehicleMovementtt " + VehicleRigidBody.velocity);
         ReleaseHandsFromWheel();
+
+
     }
 
     private void CheckLeftHandOnWheel()
     {
+
         Vector2 joyStickValueL = new Vector2(0, 0);
         if (leftHandOnWheel && leftHandGripAction.action.ReadValue<float>() > 0.1f)
         {
@@ -352,7 +373,7 @@ public class SteerRotation : MonoBehaviour
                 float rotationDifference = (currentLeftHandRotation - initialLeftHandRotation) - 360;
                 Debug.Log("currentLeftHandRotation" + currentLeftHandRotation + " initialLeftHandRotation  " + initialLeftHandRotation + " rotationDifference  " + rotationDifference);
                 Debug.Log("rotationdifference " + Math.Abs(rotationDifference % 360));
-                if ((Math.Abs(rotationDifference % 360) > 20) && (Math.Abs(rotationDifference % 360) < 340))
+                if ((Math.Abs(rotationDifference % 360) > 10) && (Math.Abs(rotationDifference % 360) < 350))
                 {
                     if (rotationDifference < 0)
                     {
@@ -382,7 +403,7 @@ public class SteerRotation : MonoBehaviour
 
     private void CheckRightHandOnWheel()
     {
-        Vector2 joyStickValueR = new Vector2(0, 0);
+
         float speed;
         // if (rightHandOnWheel && rightHandGripAction.action.ReadValue<float>() > 0.1f)
         // {
@@ -413,8 +434,30 @@ public class SteerRotation : MonoBehaviour
         if (_inputData._rightController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out joyStickValueR))
         {
             UpdateSpeedometer(joyStickValueR.y);
-            Vector3 forwardMovement = joyStickValueR.y* 0.1f * (Vehicle.transform.forward);
-            VehicleRigidBody.MovePosition(VehicleRigidBody.position + forwardMovement);
+            forwardMovement = 10 * joyStickValueR.y * moveSpeed * Time.deltaTime * Vehicle.transform.forward;
+            if (joyStickValueR.y < 0)
+            {
+                //VehicleRigidBody.velocity = Vector3.zero;
+                joyStickValueR = -joyStickValueR;
+                moveSpeed = 10;
+                movement.isAccelerating = false;
+                movement.isDecelerating = true;
+                
+
+            }
+            else if(joyStickValueR.y == 0){
+                moveSpeed = 0;
+                //movement.isDecelerating = false;
+            }
+            else
+            {
+                moveSpeed = 60;
+                VehicleRigidBody.velocity = forwardMovement;
+                movement.isAccelerating = true;
+                movement.isDecelerating = false;
+
+            }
+            //VehicleRigidBody.velocity = forwardMovement * 2;
             // 
             // VehicleRigidBody.velocity = new Vector3(0,0,forwardMovement.z * moveSpeed);
             // Debug.Log("Velcity "+VehicleRigidBody.velocity);
@@ -516,7 +559,7 @@ public class SteerRotation : MonoBehaviour
         {
             turn = -90;
         }
-        Debug.Log("Vehicle Rotate: " + (rotationDelta));
+        Debug.Log("Vehicle Rotate: " + rotationDelta);
         VehicleRigidBody.MoveRotation(Quaternion.RotateTowards(Vehicle.transform.rotation, Quaternion.Euler(0, Math.Abs(turn + rotationDelta), 0), Time.deltaTime * turnDampening));
     }
 }

@@ -250,10 +250,10 @@ public void SpawnRoad(Direction direction, Vector3 position, Quaternion rotation
     GameObject oldRoad = Roads[0];
 
     // Remove the old road from the list
-    if (!(Roads.Count == 0))
+    if (!(Roads.Count == 1))
     {
         Roads.RemoveAt(0);
-        Destroy(oldRoad,30);
+        Destroy(oldRoad,120);
     }
     
     
