@@ -1,3 +1,47 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2b488a72936dab7bc9412ba8c042ad242d28e5b5da88646e8e824a6bd10aa974
-size 1327
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+
+public class Grabbing : MonoBehaviour
+{
+    [SerializeField] private XRBaseInteractor interactor;
+    private XRGrabInteractable currentGrabbedObject = null;
+    public static Grabbing instance = new();
+
+    public static XRGrabInteractable grabbedObject;
+    
+    void OnEnable()
+    {
+        interactor.selectEntered.AddListener(OnSelectEntered);
+        interactor.selectExited.AddListener(OnSelectExited);
+    }
+
+    void OnDisable()
+    {
+        interactor.selectEntered.RemoveListener(OnSelectEntered);
+        interactor.selectExited.RemoveListener(OnSelectExited);
+    }
+
+    private void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        if (args.interactableObject is XRGrabInteractable grabInteractable)
+        {
+            currentGrabbedObject = grabInteractable;
+            grabbedObject = grabInteractable;
+        }
+    }
+
+    private void OnSelectExited(SelectExitEventArgs args)
+    {
+        if ((Object)args.interactableObject == currentGrabbedObject)
+        {
+            currentGrabbedObject = null;
+        }
+    }
+
+    public XRGrabInteractable GetCurrentGrabbedObject()
+    {
+        return currentGrabbedObject;
+    }
+}
