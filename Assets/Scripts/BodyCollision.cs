@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:49f7ded13e5e63cdd491c138eee89b15441bacdbb0bc05dbc21ee56ae7321df1
-size 563
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BodyCollision : MonoBehaviour
+{
+    public Transform head;
+    public Transform feet;
+
+    // Update is called once per frame
+    void Update()
+    {
+        // gameObject.Transform.position = new Vector3(head.position.x, feet.position.y, head.position.z);
+        transform.position = new Vector3(head.position.x, feet.position.y, head.position.z);
+    }
+}
