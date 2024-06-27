@@ -12,6 +12,14 @@ TagManager:
   - LeftAudio
   - PlayerHandR
   - PlayerHandL
+  - Edge
+  - Forward
+  - DetectRight
+  - ForwardLeft
+  - DetectLeft
+  - Car
+  - SlowDown
+  - Stop
   layers:
   - Default
   - TransparentFX

@@ -289,6 +289,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class SteerRotation : MonoBehaviour
@@ -314,6 +315,9 @@ public class SteerRotation : MonoBehaviour
     public InputActionReference rightHandGripAction;
     public InputActionReference leftHandGripAction;
     float currentLeftHandRotation;
+    Vector3 forwardMovement;
+    public Movement movement;
+
 
     void Start()
     {
@@ -334,11 +338,18 @@ public class SteerRotation : MonoBehaviour
         //     wheel.transform.localRotation = Quaternion.RotateTowards(wheel.transform.localRotation, initialWheelRotation, Time.deltaTime * turnDampening);
         //     Vehicle.transform.localRotation = Quaternion.RotateTowards(Vehicle.transform.localRotation, initialVehicleRotation, Time.deltaTime * turnDampening);
         // }
+        if (!movement.isEdgeDetected)
+            VehicleRigidBody.velocity = moveSpeed * Time.deltaTime * Vehicle.transform.forward;
+
+        //        Debug.Log("VehicleMovementtt " + VehicleRigidBody.velocity);
         ReleaseHandsFromWheel();
+
+
     }
 
     private void CheckLeftHandOnWheel()
     {
+
         Vector2 joyStickValueL = new Vector2(0, 0);
         if (leftHandOnWheel && leftHandGripAction.action.ReadValue<float>() > 0.1f)
         {
@@ -413,8 +424,17 @@ public class SteerRotation : MonoBehaviour
         if (_inputData._rightController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out joyStickValueR))
         {
             UpdateSpeedometer(joyStickValueR.y);
-            Vector3 forwardMovement = joyStickValueR.y* 0.1f * (Vehicle.transform.forward);
-            VehicleRigidBody.MovePosition(VehicleRigidBody.position + forwardMovement);
+            forwardMovement = joyStickValueR.y * Vehicle.transform.forward * Time.deltaTime;
+            if (joyStickValueR.y < 0)
+            {
+                VehicleRigidBody.velocity = Vector3.zero;
+
+            }
+            else
+            {
+                VehicleRigidBody.velocity = forwardMovement * moveSpeed;
+            }
+            //VehicleRigidBody.velocity = forwardMovement * 2;
             // 
             // VehicleRigidBody.velocity = new Vector3(0,0,forwardMovement.z * moveSpeed);
             // Debug.Log("Velcity "+VehicleRigidBody.velocity);

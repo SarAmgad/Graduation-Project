@@ -1,35 +1,47 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movement : MonoBehaviour
+public class Movement : MonoBehaviour
 
 {
     static int score = 0;
     public float movementSpeed = 10f;
-    public SpawnManager spawnManager;
     public AudioSource audioSource;
-    public AudioClip rightSound;
-    public AudioClip leftSound;
+    public AudioClip accelerationClip;
+    public AudioClip decelerationClip;
+
+    public AudioClip startingAudio;
+
+    private float previousSpeed;
+    private bool isAccelerating = false;
+    private bool isDecelerating = false;
+    public SpawnManager spawnManager;
+    // public AudioClip rightSound;
+    // public AudioClip leftSound;
 
     float finalVehicleRotation;
     float initialVehicleRotation;
 
     bool isRightAudio = false;
+    bool isLeftAudio = false;
     bool IsScoreUpdated = false;
     bool isRightDetected = false;
     bool isLeftDetected = false;
 
 
+    public bool isEdgeDetected = false;
+
+    private Rigidbody VehicleRigidBody;
+    float speed;
+    float pitch;
+
+
+
+
     // Update is called once per frame
-    void Update()
-    {
-        // float hmovement = Input.GetAxis("Horizontal")* movementSpeed;
-        // float vmovement = Input.GetAxis("Vertical")* movementSpeed;
-        // transform.Translate(new Vector3(hmovement,0,vmovement)*Time.deltaTime);
 
-
-    }
 
 
     private void Start()
@@ -39,111 +51,90 @@ public class movement : MonoBehaviour
         {
             audioSource = GetComponent<AudioSource>();
         }
-        if (audioSource.playOnAwake)
+        // if (audioSource.playOnAwake)
+        // {
+        //     audioSource.playOnAwake = false;
+        // }
+        PlaySound(startingAudio);
+        VehicleRigidBody = GetComponent<Rigidbody>();
+        previousSpeed = VehicleRigidBody.velocity.magnitude;
+        //audioSource.loop = true;
+
+
+    }
+    void Update()
+    {
+        // float hmovement = Input.GetAxis("Horizontal")* movementSpeed;
+        // float vmovement = Input.GetAxis("Vertical")* movementSpeed;
+        // transform.Translate(new Vector3(hmovement,0,vmovement)*Time.deltaTime);
+        //PlaySound(mainAudio);
+        float currentSpeed = VehicleRigidBody.velocity.magnitude;
+        if (currentSpeed > previousSpeed)
         {
-            audioSource.playOnAwake = false;
+            if (!isAccelerating)
+            {
+                PlaySound(accelerationClip);
+                isAccelerating = true;
+                isDecelerating = false;
+            }
         }
+        else if (currentSpeed < previousSpeed)
+        {
+            if (!isDecelerating)
+            {
+                PlaySound(decelerationClip);
+                isDecelerating = true;
+                isAccelerating = false;
+            }
+        }
+
+        // Update previous speed for the next frame
+        previousSpeed = currentSpeed;
+
 
 
     }
 
 
 
-    /*private void OnTriggerEnter(Collider other) 
-    {
-
-
-     Vector3 position = other.transform.position;
-     Quaternion rotation = other.transform.rotation;
-
-     if(other.gameObject.tag == "Rightbox")
-     {
-
-
-         spawnManager.SpawnManagerTriggerRight(position,rotation);
-
-     }
-
-
-     if(other.gameObject.tag == "Leftbox")
-     {
-
-
-         spawnManager.SpawnManagerTriggerLeft(position,rotation);
-
-     }
-     else
-     {
-         spawnManager.SpawnManagerTrigger(position,rotation);
-
-     }
-
-
-    }*/
-
-
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        Vector3 position = other.transform.position;
-        Quaternion rotation = other.transform.rotation;
-        if (other.gameObject.tag == "RightAudio")
-        {
-            audioSource.PlayOneShot(rightSound);
-        }
-        else if (other.gameObject.tag =="left audio")
-        {
-            audioSource.PlayOneShot(leftSound);
-        }
-
-        if (other.gameObject.tag == "Rightbox")
-        {
-            spawnManager.SpawnManagerTriggerRight(position, rotation);
-        }
-        else if (other.gameObject.tag == "Leftbox")
-        {
-            spawnManager.SpawnManagerTriggerLeft(position, rotation);
-        }
-        else if(other.gameObject.tag == "Cube")
-        {
-            spawnManager.SpawnManagerTrigger(position, rotation);
-            Debug.Log("Triggered Entered");
-        }
-
-
-    }*/
-
-
     private void OnTriggerEnter(Collider other)
     {
         Vector3 position = other.transform.position;
         Quaternion rotation = other.transform.rotation;
+        Debug.Log("Entered");
 
 
         // Check if the collider is an audio collider
         if (other.gameObject.tag == "RightAudio")
         {
-              isRightDetected = true;
-            if (!IsScoreUpdated)
+            audioSource.volume = 0.5f;
+            isRightDetected = true;
+            if (!isRightAudio)
             {
-                PlaySound(rightSound);
+                other.GetComponent<AudioSource>().Play();
+                // PlaySound(rightSound);
                 initialVehicleRotation = gameObject.transform.localEulerAngles.y;
                 Debug.Log("Initialllll Rotattt" + initialVehicleRotation);
-              //  StartCoroutine(DelayCheckRotation());
+                //  StartCoroutine(DelayCheckRotation());
                 isRightAudio = true;
-                IsScoreUpdated = true;
+                // IsScoreUpdated = true;
             }
-
 
         }
         else if (other.gameObject.tag == "LeftAudio")
         {
-            PlaySound(leftSound);
+            audioSource.volume = 0.5f;
+            if (!isLeftAudio)
+            {
+                other.GetComponent<AudioSource>().Play();
+                isLeftAudio = true;
+            }
+            //PlaySound(leftSound);
             initialVehicleRotation = gameObject.transform.localEulerAngles.y;
             Debug.Log("Lefttttttt");
-           // StartCoroutine(DelayCheckRotation());
-            isRightAudio = true;
-            IsScoreUpdated = true;
+            // StartCoroutine(DelayCheckRotation());
+            //isRightAudio = true;
+            // IsScoreUpdated = true;
             isLeftDetected = true;
         }
         else
@@ -153,6 +144,7 @@ public class movement : MonoBehaviour
             {
 
                 spawnManager.SpawnManagerTriggerRight(position, rotation);
+
             }
             else if (other.gameObject.tag == "Leftbox" && gameObject.tag == "Car")
             {
@@ -165,30 +157,42 @@ public class movement : MonoBehaviour
                 spawnManager.SpawnManagerTrigger(position, rotation);
                 Debug.Log("Triggered Entered" + score);
             }
+            audioSource.volume = 1f;
+            isLeftAudio = false;
+            isRightAudio = false;
         }
-        if(isRightDetected){
-            Debug.Log("nnnnnnnnn" + score);
-            if(other.gameObject.tag == "DetectRight"){
+        if (isRightDetected)
+        {
+            Debug.Log("Total Score" + score);
+            if (other.gameObject.tag == "DetectRight")
+            {
                 score++;
                 isRightDetected = false;
-                Debug.Log("nnnnnnnnn" + score);
-            }else if(other.gameObject.tag == "Forward"){
-                if(score > 0)
-                    score --;
+                Debug.Log("Total Score" + score);
+            }
+            else if (other.gameObject.tag == "Forward")
+            {
+                if (score > 0)
+                    score--;
                 isRightDetected = false;
             }
         }
-        if(isLeftDetected){
-            if(other.gameObject.tag == "DetectLeft"){
+        if (isLeftDetected)
+        {
+            if (other.gameObject.CompareTag("DetectLeft"))
+            {
                 score++;
                 isLeftDetected = false;
-                Debug.Log("nnnnnnnnn" + score);
-            }else if(other.gameObject.tag == "ForwardLeft"){
-                if(score > 0)
-                    score --;
+                Debug.Log("Total Score" + score);
+            }
+            else if (other.gameObject.CompareTag("ForwardLeft"))
+            {
+                if (score > 0)
+                    score--;
                 isLeftDetected = false;
             }
         }
+
     }
 
     private void PlaySound(AudioClip clip)
@@ -199,6 +203,25 @@ public class movement : MonoBehaviour
             audioSource.PlayOneShot(clip);
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Edge"))
+        {
+            VehicleRigidBody.velocity = Vector3.zero;
+            VehicleRigidBody.angularVelocity = Vector3.zero;
+            isEdgeDetected = true;
+        }
+    }
+
+    void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Edge"))
+        {
+            isEdgeDetected = false;
+        }
+    }
+
 
     // IEnumerator DelayCheckRotation()
     // {
