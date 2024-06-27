@@ -43,7 +43,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (FoundObjectDestroy.objectsList.Count == COUNT && !FoundPanel.activeSelf)
+        if (FoundObjectDestroy.objectsList.Count != 0 && FoundObjectDestroy.objectsList.Count == COUNT && !FoundPanel.activeSelf)
         {
             endCanvas.SetActive(true);
         }
