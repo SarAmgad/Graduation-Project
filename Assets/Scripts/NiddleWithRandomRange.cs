@@ -34,7 +34,7 @@ public class NiddleWithRandomRange : MonoBehaviour
 
     IEnumerator CheckCollisionDuration()
     {
-        yield return new WaitForSeconds(3f); // Change the duration as needed
+        yield return new WaitForSeconds(1f); // Change the duration as needed
 
         if (isColliding)
         {

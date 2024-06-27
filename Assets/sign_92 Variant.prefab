@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23973921644279416, guid: f7779ac4b8b3a8a44a022d66fe3093ad, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -103,8 +107,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10.000001, y: 2.203776, z: 6.430005}
-  m_Center: {x: 3.9999743, y: 1.1018636, z: 3.1482193}
+  m_Size: {x: 10.000001, y: 2.203776, z: 8.411034}
+  m_Center: {x: 3.9999743, y: 1.1018579, z: 4.138726}
 --- !u!114 &5845321269724161018
 MonoBehaviour:
   m_ObjectHideFlags: 0

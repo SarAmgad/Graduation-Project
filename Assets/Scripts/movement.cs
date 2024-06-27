@@ -15,8 +15,8 @@ public class Movement : MonoBehaviour
     public AudioClip startingAudio;
 
     private float previousSpeed;
-    private bool isAccelerating = false;
-    private bool isDecelerating = false;
+    public bool isAccelerating = false;
+    public bool isDecelerating = false;
     public SpawnManager spawnManager;
     // public AudioClip rightSound;
     // public AudioClip leftSound;
@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour
         // Ensure the AudioSource component is attached to the GameObject
         if (audioSource == null)
         {
-            audioSource = GetComponent<AudioSource>();
+            audioSource = gameObject.GetComponent<AudioSource>();
         }
         // if (audioSource.playOnAwake)
         // {
@@ -58,6 +58,7 @@ public class Movement : MonoBehaviour
         PlaySound(startingAudio);
         VehicleRigidBody = GetComponent<Rigidbody>();
         previousSpeed = VehicleRigidBody.velocity.magnitude;
+
         //audioSource.loop = true;
 
 
@@ -69,25 +70,20 @@ public class Movement : MonoBehaviour
         // transform.Translate(new Vector3(hmovement,0,vmovement)*Time.deltaTime);
         //PlaySound(mainAudio);
         float currentSpeed = VehicleRigidBody.velocity.magnitude;
-        if (currentSpeed > previousSpeed)
-        {
+    
             if (!isAccelerating)
             {
                 PlaySound(accelerationClip);
                 isAccelerating = true;
                 isDecelerating = false;
             }
-        }
-        else if (currentSpeed < previousSpeed)
-        {
-            if (!isDecelerating)
+        
+        else if (!isDecelerating)
             {
                 PlaySound(decelerationClip);
                 isDecelerating = true;
                 isAccelerating = false;
             }
-        }
-
         // Update previous speed for the next frame
         previousSpeed = currentSpeed;
 
@@ -208,9 +204,11 @@ public class Movement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Edge"))
         {
+            audioSource.volume = 0.5f;
             VehicleRigidBody.velocity = Vector3.zero;
             VehicleRigidBody.angularVelocity = Vector3.zero;
             isEdgeDetected = true;
+            other.gameObject.GetComponent<AudioSource>().Play();
         }
     }
 
