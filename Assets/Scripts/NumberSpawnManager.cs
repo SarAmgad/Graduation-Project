@@ -1,9 +1,8 @@
-// using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
-using TMPro.Examples;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class NumberSpawnManager : MonoBehaviour
 {
     public GameObject[] prefabsNumbers;
     private readonly float z = 4.9469f;
@@ -53,7 +52,7 @@ public class SpawnManager : MonoBehaviour
 
         do
         {
-            randomX = Random.Range(-1.65f, 2.35f);
+            randomX = Random.Range(-1.65f, 2.2f);
             randomY = Random.Range(1, 2.3f);
             spawnPos = new Vector3(randomX, randomY, z);
             attempts++;
@@ -65,7 +64,7 @@ public class SpawnManager : MonoBehaviour
             }
         } while (attempts < maxAttempts);
 
-        Debug.LogError("Failed to find an unused position after " + maxAttempts + " attempts.");
+        // Debug.LogError("Failed to find an unused position after " + maxAttempts + " attempts.");
         return spawnPos; //If failed to find a postion, assign last position
     }
 

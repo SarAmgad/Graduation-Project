@@ -11,7 +11,7 @@ public class Numbers : MonoBehaviour
     public List<int> visibleNumbers = new List<int>();
     List<int> hiddenNumbers = new List<int>();
     private int mistakesNum;
-    private SpawnManager spawnManager;
+    private NumberSpawnManager numberSpawnManager;
     public GameObject startMenu, endCanvas, mistakeCanvas, resultUi; 
     [SerializeField] TextMeshProUGUI msgText;
     
@@ -19,8 +19,8 @@ public class Numbers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnManager = GetComponent<SpawnManager>();
-        if (spawnManager == null)
+        numberSpawnManager = GetComponent<NumberSpawnManager>();
+        if (numberSpawnManager == null)
         {
             Debug.LogError("SpawnManager component not found on the same GameObject as Numbers!");
         }
@@ -63,7 +63,7 @@ public class Numbers : MonoBehaviour
         if (hiddenNumbers.Contains(num)){
             if (num == hiddenNumbers[0]){
                 hiddenNumbers.RemoveAt(0);
-                spawnManager.InstantiatePrefab(num, false);
+                numberSpawnManager.InstantiatePrefab(num, false);
                 if (hiddenNumbers.Count == 0){
                     endCanvas.SetActive(true);
                 }

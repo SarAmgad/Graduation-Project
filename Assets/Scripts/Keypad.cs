@@ -37,11 +37,14 @@ public class Keypad : MonoBehaviour
 
     public void CheckNumber()
     {
-        int.TryParse(inputField.text, out int input);
-        // Debug.Log($"Number Checked = {input}");
+        if (inputField.text.Length > 0){
+            int.TryParse(inputField.text, out int input);
+            // Debug.Log($"Number Checked = {input}");
 
-        numbers.CheckMissingNumber(input);
-        inputField.text = "";
+            numbers.CheckMissingNumber(input);
+            inputField.text = "";
+        }
+        
 
     }
 

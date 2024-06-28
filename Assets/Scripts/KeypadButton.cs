@@ -20,6 +20,7 @@ public class KeypadButton : MonoBehaviour
     public float resetSpeed = 5;
     public float followAngleTresh = 45;
 
+
     void Start()
     {
         interactable = GetComponent<XRBaseInteractable>();
