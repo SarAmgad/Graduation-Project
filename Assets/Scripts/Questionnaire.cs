@@ -170,7 +170,7 @@ public class Questionnaire : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Endcanvas.SetActive(false);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     static T[] ShuffleArray<T>(T[] array)

@@ -9,8 +9,6 @@ public class Tutorial : MonoBehaviour
 {
     public void Start()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
-
-    
 }
