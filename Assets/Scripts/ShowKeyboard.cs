@@ -27,7 +27,8 @@ public class ShowKeyboard : MonoBehaviour
             registerCanvas.SetActive(false);
             instructionsCanvs.SetActive(true);
             keyboard.SetActive(false);
-            PlayerPrefs.DeleteAll();
+            PlayerPrefs.DeleteKey("name");
+            PlayerPrefs.DeleteKey("email");
             PlayerPrefs.SetString("name", nameField.text);
             PlayerPrefs.SetString("email", emailField.text);
         }

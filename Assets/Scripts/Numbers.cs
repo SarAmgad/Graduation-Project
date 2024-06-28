@@ -11,6 +11,7 @@ public class Numbers : MonoBehaviour
     public List<int> visibleNumbers = new List<int>();
     List<int> hiddenNumbers = new List<int>();
     private int mistakesNum;
+    private int mistakes;
     private NumberSpawnManager numberSpawnManager;
     public GameObject startMenu, endCanvas, mistakeCanvas, resultUi; 
     [SerializeField] TextMeshProUGUI msgText;
@@ -66,18 +67,22 @@ public class Numbers : MonoBehaviour
                 numberSpawnManager.InstantiatePrefab(num, false);
                 if (hiddenNumbers.Count == 0){
                     endCanvas.SetActive(true);
+                    PlayerPrefs.DeleteKey("mistakes");
+                    PlayerPrefs.SetInt("mistakes", mistakes);
                 }
             }
             else{
                 resultUi.SetActive(true);
                 msgText.text = "The order was not correct";
                 mistakesNum++;
+                mistakes++;
             }
         }
         else{
             resultUi.SetActive(true);
             msgText.text = $"That was not correct. \nThe {num} is not missing";
             mistakesNum++;
+            mistakes++;
         }
         if (mistakesNum == 4)
         {

@@ -159,6 +159,10 @@ public class Questionnaire : MonoBehaviour
                 writer.WriteLine($"\"{id}\",\"{question}\",\"{dimension}\",\"{answer}\"");
             }
             writer.WriteLine($"email, {email}");
+            writer.WriteLine($"first timer, {PlayerPrefs.GetFloat("first timer")}");
+            writer.WriteLine($"second timer, {PlayerPrefs.GetFloat("second timer")}");
+            writer.WriteLine($"third timer {PlayerPrefs.GetFloat("third timer")}");
+            writer.WriteLine($"Mistakes, {PlayerPrefs.GetFloat("mistakes")}");
         }
 
         questionsCanvas.SetActive(false);

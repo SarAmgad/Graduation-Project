@@ -19,6 +19,7 @@ public class StartingScene : MonoBehaviour
     public void StartLevel2()
     {
         SceneManager.LoadScene(3);
+        Debug.Log(PlayerPrefs.GetFloat("first timer"));
         FoundObjectDestroy.objectsList = new List<GameObject>();
         level1 = false;
         level2 = true;
@@ -44,7 +45,6 @@ public class StartingScene : MonoBehaviour
         level1 = false;
         level2 = false;
     }
-
 
     public void Exit()
     {

@@ -2902,7 +2902,7 @@ GameObject:
   - component: {fileID: 387377562}
   - component: {fileID: 387377561}
   m_Layer: 0
-  m_Name: XR Origin Handss
+  m_Name: XR Origin Hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4397,6 +4397,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 674945659}
+        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+        m_MethodName: SaveTime
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: second timer
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &569419518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4967,6 +4979,7 @@ GameObject:
   - component: {fileID: 674945656}
   - component: {fileID: 674945658}
   - component: {fileID: 674945657}
+  - component: {fileID: 674945659}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -5029,6 +5042,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc528c32b01262445b950bc720020624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &674945659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674945653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504a5b8882ae8b846bf7cf02b14dbb7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &683425569
@@ -15270,7 +15295,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1712381300}
         m_TargetAssemblyTypeName: StartingScene, Assembly-CSharp
-        m_MethodName: StartLevel3
+        m_MethodName: Quest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

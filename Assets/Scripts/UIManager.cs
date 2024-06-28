@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
         list = GetCanvas(list, "XR Origin Hands/Camera Offset/Main Camera/XRCanvas");
 
         // menu = GetCanvas(menu, "XR Origin (XR Rig)/Camera Offset/Main Camera/Menu");
-        menu = GetCanvas(menu, "XR Origin Hands/Camera Offset/Main Camera/XRCanvas");
+        menu = GetCanvas(menu, "XR Origin Hands/Camera Offset/Main Camera/Menu");
 
         instructions = GetCanvas(instructions, "XR Origin Hands/Camera Offset/Main Camera/Instructions");
 
