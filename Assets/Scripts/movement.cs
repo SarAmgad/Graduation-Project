@@ -70,20 +70,20 @@ public class Movement : MonoBehaviour
         // transform.Translate(new Vector3(hmovement,0,vmovement)*Time.deltaTime);
         //PlaySound(mainAudio);
         float currentSpeed = VehicleRigidBody.velocity.magnitude;
-    
-            if (!isAccelerating)
-            {
-                PlaySound(accelerationClip);
-                isAccelerating = true;
-                isDecelerating = false;
-            }
-        
+
+        if (!isAccelerating)
+        {
+            PlaySound(accelerationClip);
+            isAccelerating = true;
+            // isDecelerating = false;
+        }
+
         else if (!isDecelerating)
-            {
-                PlaySound(decelerationClip);
-                isDecelerating = true;
-                isAccelerating = false;
-            }
+        {
+            PlaySound(decelerationClip);
+            isDecelerating = true;
+            // isAccelerating = false;
+        }
         // Update previous speed for the next frame
         previousSpeed = currentSpeed;
 
@@ -95,8 +95,9 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Vector3 position = other.transform.position;
-        Quaternion rotation = other.transform.rotation;
+        Vector3 position = other.transform.localPosition;
+        Quaternion rotation = other.transform.localRotation;
+
         Debug.Log("Entered");
 
 
@@ -133,30 +134,36 @@ public class Movement : MonoBehaviour
             // IsScoreUpdated = true;
             isLeftDetected = true;
         }
-        else
+
+        // Check for other tags if not an audio collider
+        if (other.gameObject.tag == "DetectRight" && gameObject.tag == "Car")
         {
-            // Check for other tags if not an audio collider
-            if (other.gameObject.tag == "Rightbox" && gameObject.tag == "Car")
-            {
 
-                spawnManager.SpawnManagerTriggerRight(position, rotation);
 
-            }
-            else if (other.gameObject.tag == "Leftbox" && gameObject.tag == "Car")
-            {
+            spawnManager.SpawnManagerTriggerRight(position, rotation);
+            Debug.Log("Triggered Entered Right" + score);
 
-                spawnManager.SpawnManagerTriggerLeft(position, rotation);
-            }
-            else if (other.gameObject.tag == "Cube" && gameObject.tag == "Car")
-            {
-
-                spawnManager.SpawnManagerTrigger(position, rotation);
-                Debug.Log("Triggered Entered" + score);
-            }
-            audioSource.volume = 1f;
-            isLeftAudio = false;
-            isRightAudio = false;
         }
+        else if (other.gameObject.tag == "DetectLeft" && gameObject.tag == "Car")
+        {
+            // Vector3 position = other.transform.localPosition;
+            // Quaternion rotation = other.transform.localRotation;
+
+            spawnManager.SpawnManagerTriggerLeft(position, rotation);
+            Debug.Log("Triggered Entered" + score);
+        }
+        else if (other.gameObject.tag == "Cube" && gameObject.tag == "Car")
+        {
+            // Vector3 position = other.transform.localPosition;
+            // Quaternion rotation = other.transform.localRotation;
+
+            spawnManager.SpawnManagerTrigger(position, rotation);
+            Debug.Log("Triggered Entered" + score);
+        }
+        audioSource.volume = 1f;
+        isLeftAudio = false;
+        isRightAudio = false;
+
         if (isRightDetected)
         {
             Debug.Log("Total Score" + score);

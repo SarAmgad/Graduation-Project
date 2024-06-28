@@ -5,11 +5,8 @@ using UnityEngine;
 public class RoadSpawner : MonoBehaviour
 {
     public List<GameObject> Roads;
-    private float offset = 200f;
+    private float offset = 280f;
     
-
-
-
 
     public enum Direction
 {
@@ -287,17 +284,17 @@ public void SpawnRoad(Direction direction, Vector3 position, Quaternion rotation
             }
             break;
         case Direction.Left:
-            if (rotation == Quaternion.Euler(0, 90, 0))
+            if (rotation == Quaternion.Euler(0, -60, 0))
             {
-                newX = position.x;
-                newZ = position.z + offset;
+                newX = position.x - 200.2f;
+                newZ = position.z + 145.7f;
             }
-            else if (rotation == Quaternion.Euler(0, -90, 0))
+            else if (rotation == Quaternion.Euler(0, 30, 0))
             {
                 newX = position.x;
                 newZ = position.z - offset;
             }
-            else if (rotation == Quaternion.Euler(0, 180, 0) || rotation == Quaternion.Euler(0, -180, 0))
+            else if (rotation == Quaternion.Euler(0, 120, 0) || rotation == Quaternion.Euler(0, -120, 0))
             {
                 newX = position.x + offset;
                 newZ = position.z;
@@ -309,17 +306,18 @@ public void SpawnRoad(Direction direction, Vector3 position, Quaternion rotation
             }
             break;
         case Direction.Right:
-            if (rotation == Quaternion.Euler(0, 90, 0))
+            if (rotation == Quaternion.Euler(0, 60, 0))
             {
-                newX = position.x;
-                newZ = position.z - offset;
+                newX = position.x + 196.3f;
+                newZ = position.z + 142.1f;
+                Debug.Log("Right 60  " + position.x + "  " + position.z);
             }
-            else if (rotation == Quaternion.Euler(0, -90, 0))
+            else if (rotation == Quaternion.Euler(0, -60, 0))
             {
                 newX = position.x;
                 newZ = position.z + offset;
             }
-            else if (rotation == Quaternion.Euler(0, 180, 0) || rotation == Quaternion.Euler(0, -180, 0))
+            else if (rotation == Quaternion.Euler(0, 120, 0) || rotation == Quaternion.Euler(0, -120, 0))
             {
                 newX = position.x - offset;
                 newZ = position.z;

@@ -440,21 +440,21 @@ public class SteerRotation : MonoBehaviour
                 //VehicleRigidBody.velocity = Vector3.zero;
                 joyStickValueR = -joyStickValueR;
                 moveSpeed = 10;
-                movement.isAccelerating = false;
+                //movement.isAccelerating = false;
                 movement.isDecelerating = true;
                 
 
             }
             else if(joyStickValueR.y == 0){
                 moveSpeed = 0;
-                //movement.isDecelerating = false;
+                movement.isDecelerating = true;
             }
             else
             {
                 moveSpeed = 60;
                 VehicleRigidBody.velocity = forwardMovement;
                 movement.isAccelerating = true;
-                movement.isDecelerating = false;
+                //movement.isDecelerating = false;
 
             }
             //VehicleRigidBody.velocity = forwardMovement * 2;
