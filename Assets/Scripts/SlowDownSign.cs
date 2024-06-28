@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SlowDownSign : MonoBehaviour
 {
     // Start is called before the first frame update
 
+
     public float slowDownThreshold = 0.3f;
     private bool isSlowedDown = false;
     bool IsScoreUpdated = false;
 
-    int score;
+    public int  score;
 
     // public StopSign stopSignScript;
 
@@ -61,6 +63,7 @@ public class SlowDownSign : MonoBehaviour
                     IsScoreUpdated = true;
                     Debug.Log("Vehicle stopped" + score);
                     Debug.Log("Initial " + initialVelocity.z);
+                    
 
                 }
 

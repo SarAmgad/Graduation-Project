@@ -8,6 +8,8 @@ public class NiddleWithRandomRange : MonoBehaviour
     private Coroutine checkCollisionCoroutine;
     private bool isColliding = false;
 
+    public static int score = 0;
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.GetComponent<Renderer>().material == specialMaterial)
@@ -38,7 +40,8 @@ public class NiddleWithRandomRange : MonoBehaviour
 
         if (isColliding)
         {
-            Debug.Log("Collisionnnnnn.");
+            score++;
+            Debug.Log("Collisionnnnnn." + score);
         }
     }
 
