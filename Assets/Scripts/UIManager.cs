@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     private GameObject endCanvas;
     private GameObject list;
     private GameObject menu;
+    private GameObject instructions;
+
     private int COUNT;
     private TrackedPoseDriver trackedPoseDriver;
     private XRGrabInteractable[] grabInteractables;
@@ -35,6 +37,8 @@ public class UIManager : MonoBehaviour
 
         // menu = GetCanvas(menu, "XR Origin (XR Rig)/Camera Offset/Main Camera/Menu");
         menu = GetCanvas(menu, "XR Origin Hands/Camera Offset/Main Camera/XRCanvas");
+
+        instructions = GetCanvas(instructions, "XR Origin Hands/Camera Offset/Main Camera/Instructions");
 
 
         Tracking();
@@ -72,10 +76,8 @@ public class UIManager : MonoBehaviour
 
     private void Tracking()
     {
-        if (list.activeSelf || menu.activeSelf || endCanvas.activeSelf)
+        if (list.activeSelf || menu.activeSelf || endCanvas.activeSelf || instructions.activeSelf)
         {
-            Debug.Log("Tracking");
-            // trackedPoseDriver.trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
             foreach (XRGrabInteractable obj in grabInteractables)
             {
                 if (obj)
