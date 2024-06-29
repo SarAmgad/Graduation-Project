@@ -98,7 +98,7 @@ public class Movement : MonoBehaviour
         Vector3 position = other.transform.position;
         Quaternion rotation = other.transform.rotation;
 
-        // Debug.Log("Entered");
+        // ////debug.log("Entered");
 
 
         // Check if the collider is an audio collider
@@ -111,7 +111,7 @@ public class Movement : MonoBehaviour
                 other.GetComponent<AudioSource>().Play();
                 // PlaySound(rightSound);
                 initialVehicleRotation = gameObject.transform.localEulerAngles.y;
-                Debug.Log("Initialllll Rotattt" + initialVehicleRotation);
+                ////debug.log("Initialllll Rotattt" + initialVehicleRotation);
                 //  StartCoroutine(DelayCheckRotation());
                 isRightAudio = true;
                 // IsScoreUpdated = true;
@@ -128,7 +128,7 @@ public class Movement : MonoBehaviour
             }
             //PlaySound(leftSound);
             initialVehicleRotation = gameObject.transform.localEulerAngles.y;
-            Debug.Log("Lefttttttt");
+            ////debug.log("Lefttttttt");
             // StartCoroutine(DelayCheckRotation());
             //isRightAudio = true;
             // IsScoreUpdated = true;
@@ -141,12 +141,12 @@ public class Movement : MonoBehaviour
 
         if (isRightDetected)
         {
-            Debug.Log("Total Score" + score);
+            ////debug.log("Total Score" + score);
             if (other.gameObject.tag == "DetectRight")
             {
                 score++;
                 isRightDetected = false;
-                Debug.Log("Total Score" + score);
+                ////debug.log("Total Score" + score);
             }
             else if (other.gameObject.tag == "Forward")
             {
@@ -161,7 +161,7 @@ public class Movement : MonoBehaviour
             {
                 score++;
                 isLeftDetected = false;
-                Debug.Log("Total Score" + score);
+                ////debug.log("Total Score" + score);
             }
             else if (other.gameObject.CompareTag("ForwardLeft"))
             {
@@ -177,7 +177,7 @@ public class Movement : MonoBehaviour
     {
         if (audioSource != null && clip != null)
         {
-            // Debug.Log("Playing sound: " + clip.name);
+            // ////debug.log("Playing sound: " + clip.name);
             audioSource.PlayOneShot(clip);
         }
     }
@@ -209,19 +209,19 @@ public class Movement : MonoBehaviour
     //     CheckRightRotation();
     //     CheckLeftRotation();
     //     finalVehicleRotation = gameObject.transform.localEulerAngles.y;
-    //     Debug.Log("Initiall" + initialVehicleRotation);
+    //     ////debug.log("Initiall" + initialVehicleRotation);
     //     IsScoreUpdated = false;
     // }
     // void CheckRightRotation()
     // {
-    //     Debug.Log("finalVehicle" + finalVehicleRotation);
+    //     ////debug.log("finalVehicle" + finalVehicleRotation);
     //     if (isRightAudio && (finalVehicleRotation > initialVehicleRotation))
     //     {
-    //         Debug.Log("Right Rotation" + finalVehicleRotation + "Initiall+30" + (initialVehicleRotation + 30));
-    //         Debug.Log("Initiall" + initialVehicleRotation);
+    //         ////debug.log("Right Rotation" + finalVehicleRotation + "Initiall+30" + (initialVehicleRotation + 30));
+    //         ////debug.log("Initiall" + initialVehicleRotation);
     //         score++;
 
-    //         Debug.Log("Scoreeeeeeee" + score);
+    //         ////debug.log("Scoreeeeeeee" + score);
     //     }
     //     else
     //     {
@@ -229,7 +229,7 @@ public class Movement : MonoBehaviour
     //             score = 0;
     //         else
     //             score--;
-    //         Debug.Log("Left Rotation" + score);
+    //         ////debug.log("Left Rotation" + score);
     //     }
     // }
     // void CheckLeftRotation()
@@ -237,7 +237,7 @@ public class Movement : MonoBehaviour
     //     if (!isRightAudio && (finalVehicleRotation < initialVehicleRotation))
     //     {
     //         score++;
-    //         Debug.Log("Scoreeeeeeee" + score);
+    //         ////debug.log("Scoreeeeeeee" + score);
     //     }
     //     else
     //     {
@@ -245,7 +245,7 @@ public class Movement : MonoBehaviour
     //             score = 0;
     //         else
     //             score--;
-    //         Debug.Log("Left Rotation" + score);
+    //         ////debug.log("Left Rotation" + score);
     //     }
     // }
 }

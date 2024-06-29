@@ -5,7 +5,7 @@ using UnityEngine;
 public class StopSign : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float stopThreshold = 0f;
+    float stopThreshold = 0;
     private bool isStopped = false;
     bool IsScoreUpdated = false;
     public static int scoreForDetectedSigns;
@@ -27,9 +27,13 @@ public class StopSign : MonoBehaviour
     {
         if (other.CompareTag("Car"))
         {
+            GameObject otherGameObject = other.gameObject;
+            Transform parentTransform = otherGameObject.transform.parent;
+            GameObject parentObject = parentTransform.gameObject;
+            Rigidbody rigidParent = parentObject.GetComponent<Rigidbody>();
+            
             meshRendererStopSign.enabled = true;
-            Debug.Log("Vehicle entered the stop sign area.");
-            initialVelocity = other.attachedRigidbody.velocity;
+            initialVelocity = rigidParent.velocity;
             
         }
     }
@@ -38,22 +42,21 @@ public class StopSign : MonoBehaviour
     {
         if (other.CompareTag("Car"))
         {
-
-            Debug.Log("Current " + other.attachedRigidbody.velocity.z);
+            GameObject otherGameObject = other.gameObject;
+            Transform parentTransform = otherGameObject.transform.parent;
+            GameObject parentObject = parentTransform.gameObject;
+            Rigidbody rigidParent = parentObject.GetComponent<Rigidbody>();
             Debug.Log("Initial " + initialVelocity.z);
-            if (other.attachedRigidbody.velocity.z == stopThreshold)
+            if (rigidParent.velocity.z == stopThreshold)
             {
                 isStopped = true;
 
                 if (!IsScoreUpdated)
                 {
                     scoreForDetectedSigns++;
+                    // Debug.Log(" " + scoreForDetectedSigns);
                     IsScoreUpdated = true;
                 }
-
-                Debug.Log("Vehicle stopped" + scoreForDetectedSigns);
-                Debug.Log("Initial " + initialVelocity.z);
-
             }
 
         }
@@ -61,11 +64,12 @@ public class StopSign : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        GameObject otherGameObject = other.gameObject;
+        Transform parentTransform = otherGameObject.transform.parent;
+        GameObject parentObject = parentTransform.gameObject;
+        Rigidbody rigidParent = parentObject.GetComponent<Rigidbody>();
         if (other.CompareTag("Car"))
         {
-
-            Debug.Log("Current " + other.attachedRigidbody.velocity.z);
-            Debug.Log("Initial " + initialVelocity.z);
             if (!IsScoreUpdated)
             {
                 isStopped = false;
@@ -74,9 +78,7 @@ public class StopSign : MonoBehaviour
                 {
                     scoreForDetectedSigns++;
                 }
-                IsScoreUpdated = true;
-                Debug.Log("Vehicle stopped" + scoreForDetectedSigns);
-                Debug.Log("Initial " + initialVelocity.z);
+                IsScoreUpdated = false;
 
             }
 

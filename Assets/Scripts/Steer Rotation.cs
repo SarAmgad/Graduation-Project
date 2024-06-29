@@ -64,8 +64,8 @@
 //     //         else
 //     //         {
 //     //             float rotationDifference = (currentLeftHandRotation - initialLeftHandRotation) - 360;
-//     //             Debug.Log("currentLeftHandRotation" + currentLeftHandRotation + " initialLeftHandRotation  " + initialLeftHandRotation + " rotationDifference  " + rotationDifference);
-//     //             Debug.Log("rotationdifference " + Math.Abs(rotationDifference % 360));
+//     //             //debug.log("currentLeftHandRotation" + currentLeftHandRotation + " initialLeftHandRotation  " + initialLeftHandRotation + " rotationDifference  " + rotationDifference);
+//     //             //debug.log("rotationdifference " + Math.Abs(rotationDifference % 360));
 //     //             if ((Math.Abs(rotationDifference % 360) > 20) && (Math.Abs(rotationDifference % 360) < 340))
 //     //             {
 //     //                 if (rotationDifference < 0)
@@ -106,8 +106,8 @@
 //             else
 //             {
 //                 float rotationDifference = (currentLeftHandRotation - initialLeftHandRotation);
-//                 Debug.Log("currentLeftHandRotation" + currentLeftHandRotation + " initialLeftHandRotation  " + initialLeftHandRotation + " rotationDifference  " + rotationDifference);
-//                 Debug.Log("rotationdifference " + Math.Abs(rotationDifference));
+//                 //debug.log("currentLeftHandRotation" + currentLeftHandRotation + " initialLeftHandRotation  " + initialLeftHandRotation + " rotationDifference  " + rotationDifference);
+//                 //debug.log("rotationdifference " + Math.Abs(rotationDifference));
 
 //                 if (Math.Abs(rotationDifference) > 0.5f)
 //                 {
@@ -159,8 +159,8 @@
 //                         // ConvertHandRotationToSteeringWheelRotation(-rotationDifference);
 //                         // TurnVehicle(rotationDifference);
 //                     }
-//                     Debug.Log("currentRightHandRotation" + currentRightHandRotation + " initialRightHandRotation  " + initialRightHandRotation + " rotationDifference  " + rotationDifference);
-//                     Debug.Log("rotationdifference   " + Math.Abs(rotationDifference));
+//                     //debug.log("currentRightHandRotation" + currentRightHandRotation + " initialRightHandRotation  " + initialRightHandRotation + " rotationDifference  " + rotationDifference);
+//                     //debug.log("rotationdifference   " + Math.Abs(rotationDifference));
 //                     ConvertHandRotationToSteeringWheelRotation(-rotationDifference);
 //                     TurnVehicle(-rotationDifference);
 //                 }
@@ -168,8 +168,8 @@
 //                 // {
 //                 //     Math.Abs(rotationDifference);
 //                 // }
-//                 // Debug.Log("currentRightHandRotation" + currentRightHandRotation + " initialRightHandRotation  " + initialRightHandRotation + " rotationDifference  " + rotationDifference);
-//                 // Debug.Log("rotationdifference   " + Math.Abs(rotationDifference));
+//                 // //debug.log("currentRightHandRotation" + currentRightHandRotation + " initialRightHandRotation  " + initialRightHandRotation + " rotationDifference  " + rotationDifference);
+//                 // //debug.log("rotationdifference   " + Math.Abs(rotationDifference));
 //                 // ConvertHandRotationToSteeringWheelRotation(-rotationDifference);
 //                 // TurnVehicle(-rotationDifference);
 //             }
@@ -180,7 +180,7 @@
 //                 VehicleRigidBody.MovePosition(VehicleRigidBody.position + forwardMovement);
 //                 // 
 //                 // VehicleRigidBody.velocity = new Vector3(0,0,forwardMovement.z * moveSpeed);
-//                 // Debug.Log("Velcity "+VehicleRigidBody.velocity);
+//                 // //debug.log("Velcity "+VehicleRigidBody.velocity);
 //             }
 
 
@@ -210,7 +210,7 @@
 //         Quaternion targetRotation = Quaternion.Euler(currentRotation.x, currentRotation.y, targetRotationZ);
 //         wheel.transform.localRotation = Quaternion.RotateTowards(wheel.transform.localRotation, targetRotation, turnDampening * 0.7f * Time.deltaTime);
 
-//         Debug.Log("Rotateeeeee: " + rotationDelta);
+//         //debug.log("Rotateeeeee: " + rotationDelta);
 //     }
 //     private void ReleaseHandsFromWheel()
 //     {
@@ -279,7 +279,7 @@
 //         {
 //             turn = -90;
 //         }
-//         Debug.Log("Vehicle Rotate: " + (rotationDelta));
+//         //debug.log("Vehicle Rotate: " + (rotationDelta));
 //         VehicleRigidBody.MoveRotation(Quaternion.RotateTowards(Vehicle.transform.rotation, Quaternion.Euler(0, turn + rotationDelta, 0), Time.deltaTime * turnDampening));
 //     }
 // }
@@ -306,7 +306,7 @@ public class SteerRotation : MonoBehaviour
     public GameObject wheel;
     private bool rightHandOnWheel = false;
     public float maxMoveSpeed = 220f;
-    public float moveSpeed = 100;
+    public float moveSpeed = 70;
     public GameObject leftHand;
     private bool leftHandOnWheel = false;
     public GameObject Vehicle;
@@ -355,7 +355,7 @@ public class SteerRotation : MonoBehaviour
         // }
 
 
-        //        Debug.Log("VehicleMovementtt " + VehicleRigidBody.velocity);
+        //        //debug.log("VehicleMovementtt " + VehicleRigidBody.velocity);
         ReleaseHandsFromWheel();
 
 
@@ -375,8 +375,8 @@ public class SteerRotation : MonoBehaviour
             else
             {
                 float rotationDifference = (currentLeftHandRotation - initialLeftHandRotation) - 360;
-                Debug.Log("currentLeftHandRotation" + currentLeftHandRotation + " initialLeftHandRotation  " + initialLeftHandRotation + " rotationDifference  " + rotationDifference);
-                Debug.Log("rotationdifference " + Math.Abs(rotationDifference % 360));
+                //debug.log("currentLeftHandRotation" + currentLeftHandRotation + " initialLeftHandRotation  " + initialLeftHandRotation + " rotationDifference  " + rotationDifference);
+                //debug.log("rotationdifference " + Math.Abs(rotationDifference % 360));
                 if ((Math.Abs(rotationDifference % 360) > 10) && (Math.Abs(rotationDifference % 360) < 350))
                 {
                     if (rotationDifference < 0)
@@ -418,14 +418,14 @@ public class SteerRotation : MonoBehaviour
             {
                 //VehicleRigidBody.velocity = Vector3.zero;
                 joyStickValueR = -joyStickValueR;
-                moveSpeed = 30;
+                moveSpeed = 20;
                 movement.isAccelerating = false;
                 movement.isDecelerating = true;
                 speedAngle += 10 + joyStickValueR.y;
             }
             else
             {
-                moveSpeed = 100;
+                moveSpeed = 70;
                 VehicleRigidBody.velocity = forwardMovement;
                 movement.isAccelerating = true;
                 movement.isDecelerating = false;
@@ -435,7 +435,7 @@ public class SteerRotation : MonoBehaviour
             //VehicleRigidBody.velocity = forwardMovement * 2;
             // 
             // VehicleRigidBody.velocity = new Vector3(0,0,forwardMovement.z * moveSpeed);
-            // Debug.Log("Velcity "+VehicleRigidBody.velocity);
+            // //debug.log("Velcity "+VehicleRigidBody.velocity);
         }
     }
 
@@ -457,7 +457,7 @@ public class SteerRotation : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(currentRotation.x, currentRotation.y, targetRotationZ);
         wheel.transform.localRotation = Quaternion.RotateTowards(wheel.transform.localRotation, targetRotation, turnDampening * 0.7f * Time.deltaTime);
 
-        Debug.Log("Rotateeeeee: " + rotationDelta);
+        //debug.log("Rotateeeeee: " + rotationDelta);
     }
     private void ReleaseHandsFromWheel()
     {
@@ -519,7 +519,7 @@ public class SteerRotation : MonoBehaviour
         currentAngle = Mathf.LerpAngle(currentAngle, targetAngle, smoothSpeed * Time.deltaTime);
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, currentAngle, 0f));
         Needle.transform.localRotation = targetRotation;
-       // Debug.Log("Needle Rotation: " + moveSpeed);
+       // //debug.log("Needle Rotation: " + moveSpeed);
     }
 
     private void TurnVehicle(float rotationDelta)
@@ -533,7 +533,7 @@ public class SteerRotation : MonoBehaviour
         {
             turn = -90;
         }
-        Debug.Log("Vehicle Rotate: " + rotationDelta);
+        //debug.log("Vehicle Rotate: " + rotationDelta);
         VehicleRigidBody.MoveRotation(Quaternion.RotateTowards(Vehicle.transform.rotation, Quaternion.Euler(0, Math.Abs(turn + rotationDelta), 0), Time.deltaTime * turnDampening));
     }
 }

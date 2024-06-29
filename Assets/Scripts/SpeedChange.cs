@@ -58,7 +58,7 @@ public class SpeedChange : MonoBehaviour
 
             yield return new WaitForSeconds(durationForNoLight);
 
-            Debug.Log("Collisionnnnnn.");
+            // Debug.Log("Collisionnnnnn.");
         }
     }
 

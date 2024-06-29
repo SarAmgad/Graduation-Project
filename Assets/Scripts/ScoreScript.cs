@@ -19,7 +19,7 @@ public class ScoreScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreSigns.text = "Correct Signs" + StopSign.scoreForDetectedSigns.ToString();
-        scoreVoices.text = "Correct Voices" + Movement.score.ToString();
+        scoreSigns.text = "Correct Signs: " + StopSign.scoreForDetectedSigns.ToString();
+        scoreVoices.text = "Correct Voices: " + Movement.score.ToString();
     }
 }

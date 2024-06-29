@@ -4972,12 +4972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c77c0685e16b1428d37517885d5c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn1: {fileID: 5240077621571773214, guid: 7a1f4d49cd85d3c469190b672c04f18f, type: 3}
-  objectToSpawn2: {fileID: 6063932914921689188, guid: 9573d30dc93c2ac4eb82ba8b3fcd69b2, type: 3}
-  roadParent: {fileID: 1322918429}
-  minDistanceBetweenObjects: 10
-  timeBetweenSpawns: 15
-  destroyAfterSeconds: 5
 --- !u!4 &1297242184
 Transform:
   m_ObjectHideFlags: 0
@@ -14109,9 +14103,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3381149924533190772, guid: 19d134d782b08d94f9075f0f32e96c59, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938425944526019767, guid: 19d134d782b08d94f9075f0f32e96c59, type: 3}
+      propertyPath: m_Size.z
+      value: 13.867529
+      objectReference: {fileID: 0}
     - target: {fileID: 5938425944526019767, guid: 19d134d782b08d94f9075f0f32e96c59, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938425944526019767, guid: 19d134d782b08d94f9075f0f32e96c59, type: 3}
+      propertyPath: m_Center.z
+      value: 6.582996
       objectReference: {fileID: 0}
     - target: {fileID: 7177605327262934421, guid: 19d134d782b08d94f9075f0f32e96c59, type: 3}
       propertyPath: m_LocalPosition.x

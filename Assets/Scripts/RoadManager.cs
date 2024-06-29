@@ -21,28 +21,28 @@ public class RoadManager : MonoBehaviour
     {
         Vector3 position = other.transform.position;
         Quaternion rotation = other.transform.localRotation;
-        Debug.Log("Enteredddddddddddd");
+        //debug.log("Enteredddddddddddd");
 
         GameObject otherGameObject = other.gameObject;
         Transform parentTransform = otherGameObject.transform.parent;
         GameObject parentObject = parentTransform.gameObject;
-        Debug.Log("nameeeeeeeee "+ parentObject.name);
+        //debug.log("nameeeeeeeee "+ parentObject.name);
         // Check for other tags if not an audio collider
         if (other.gameObject.tag == "DetectRight" && gameObject.tag == "Car")
         {
-            Debug.Log("righttt");
+            //debug.log("righttt");
             spawnManager.SpawnManagerTriggerRight(parentObject);
 
         }
         else if (other.gameObject.tag == "DetectLeft" && gameObject.tag == "Car")
         {
-            Debug.Log("lefttt");
+            //debug.log("lefttt");
             spawnManager.SpawnManagerTriggerLeft(parentObject);
         }
         else if (other.gameObject.tag == "Cube" && gameObject.tag == "Car")
         {
             spawnManager.SpawnManagerTrigger(parentObject);
-            Debug.Log("Triggered Entered 222 " + gameObject.name + "   " + other.gameObject.name);
+            //debug.log("Triggered Entered 222 " + gameObject.name + "   " + other.gameObject.name);
         }
 
     }

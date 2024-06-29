@@ -38,7 +38,7 @@ public class RoadSpawner : MonoBehaviour
             case Direction.Forward:
             
                 Transform forward = parent.transform.Find("forward empty");
-                Debug.Log("Forward direction " + parent.transform.position);
+                //debug.log("Forward direction " + parent.transform.position);
                 if (forward != null && !RoadPositions.Contains(forward.position))
                     {
                     // Calculate the new position based on the child's position and the desired offset
@@ -52,23 +52,23 @@ public class RoadSpawner : MonoBehaviour
                     Roads.Enqueue(newRoad);
                     RoadPositions.Enqueue(newPosition);
 
-                    Debug.Log("New road instantiated at position: " + newRoad.transform.position);
-                    Debug.Log("New road instantiated at position Forward: " + newRoad.transform.localPosition);
+                    //debug.log("New road instantiated at position: " + newRoad.transform.position);
+                    //debug.log("New road instantiated at position Forward: " + newRoad.transform.localPosition);
                 }
                 else
                 {
-                    Debug.Log("Child named '60 empty' not found.");
+                    //debug.log("Child named '60 empty' not found.");
                 }
 
                 break;
             case Direction.Left:
-            Debug.Log("Left direction " + parent.transform.position);
+            //debug.log("Left direction " + parent.transform.position);
                 Transform left = parent.transform.Find("-60 empty");
 
                 if (left != null && !RoadPositions.Contains(left.position))
                 {
                     // Do something with the specific child
-                    Debug.Log("Found child: " + left.name);
+                    //debug.log("Found child: " + left.name);
 
                     // Calculate the new position based on the child's position and the desired offset
                     Vector3 newPosition = left.position;
@@ -80,23 +80,23 @@ public class RoadSpawner : MonoBehaviour
                     Roads.Enqueue(newRoad);
                     RoadPositions.Enqueue(newPosition);
 
-                    Debug.Log("New road instantiated at position: " + newRoad.transform.position);
-                    Debug.Log("New road instantiated at position Leftt: " + newRoad.transform.localPosition);
+                    //debug.log("New road instantiated at position: " + newRoad.transform.position);
+                    //debug.log("New road instantiated at position Leftt: " + newRoad.transform.localPosition);
                 }
                 else
                 {
-                    Debug.Log("Child named '60 empty' not found.");
+                    //debug.log("Child named '60 empty' not found.");
                 }
             
                 break;
             case Direction.Right:
-                Debug.Log("Right direction " + parent.transform.position);
+                //debug.log("Right direction " + parent.transform.position);
                 Transform right = parent.transform.Find("60 empty");
 
                 if (right != null && !RoadPositions.Contains(right.position))
                 {
                     // Do something with the specific child
-                    Debug.Log("Found child: " + right.name);
+                    //debug.log("Found child: " + right.name);
 
                     // Calculate the new position based on the child's position and the desired offset
                     Vector3 newPosition = right.position;
@@ -108,17 +108,17 @@ public class RoadSpawner : MonoBehaviour
                     Roads.Enqueue(newRoad);
                     RoadPositions.Enqueue(newPosition);
 
-                    Debug.Log("New road instantiated at position Righ Global: " + newRoad.transform.position);
-                    Debug.Log("New road instantiated at position Right Local: " + newRoad.transform.localPosition);
+                    //debug.log("New road instantiated at position Righ Global: " + newRoad.transform.position);
+                    //debug.log("New road instantiated at position Right Local: " + newRoad.transform.localPosition);
                 }
                 else
                 {
-                    Debug.Log("Child named '60 empty' not found.");
+                    //debug.log("Child named '60 empty' not found.");
                 }
                 
                 break;
             default:
-                Debug.LogWarning("Invalid direction.");
+                //debug.logWarning("Invalid direction.");
                 break;
         }
     }
