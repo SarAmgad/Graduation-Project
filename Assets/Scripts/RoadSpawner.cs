@@ -310,7 +310,7 @@ public void SpawnRoad(Direction direction, Vector3 position, Quaternion rotation
             {
                 newX = position.x + 196.3f;
                 newZ = position.z + 142.1f;
-                Debug.Log("Right 60  " + position.x + "  " + position.z);
+                // Debug.Log("Right 60  " + position.x + "  " + position.z);
             }
             else if (rotation == Quaternion.Euler(0, -60, 0))
             {
@@ -341,8 +341,8 @@ public void SpawnRoad(Direction direction, Vector3 position, Quaternion rotation
     Roads.Add(newRoad);
 
     // Debug logging
-    Debug.Log("New road spawned at position: " + newRoad.transform.position);
-    Debug.Log("Current number of roads in the list: " + Roads.Count);
+    // Debug.Log("New road spawned at position: " + newRoad.transform.position);
+    // Debug.Log("Current number of roads in the list: " + Roads.Count);
 }
 
 
