@@ -7,6 +7,7 @@ public class RoadSpawner : MonoBehaviour
     Queue <GameObject> Roads = new Queue<GameObject>();
     Queue <Vector3> RoadPositions = new Queue<Vector3>();
     public GameObject firstRoad;
+    List <string> childRandomize = new List<string>(){ "RightAudio", "LeftAudio", "RightAudio (1)", "sign_5 Variant", "sign_92 Variant"};
     // Queue 
     private float offset = 280f;
 
@@ -28,113 +29,70 @@ public class RoadSpawner : MonoBehaviour
         if(Roads.Count >= 6){
             Destroy(Roads.Dequeue());
             Destroy(Roads.Dequeue());
-            // Roads.Dequeue();
-            // Roads.Dequeue();
         }
         
-        // if RoadPositions.Contains(parent.position))
         switch (direction)
         {
             case Direction.Forward:
-            
-                Transform forward = parent.transform.Find("forward empty");
-                //debug.log("Forward direction " + parent.transform.position);
-                if (forward != null && !RoadPositions.Contains(forward.position))
-                    {
-                    // Calculate the new position based on the child's position and the desired offset
-                    Vector3 newPosition = forward.position;
+                CreatObject(parent, "forward empty");
 
-                    // Instantiate a new road at the new position and with the same rotation as the child
-                    GameObject newRoad = Instantiate(parent, newPosition, forward.rotation);
-
-                    // Optionally add the newly instantiated road to the list if needed
-                    // Roads.Add(newRoad);
-                    Roads.Enqueue(newRoad);
-                    RoadPositions.Enqueue(newPosition);
-
-                    //debug.log("New road instantiated at position: " + newRoad.transform.position);
-                    //debug.log("New road instantiated at position Forward: " + newRoad.transform.localPosition);
-                }
-                else
-                {
-                    //debug.log("Child named '60 empty' not found.");
-                }
+                
+                
 
                 break;
             case Direction.Left:
-            //debug.log("Left direction " + parent.transform.position);
-                Transform left = parent.transform.Find("-60 empty");
+                CreatObject(parent, "-60 empty");
+                // Transform left = parent.transform.Find("-60 empty");
 
-                if (left != null && !RoadPositions.Contains(left.position))
-                {
-                    // Do something with the specific child
-                    //debug.log("Found child: " + left.name);
-
-                    // Calculate the new position based on the child's position and the desired offset
-                    Vector3 newPosition = left.position;
-
-                    // Instantiate a new road at the new position and with the same rotation as the child
-                    GameObject newRoad = Instantiate(parent, newPosition, left.rotation);
-
-                    // Optionally add the newly instantiated road to the list if needed
-                    Roads.Enqueue(newRoad);
-                    RoadPositions.Enqueue(newPosition);
-
-                    //debug.log("New road instantiated at position: " + newRoad.transform.position);
-                    //debug.log("New road instantiated at position Leftt: " + newRoad.transform.localPosition);
-                }
-                else
-                {
-                    //debug.log("Child named '60 empty' not found.");
-                }
-            
+                // if (left != null && !RoadPositions.Contains(left.position))
+                // {
+                //     Vector3 newPosition = left.position;
+                //     GameObject newRoad = Instantiate(parent, newPosition, left.rotation);
+                //     Roads.Enqueue(newRoad);
+                //     RoadPositions.Enqueue(newPosition);
+                // }
+                
                 break;
             case Direction.Right:
-                //debug.log("Right direction " + parent.transform.position);
-                Transform right = parent.transform.Find("60 empty");
+                CreatObject(parent, "60 empty");
+                // Transform right = parent.transform.Find();
 
-                if (right != null && !RoadPositions.Contains(right.position))
-                {
-                    // Do something with the specific child
-                    //debug.log("Found child: " + right.name);
+                // if (right != null && !RoadPositions.Contains(right.position))
+                // {
+                //     Vector3 newPosition = right.position;
+                //     GameObject newRoad = Instantiate(parent, newPosition, right.rotation);
 
-                    // Calculate the new position based on the child's position and the desired offset
-                    Vector3 newPosition = right.position;
+                //     Roads.Enqueue(newRoad);
+                //     RoadPositions.Enqueue(newPosition);
 
-                    // Instantiate a new road at the new position and with the same rotation as the child
-                    GameObject newRoad = Instantiate(parent, newPosition, right.rotation);
-
-                    // Optionally add the newly instantiated road to the list if needed
-                    Roads.Enqueue(newRoad);
-                    RoadPositions.Enqueue(newPosition);
-
-                    //debug.log("New road instantiated at position Righ Global: " + newRoad.transform.position);
-                    //debug.log("New road instantiated at position Right Local: " + newRoad.transform.localPosition);
-                }
-                else
-                {
-                    //debug.log("Child named '60 empty' not found.");
-                }
+                // }
                 
                 break;
             default:
-                //debug.logWarning("Invalid direction.");
                 break;
         }
     }
 
-    bool IsPositionUsed(Vector3 position)
-    {
-        // float dist;
-        foreach (Vector3 usedPos in RoadPositions)
+    void CreatObject(GameObject parent, string childName){
+        Transform direction = parent.transform.Find(childName);
+        if (direction != null && !RoadPositions.Contains(direction.position))
         {
-            // dist = ;
-            if (Vector3.Distance(position, usedPos) < 0.65f)
-            {
-                return true;
+            Vector3 newPosition = direction.position;
+            GameObject newRoad = Instantiate(parent, newPosition, direction.rotation);
+
+            Roads.Enqueue(newRoad);
+            RoadPositions.Enqueue(newPosition);
+
+            foreach (string child in childRandomize){
+                Transform audioTransform = newRoad.transform.Find(child);
+                if (audioTransform != null)
+                {
+                    bool randomActivation = Random.value > 0.5f;
+                    audioTransform.gameObject.SetActive(randomActivation);
+                }
             }
+
         }
-        return false;
     }
 
 }
