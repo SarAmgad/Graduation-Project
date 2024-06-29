@@ -6,6 +6,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 
 {
+    static int score = 0;
+
     public static int score = 0;
     public float movementSpeed = 10f;
     public AudioSource audioSource;
@@ -95,8 +97,8 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Vector3 position = other.transform.localPosition;
-        Quaternion rotation = other.transform.localRotation;
+        Vector3 position = other.transform.position;
+        Quaternion rotation = other.transform.rotation;
 
         // Debug.Log("Entered");
 
