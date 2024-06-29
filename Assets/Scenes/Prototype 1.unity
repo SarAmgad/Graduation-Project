@@ -201,7 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 115422185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 137467356}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 182943710}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 220284511}
   - component: {fileID: 220284510}
   - component: {fileID: 220284512}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 233854508}
   - component: {fileID: 233854507}
   - component: {fileID: 233854512}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1179,7 +1179,7 @@ GameObject:
   - component: {fileID: 266190399}
   - component: {fileID: 266190401}
   - component: {fileID: 266190400}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Forward
   m_TagString: Forward
   m_Icon: {fileID: 0}
@@ -1277,7 +1277,7 @@ GameObject:
   - component: {fileID: 311076279}
   - component: {fileID: 311076278}
   - component: {fileID: 311076281}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: edge (7)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -1483,7 +1483,7 @@ GameObject:
   - component: {fileID: 347351649}
   - component: {fileID: 347351648}
   - component: {fileID: 347351650}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1585,7 +1585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 377342407}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: forward empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1616,7 +1616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 452260117}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1678,7 +1678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 477168740}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1777,7 +1777,7 @@ GameObject:
   - component: {fileID: 541424199}
   - component: {fileID: 541424198}
   - component: {fileID: 541424201}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: edge (10)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -1975,7 +1975,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 565193385}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2006,7 +2006,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 639940847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2033,111 +2033,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 323736047789363898, guid: 70e8fc9d4f02f214d8b11106f851ac75, type: 3}
   m_PrefabInstance: {fileID: 1829879632}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &706720468
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 706720472}
-  - component: {fileID: 706720471}
-  - component: {fileID: 706720470}
-  - component: {fileID: 706720469}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &706720469
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706720468}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &706720470
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706720468}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &706720471
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706720468}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &706720472
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706720468}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70.562, y: -22.9759, z: 72.8643}
-  m_LocalScale: {x: 319.53076, y: 100, z: 261.95493}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &752021737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,7 +2045,7 @@ GameObject:
   - component: {fileID: 752021741}
   - component: {fileID: 752021740}
   - component: {fileID: 752021739}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2255,7 +2150,7 @@ GameObject:
   - component: {fileID: 772883686}
   - component: {fileID: 772883685}
   - component: {fileID: 772883687}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2361,7 +2256,7 @@ GameObject:
   - component: {fileID: 774845578}
   - component: {fileID: 774845577}
   - component: {fileID: 774845580}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: edge (3)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -2641,9 +2536,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &788301659
 GameObject:
@@ -2658,7 +2553,7 @@ GameObject:
   - component: {fileID: 788301663}
   - component: {fileID: 788301662}
   - component: {fileID: 788301665}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: edge (2)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -2860,7 +2755,7 @@ GameObject:
   - component: {fileID: 789244877}
   - component: {fileID: 789244876}
   - component: {fileID: 789244879}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: edge (8)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -3061,7 +2956,7 @@ GameObject:
   - component: {fileID: 798755432}
   - component: {fileID: 798755431}
   - component: {fileID: 798755433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SteeringWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3129,6 +3024,9 @@ MonoBehaviour:
   rightHandGripAction: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   leftHandGripAction: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   movement: {fileID: 3088243108076515225}
+  joyStickValueR: {x: 0, y: 0}
+  speedAngle: 0
+  smoothSpeed: 2
 --- !u!114 &798755433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3260,7 +3158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 853729486}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3406,7 +3304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 961432343}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3513,7 +3411,7 @@ GameObject:
   - component: {fileID: 986348287}
   - component: {fileID: 986348286}
   - component: {fileID: 986348285}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -3715,7 +3613,7 @@ GameObject:
   - component: {fileID: 1001145833}
   - component: {fileID: 1001145832}
   - component: {fileID: 1001145834}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftAudio
   m_TagString: LeftAudio
   m_Icon: {fileID: 0}
@@ -3907,7 +3805,7 @@ GameObject:
   - component: {fileID: 1037856126}
   - component: {fileID: 1037856125}
   - component: {fileID: 1037856124}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: XR Origin (XR Rig)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4134,7 +4032,7 @@ GameObject:
   - component: {fileID: 1064901183}
   - component: {fileID: 1064901182}
   - component: {fileID: 1064901184}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightAudio (1)
   m_TagString: RightAudio
   m_Icon: {fileID: 0}
@@ -4467,7 +4365,7 @@ GameObject:
   - component: {fileID: 1162306300}
   - component: {fileID: 1162306299}
   - component: {fileID: 1162306302}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: edge
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -4665,7 +4563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1209372855}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SnappPositions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4713,7 +4611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1215589250}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4860,7 +4758,7 @@ GameObject:
   - component: {fileID: 1235447357}
   - component: {fileID: 1235447359}
   - component: {fileID: 1235447358}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectRight
   m_TagString: DetectRight
   m_Icon: {fileID: 0}
@@ -4961,7 +4859,7 @@ GameObject:
   - component: {fileID: 1286302343}
   - component: {fileID: 1286302345}
   - component: {fileID: 1286302344}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Cube
   m_Icon: {fileID: 0}
@@ -5246,7 +5144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1322918429}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5314,7 +5212,7 @@ GameObject:
   - component: {fileID: 1338284286}
   - component: {fileID: 1338284285}
   - component: {fileID: 1338284288}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: edge (4)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -5512,7 +5410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1340207878}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5580,7 +5478,7 @@ GameObject:
   - component: {fileID: 1386218529}
   - component: {fileID: 1386218528}
   - component: {fileID: 1386218527}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Forward(2)
   m_TagString: Forward
   m_Icon: {fileID: 0}
@@ -5774,7 +5672,7 @@ GameObject:
   - component: {fileID: 1392871982}
   - component: {fileID: 1392871981}
   - component: {fileID: 1392871984}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: edge (1)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -5976,7 +5874,7 @@ GameObject:
   - component: {fileID: 1398937085}
   - component: {fileID: 1398937084}
   - component: {fileID: 1398937087}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: edge (5)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -6179,7 +6077,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1442405079}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: -60 empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6515,7 +6413,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1566632330}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6546,7 +6444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1570812438}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 60 empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6577,7 +6475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1638152204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6610,7 +6508,7 @@ GameObject:
   - component: {fileID: 1640496881}
   - component: {fileID: 1640496883}
   - component: {fileID: 1640496882}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectRight(1)
   m_TagString: DetectRight
   m_Icon: {fileID: 0}
@@ -6839,7 +6737,7 @@ GameObject:
   - component: {fileID: 1680045235}
   - component: {fileID: 1680045240}
   - component: {fileID: 1680045241}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7512,7 +7410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1759785251}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7547,7 +7445,7 @@ GameObject:
   - component: {fileID: 1786654717}
   - component: {fileID: 1786654716}
   - component: {fileID: 1786654719}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: edge (11)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -7745,7 +7643,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1810839791}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7945,7 +7843,7 @@ GameObject:
   - component: {fileID: 1830891807}
   - component: {fileID: 1830891806}
   - component: {fileID: 1830891809}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: edge (6)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -8143,7 +8041,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1832197835}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8177,7 +8075,7 @@ GameObject:
   - component: {fileID: 1836768385}
   - component: {fileID: 1836768384}
   - component: {fileID: 1836768386}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightAudio
   m_TagString: RightAudio
   m_Icon: {fileID: 0}
@@ -8370,7 +8268,7 @@ GameObject:
   - component: {fileID: 1847783443}
   - component: {fileID: 1847783442}
   - component: {fileID: 1847783441}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Forward(2) (1)
   m_TagString: DetectLeft
   m_Icon: {fileID: 0}
@@ -8560,7 +8458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1859467339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8593,7 +8491,7 @@ GameObject:
   - component: {fileID: 1874685918}
   - component: {fileID: 1874685920}
   - component: {fileID: 1874685919}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ForwardLeft
   m_TagString: ForwardLeft
   m_Icon: {fileID: 0}
@@ -8751,7 +8649,7 @@ GameObject:
   - component: {fileID: 1923889913}
   - component: {fileID: 1923889912}
   - component: {fileID: 1923889911}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8912,7 +8810,7 @@ GameObject:
   - component: {fileID: 1965483348}
   - component: {fileID: 1965483347}
   - component: {fileID: 1965483350}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: edge (12)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -9112,7 +9010,7 @@ GameObject:
   - component: {fileID: 2013240228}
   - component: {fileID: 2013240230}
   - component: {fileID: 2013240229}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectLeft
   m_TagString: DetectLeft
   m_Icon: {fileID: 0}
@@ -9320,7 +9218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2076619703}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10260,6 +10158,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sign_92 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5348575607151330673, guid: 404dac48fe1322c4390c1db11a5b6ca0, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10822,7 +10724,7 @@ GameObject:
   - component: {fileID: 3088243108074745198}
   - component: {fileID: 3088243108075515214}
   - component: {fileID: 3088243108076515214}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: steering_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13187,7 +13089,7 @@ GameObject:
   - component: {fileID: 4343744881334801281}
   - component: {fileID: 4343744881334801283}
   - component: {fileID: 4343744881334801284}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: right_quest2_mesh
   m_TagString: PlayerHandR
   m_Icon: {fileID: 0}
@@ -14203,6 +14105,10 @@ PrefabInstance:
     - target: {fileID: 408229989105592298, guid: 19d134d782b08d94f9075f0f32e96c59, type: 3}
       propertyPath: m_Name
       value: sign_5 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 408229989105592298, guid: 19d134d782b08d94f9075f0f32e96c59, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5938425944526019767, guid: 19d134d782b08d94f9075f0f32e96c59, type: 3}
       propertyPath: m_Enabled
@@ -15374,7 +15280,7 @@ GameObject:
   - component: {fileID: 7724113227342424026}
   - component: {fileID: 7724113227342424028}
   - component: {fileID: 7724113227342424029}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: left_quest2_mesh
   m_TagString: PlayerHandL
   m_Icon: {fileID: 0}
@@ -16179,4 +16085,3 @@ SceneRoots:
   - {fileID: 1322918429}
   - {fileID: 1297242184}
   - {fileID: 1518220776}
-  - {fileID: 706720472}
