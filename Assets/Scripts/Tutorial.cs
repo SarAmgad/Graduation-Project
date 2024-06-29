@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Tutorial : MonoBehaviour
 {
-    public void Start()
+    public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
