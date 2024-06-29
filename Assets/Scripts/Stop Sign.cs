@@ -30,6 +30,7 @@ public class StopSign : MonoBehaviour
             meshRendererStopSign.enabled = true;
             Debug.Log("Vehicle entered the stop sign area.");
             initialVelocity = other.attachedRigidbody.velocity;
+            
         }
     }
 

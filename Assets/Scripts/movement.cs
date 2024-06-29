@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
 {
     static int score = 0;
 
+    public static int score = 0;
     public float movementSpeed = 10f;
     public AudioSource audioSource;
     public AudioClip accelerationClip;
