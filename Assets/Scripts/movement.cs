@@ -135,31 +135,6 @@ public class Movement : MonoBehaviour
             isLeftDetected = true;
         }
 
-        // Check for other tags if not an audio collider
-        // if (other.gameObject.tag == "DetectRight" && gameObject.tag == "Car")
-        // {
-
-
-        //     spawnManager.SpawnManagerTriggerRight(position, rotation);
-        //     Debug.Log("Triggered Entered Right" + score);
-
-        // }
-        // else if (other.gameObject.tag == "DetectLeft" && gameObject.tag == "Car")
-        // {
-        //     // Vector3 position = other.transform.localPosition;
-        //     // Quaternion rotation = other.transform.localRotation;
-
-        //     spawnManager.SpawnManagerTriggerLeft(position, rotation);
-        //     Debug.Log("Triggered Entered 111 = " + gameObject.name);
-        // }
-        // else if (other.gameObject.tag == "Cube" && gameObject.tag == "Car")
-        // {
-        //     // Vector3 position = other.transform.localPosition;
-        //     // Quaternion rotation = other.transform.localRotation;
-
-        //     spawnManager.SpawnManagerTrigger(position, rotation);
-        //     Debug.Log("Triggered Entered 222 " + gameObject.name);
-        // }
         audioSource.volume = 0.6f;
         isLeftAudio = false;
         isRightAudio = false;

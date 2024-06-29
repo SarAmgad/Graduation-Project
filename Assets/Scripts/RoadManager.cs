@@ -31,17 +31,17 @@ public class RoadManager : MonoBehaviour
         if (other.gameObject.tag == "DetectRight" && gameObject.tag == "Car")
         {
             Debug.Log("righttt");
-            spawnManager.SpawnManagerTriggerRight(parentObject, position, rotation);
+            spawnManager.SpawnManagerTriggerRight(parentObject);
 
         }
         else if (other.gameObject.tag == "DetectLeft" && gameObject.tag == "Car")
         {
             Debug.Log("lefttt");
-            spawnManager.SpawnManagerTriggerLeft(parentObject, position, rotation);
+            spawnManager.SpawnManagerTriggerLeft(parentObject);
         }
         else if (other.gameObject.tag == "Cube" && gameObject.tag == "Car")
         {
-            spawnManager.SpawnManagerTrigger(parentObject, position, rotation);
+            spawnManager.SpawnManagerTrigger(parentObject);
             Debug.Log("Triggered Entered 222 " + gameObject.name + "   " + other.gameObject.name);
         }
 

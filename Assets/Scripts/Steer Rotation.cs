@@ -364,7 +364,7 @@ public class SteerRotation : MonoBehaviour
     private void CheckLeftHandOnWheel()
     {
 
-        Vector2 joyStickValueL = new Vector2(0, 0);
+        // Vector2 joyStickValueL = new Vector2(0, 0);
         if (leftHandOnWheel && leftHandGripAction.action.ReadValue<float>() > 0.1f)
         {
             if (!leftHandInitialRotationCaptured)
@@ -407,36 +407,36 @@ public class SteerRotation : MonoBehaviour
 
     private void CheckRightHandOnWheel()
     {
-        // if (_inputData._rightController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out joyStickValueR))
-        // {
-        UpdateSpeedometer(joyStickValueR.y);
-        if (joyStickValueR.y == 0)
+        if (_inputData._rightController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out joyStickValueR))
         {
-            moveSpeed = 0;
+            UpdateSpeedometer(joyStickValueR.y);
+            if (joyStickValueR.y == 0)
+            {
+                moveSpeed = 0;
+            }
+            else if (joyStickValueR.y < 0)
+            {
+                //VehicleRigidBody.velocity = Vector3.zero;
+                joyStickValueR = -joyStickValueR;
+                moveSpeed = 30;
+                movement.isAccelerating = false;
+                movement.isDecelerating = true;
+                speedAngle += 10 + joyStickValueR.y;
+            }
+            else
+            {
+                moveSpeed = 100;
+                VehicleRigidBody.velocity = forwardMovement;
+                movement.isAccelerating = true;
+                movement.isDecelerating = false;
+                speedAngle -= 10 + joyStickValueR.y;
+            }
+            forwardMovement = 10 * joyStickValueR.y * moveSpeed * Time.deltaTime * Vehicle.transform.forward;
+            //VehicleRigidBody.velocity = forwardMovement * 2;
+            // 
+            // VehicleRigidBody.velocity = new Vector3(0,0,forwardMovement.z * moveSpeed);
+            // Debug.Log("Velcity "+VehicleRigidBody.velocity);
         }
-        else if (joyStickValueR.y < 0)
-        {
-            //VehicleRigidBody.velocity = Vector3.zero;
-            joyStickValueR = -joyStickValueR;
-            moveSpeed = 10;
-            movement.isAccelerating = false;
-            movement.isDecelerating = true;
-            speedAngle += 10 + joyStickValueR.y;
-        }
-        else
-        {
-            moveSpeed = 60;
-            VehicleRigidBody.velocity = forwardMovement;
-            movement.isAccelerating = true;
-            movement.isDecelerating = false;
-            speedAngle -= 10 + joyStickValueR.y;
-        }
-        forwardMovement = 10 * joyStickValueR.y * moveSpeed * Time.deltaTime * Vehicle.transform.forward;
-        //VehicleRigidBody.velocity = forwardMovement * 2;
-        // 
-        // VehicleRigidBody.velocity = new Vector3(0,0,forwardMovement.z * moveSpeed);
-        // Debug.Log("Velcity "+VehicleRigidBody.velocity);
-        // }
     }
 
     private void ConvertHandRotationToSteeringWheelRotation(float rotationDelta)
