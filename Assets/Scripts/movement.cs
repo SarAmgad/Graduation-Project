@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 
 {
     static int score = 0;
+
     public float movementSpeed = 10f;
     public AudioSource audioSource;
     public AudioClip accelerationClip;
@@ -95,8 +96,8 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Vector3 position = other.transform.localPosition;
-        Quaternion rotation = other.transform.localRotation;
+        Vector3 position = other.transform.position;
+        Quaternion rotation = other.transform.rotation;
 
         Debug.Log("Entered");
 
@@ -146,16 +147,12 @@ public class Movement : MonoBehaviour
         }
         else if (other.gameObject.tag == "DetectLeft" && gameObject.tag == "Car")
         {
-            // Vector3 position = other.transform.localPosition;
-            // Quaternion rotation = other.transform.localRotation;
 
             spawnManager.SpawnManagerTriggerLeft(position, rotation);
             Debug.Log("Triggered Entered" + score);
         }
         else if (other.gameObject.tag == "Cube" && gameObject.tag == "Car")
         {
-            // Vector3 position = other.transform.localPosition;
-            // Quaternion rotation = other.transform.localRotation;
 
             spawnManager.SpawnManagerTrigger(position, rotation);
             Debug.Log("Triggered Entered" + score);
