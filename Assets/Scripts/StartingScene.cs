@@ -46,6 +46,11 @@ public class StartingScene : MonoBehaviour
         level2 = false;
     }
 
+    public void Tutorial()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void Exit()
     {
         Application.Quit();
