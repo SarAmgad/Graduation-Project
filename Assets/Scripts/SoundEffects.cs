@@ -9,6 +9,8 @@ public class SoundEffects : MonoBehaviour
     public static AudioClip pickup;
     public static AudioClip complete;
     public static AudioClip alert;
+    public static AudioClip lose;
+
 
     void Start()
     {
@@ -17,18 +19,27 @@ public class SoundEffects : MonoBehaviour
         pickup = LoadAudioClip("Sound/pickup");
         complete = LoadAudioClip("Sound/complete");
         alert = LoadAudioClip("Sound/alert");
+        lose = LoadAudioClip("Sound/lose");
     }
 
     public void ButtonClick()
     {
-        audioSource.clip = buttonClick;
-        audioSource.Play();
+        if (audioSource.isPlaying)
+        {
+            audioSource.Pause();
+            audioSource.clip = buttonClick;
+            audioSource.Play();
+        }
     }
 
     public static void PickUp()
     {
-        audioSource.clip = pickup;
-        audioSource.Play();
+        if (audioSource.isPlaying)
+        {
+            audioSource.Pause();
+            audioSource.clip = pickup;
+            audioSource.Play();
+        }
     }
 
     public static void Complete()
@@ -39,6 +50,26 @@ public class SoundEffects : MonoBehaviour
             audioSource.clip = complete;
             audioSource.Play();
             UIManager.flag = false;
+        }
+    }
+
+    public static void Mistake()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Pause();
+            audioSource.clip = alert;
+            audioSource.Play();
+        }
+    }
+
+    public static void Losing()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Pause();
+            audioSource.clip = lose;
+            audioSource.Play();
         }
     }
 

@@ -49,7 +49,6 @@ public class Numbers : MonoBehaviour
                 cnt ++;
             }
         }
-
     }
 
     void PrintHiddenLists(){
@@ -65,10 +64,12 @@ public class Numbers : MonoBehaviour
             if (num == hiddenNumbers[0]){
                 hiddenNumbers.RemoveAt(0);
                 numberSpawnManager.InstantiatePrefab(num, false);
+                SoundEffects.PickUp();
                 if (hiddenNumbers.Count == 0){
                     endCanvas.SetActive(true);
                     PlayerPrefs.DeleteKey("mistakes");
                     PlayerPrefs.SetInt("mistakes", mistakes);
+                    SoundEffects.Complete();
                 }
             }
             else{
@@ -76,6 +77,7 @@ public class Numbers : MonoBehaviour
                 msgText.text = "The order was not correct";
                 mistakesNum++;
                 mistakes++;
+                SoundEffects.Mistake();
             }
         }
         else{
@@ -83,11 +85,13 @@ public class Numbers : MonoBehaviour
             msgText.text = $"That was not correct. \nThe {num} is not missing";
             mistakesNum++;
             mistakes++;
+            SoundEffects.Mistake();
         }
         if (mistakesNum == 4)
         {
             mistakesNum = 0;
             mistakeCanvas.SetActive(true);
+            SoundEffects.Losing();
         }
         PrintHiddenLists();
     }
