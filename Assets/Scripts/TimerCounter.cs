@@ -5,22 +5,24 @@ using UnityEngine;
 public class TimerCounter : MonoBehaviour
 {
     float time;
-    GameObject timerUI;
+    public GameObject timerUI;
     // Start is called before the first frame update
     void Start()
     {
-        time = 120;
+        time = 120f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(time == 0){
+        if(time <= 0){
             timerUI.SetActive(true); 
-            StartCoroutine(Delay(2f));           
+            StartCoroutine(Delay(2f)); 
+            Debug.Log("time finished");          
         }
         else {
             time -= Time.deltaTime;
+            Debug.Log("Time " + time);
         }
         
     }

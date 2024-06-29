@@ -19,20 +19,12 @@ public class RoadManager : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Vector3 position = other.transform.position;
-        Quaternion rotation = other.transform.localRotation;
-        //debug.log("Enteredddddddddddd");
-
         GameObject otherGameObject = other.gameObject;
         Transform parentTransform = otherGameObject.transform.parent;
         GameObject parentObject = parentTransform.gameObject;
-        //debug.log("nameeeeeeeee "+ parentObject.name);
-        // Check for other tags if not an audio collider
         if (other.gameObject.tag == "DetectRight" && gameObject.tag == "Car")
         {
-            //debug.log("righttt");
             spawnManager.SpawnManagerTriggerRight(parentObject);
-
         }
         else if (other.gameObject.tag == "DetectLeft" && gameObject.tag == "Car")
         {

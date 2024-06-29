@@ -65,10 +65,6 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        // float hmovement = Input.GetAxis("Horizontal")* movementSpeed;
-        // float vmovement = Input.GetAxis("Vertical")* movementSpeed;
-        // transform.Translate(new Vector3(hmovement,0,vmovement)*Time.deltaTime);
-        //PlaySound(mainAudio);
         float currentSpeed = VehicleRigidBody.velocity.magnitude;
 
         if (isAccelerating)
