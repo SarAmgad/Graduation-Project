@@ -29,6 +29,10 @@ public class Grabbing : MonoBehaviour
         {
             currentGrabbedObject = grabInteractable;
             grabbedObject = grabInteractable;
+            if (FoundObjectDestroy.objects.Contains(grabbedObject.tag))
+            {
+                SoundEffects.PickUp();
+            }
         }
     }
 
