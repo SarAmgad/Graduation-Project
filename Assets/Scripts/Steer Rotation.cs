@@ -287,7 +287,6 @@
 
 
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms.Impl;
@@ -318,12 +317,6 @@ public class SteerRotation : MonoBehaviour
     float currentLeftHandRotation;
     Vector3 forwardMovement;
     public Movement movement;
-
-    public float joyStickVal = 0;
-
-    public float speedAngle = 0;
-
-    public float previousJoyStickVal = 0;
     Vector2 joyStickValueR = new Vector2(0, 0);
 
 
@@ -342,9 +335,8 @@ public class SteerRotation : MonoBehaviour
         currentLeftHandRotation = leftHand.transform.localEulerAngles.z;
         CheckLeftHandOnWheel();
         CheckRightHandOnWheel();
-        VehicleRigidBody.velocity = forwardMovement;
-        if (movement.isEdgeDetected)
-        {
+        // VehicleRigidBody.velocity = forwardMovement;
+        if(movement.isEdgeDetected){
             moveSpeed = 0;
         }
         // if (!leftHandOnWheel && !rightHandOnWheel)
@@ -393,7 +385,6 @@ public class SteerRotation : MonoBehaviour
                         ConvertHandRotationToSteeringWheelRotation(rotationDifference);
                         TurnVehicle(rotationDifference);
                     }
-
                 }
                 // if (_inputData._leftController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out joyStickValueL))
                 // {
@@ -401,57 +392,8 @@ public class SteerRotation : MonoBehaviour
                 // }
 
             }
-            // if (_inputData._rightController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out joyStickValueR))
-            // {
-
-            if (joyStickVal < previousJoyStickVal)
-            {
-                if (forwardMovement.z == 0)
-                {
-                    moveSpeed = 0;
-                }
-                else
-                {
-                    joyStickVal = Math.Abs(joyStickVal);
-                    moveSpeed = 60;
-                    speedAngle -= 10f + (previousJoyStickVal - joyStickVal);
-
-                }
-                forwardMovement = 0.1f * 10 * joyStickVal * moveSpeed * Time.deltaTime * Vehicle.transform.forward;
-
-                //VehicleRigidBody.velocity = Vector3.zero;
-                // joyStickValueR = -joyStickValueR;
-
-
-                //movement.isAccelerating = false;
-                movement.isDecelerating = true;
-
-
-            }
-            else if (joyStickVal == 0)
-            {
-                moveSpeed = 0;
-                movement.isDecelerating = true;
-                //speedAngle += 0.1f;
-            }
-            else if (joyStickVal > previousJoyStickVal)
-            {
-                moveSpeed = 60;
-                VehicleRigidBody.velocity = forwardMovement;
-                movement.isAccelerating = true;
-                speedAngle += 10f + (joyStickVal - previousJoyStickVal);
-                Debug.Log("SpeedAngle " + speedAngle);
-                forwardMovement = 2f * 10 * joyStickVal * moveSpeed * Time.deltaTime * Vehicle.transform.forward;
-
-                //movement.isDecelerating = false;
-
-            }
-            // }
             // Vector3 forwardMovement = joyStickValueL.y * Vehicle.transform.forward;
             // VehicleRigidBody.velocity = forwardMovement * moveSpeed;
-            UpdateSpeedometer(speedAngle);
-            previousJoyStickVal = joyStickVal;
-
         }
         else
         {
@@ -461,75 +403,35 @@ public class SteerRotation : MonoBehaviour
 
     private void CheckRightHandOnWheel()
     {
+        if (_inputData._rightController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out joyStickValueR))
+        {
+            UpdateSpeedometer(joyStickValueR.y);            
+            if(joyStickValueR.y == 0){
+                moveSpeed = 0;
+            }
+            else if (joyStickValueR.y < 0)
+            {
+                //VehicleRigidBody.velocity = Vector3.zero;
+                joyStickValueR = -joyStickValueR;
+                moveSpeed = 10;
+                movement.isAccelerating = false;
+                movement.isDecelerating = true;
+            }
+            else
+            {
+                moveSpeed = 60;
+                VehicleRigidBody.velocity = forwardMovement;
+                movement.isAccelerating = true;
+                movement.isDecelerating = false;
 
-        float speed;
-        // if (rightHandOnWheel && rightHandGripAction.action.ReadValue<float>() > 0.1f)
-        // {
-        // if (!rightHandInitialRotationCaptured)
-        // {
-        //     initialRightHandRotation = rightHand.transform.localRotation.z;
-        //     rightHandInitialRotationCaptured = true;
-        // }
-        // else
-        // {
-        //     float rotationDifference = (rightHand.transform.localRotation.z - initialRightHandRotation) - 360;
-        //     Debug.Log("currentRightHandRotation" + rightHand.transform.localRotation.z + " initialRightHandRotation  " + initialRightHandRotation + " rotationDifference  " + rotationDifference);
-        //     Debug.Log("rotationdifference " + Math.Abs(rotationDifference % 360));
-        //     if ((Math.Abs(rotationDifference % 360) > 20) && (Math.Abs(rotationDifference % 360) < 340))
-        //     {
-        //         if (rotationDifference > 0)
-        //         {
-        //             ConvertHandRotationToSteeringWheelRotation(-rotationDifference + 360);
-        //             TurnVehicle(-rotationDifference + 360);
-        //         }
-        //         else
-        //         {
-        //             ConvertHandRotationToSteeringWheelRotation(rotationDifference);
-        //             TurnVehicle(rotationDifference);
-        //         }
-        //     }
-        // }
-        // if (_inputData._rightController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out joyStickValueR))
-        // {
-        // forwardMovement = 10 * joyStickValueR.y * moveSpeed * Time.deltaTime * Vehicle.transform.forward;
-        // if (joyStickValueR.y < 0)
-        // {
-        //     //VehicleRigidBody.velocity = Vector3.zero;
-        //     joyStickValueR = -joyStickValueR;
-        //     moveSpeed = 10;
-        //     //movement.isAccelerating = false;
-        //     movement.isDecelerating = true;
-
-
-        // }
-        // else if (joyStickValueR.y == 0)
-        // {
-        //     moveSpeed = 0;
-        //     movement.isDecelerating = true;
-        // }
-        // else
-        // {
-        //     moveSpeed = 60;
-        //     VehicleRigidBody.velocity = forwardMovement;
-        //     movement.isAccelerating = true;
-        //     //movement.isDecelerating = false;
-
-        // }
-
-        //VehicleRigidBody.velocity = forwardMovement * 2;
-        // 
-        // VehicleRigidBody.velocity = new Vector3(0,0,forwardMovement.z * moveSpeed);
-        // Debug.Log("Velcity "+VehicleRigidBody.velocity);
+            }
+            forwardMovement = 10 * joyStickValueR.y * moveSpeed * Time.deltaTime * Vehicle.transform.forward;
+            //VehicleRigidBody.velocity = forwardMovement * 2;
+            // 
+            // VehicleRigidBody.velocity = new Vector3(0,0,forwardMovement.z * moveSpeed);
+            // Debug.Log("Velcity "+VehicleRigidBody.velocity);
+        }
     }
-
-
-    // }
-    // else
-    // {
-    //     rightHandInitialRotationCaptured = false;
-    // }
-
-    // }
 
     private void ConvertHandRotationToSteeringWheelRotation(float rotationDelta)
     {
@@ -590,7 +492,6 @@ public class SteerRotation : MonoBehaviour
     void UpdateSpeedometer(float moveSpeed)
     {
         float targetAngle;
-        moveSpeed = Mathf.Clamp01(moveSpeed);
         if (moveSpeed >= 0 && moveSpeed <= 0.5f)
         {
             targetAngle = 360f * moveSpeed - 180f;
@@ -621,5 +522,5 @@ public class SteerRotation : MonoBehaviour
         }
         Debug.Log("Vehicle Rotate: " + rotationDelta);
         VehicleRigidBody.MoveRotation(Quaternion.RotateTowards(Vehicle.transform.rotation, Quaternion.Euler(0, Math.Abs(turn + rotationDelta), 0), Time.deltaTime * turnDampening));
-    }
+    }
 }
