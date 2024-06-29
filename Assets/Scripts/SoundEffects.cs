@@ -27,9 +27,9 @@ public class SoundEffects : MonoBehaviour
         if (audioSource.isPlaying)
         {
             audioSource.Pause();
-            audioSource.clip = buttonClick;
-            audioSource.Play();
         }
+        audioSource.clip = buttonClick;
+        audioSource.Play();
     }
 
     public static void PickUp()
@@ -37,9 +37,9 @@ public class SoundEffects : MonoBehaviour
         if (audioSource.isPlaying)
         {
             audioSource.Pause();
-            audioSource.clip = pickup;
-            audioSource.Play();
         }
+        audioSource.clip = pickup;
+        audioSource.Play();
     }
 
     public static void Complete()
@@ -47,10 +47,10 @@ public class SoundEffects : MonoBehaviour
         if (audioSource.isPlaying)
         {
             audioSource.Pause();
-            audioSource.clip = complete;
-            audioSource.Play();
-            UIManager.flag = false;
         }
+        audioSource.clip = complete;
+        audioSource.Play();
+        UIManager.flag = false;
     }
 
     public static void Mistake()
@@ -58,9 +58,9 @@ public class SoundEffects : MonoBehaviour
         if (audioSource.isPlaying)
         {
             audioSource.Pause();
-            audioSource.clip = alert;
-            audioSource.Play();
         }
+        audioSource.clip = alert;
+        audioSource.Play();
     }
 
     public static void Losing()
@@ -68,9 +68,9 @@ public class SoundEffects : MonoBehaviour
         if (audioSource.isPlaying)
         {
             audioSource.Pause();
-            audioSource.clip = lose;
-            audioSource.Play();
         }
+        audioSource.clip = lose;
+        audioSource.Play();
     }
 
     AudioClip LoadAudioClip(string path)
