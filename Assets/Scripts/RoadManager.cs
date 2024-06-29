@@ -19,7 +19,7 @@ public class RoadManager : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Vector3 position = other.transform.localPosition;
+        Vector3 position = other.transform.position;
         Quaternion rotation = other.transform.localRotation;
         Debug.Log("Enteredddddddddddd");
 
@@ -30,46 +30,17 @@ public class RoadManager : MonoBehaviour
         // Check for other tags if not an audio collider
         if (other.gameObject.tag == "DetectRight" && gameObject.tag == "Car")
         {
-
-            // Transform parentTransform = transform.parent;
-
-            // if (parentTransform != null)
-            // {
-                
-            //     Debug.Log("Triggered object parent is: " + parentObject.name);
-                
-    
-            // }
             Debug.Log("righttt");
             spawnManager.SpawnManagerTriggerRight(parentObject, position, rotation);
 
         }
         else if (other.gameObject.tag == "DetectLeft" && gameObject.tag == "Car")
         {
-            // Transform parentTransform = transform.parent;
-
-            // if (parentTransform != null)
-            // {
-            //     GameObject parentObject = parentTransform.gameObject;
-            //     Debug.Log("Triggered object parent is: " + parentObject.name);
-                
-    
-            // }
             Debug.Log("lefttt");
             spawnManager.SpawnManagerTriggerLeft(parentObject, position, rotation);
         }
         else if (other.gameObject.tag == "Cube" && gameObject.tag == "Car")
         {
-            // Transform parentTransform = transform.parent;
-
-            // if (parentTransform != null)
-            // {
-            //     GameObject parentObject = parentTransform.gameObject;
-            //     Debug.Log("Triggered object parent is: " + parentObject.name);
-                
-    
-            // }
-
             spawnManager.SpawnManagerTrigger(parentObject, position, rotation);
             Debug.Log("Triggered Entered 222 " + gameObject.name + "   " + other.gameObject.name);
         }

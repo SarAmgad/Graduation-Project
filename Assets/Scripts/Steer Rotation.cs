@@ -519,7 +519,7 @@ public class SteerRotation : MonoBehaviour
         currentAngle = Mathf.LerpAngle(currentAngle, targetAngle, smoothSpeed * Time.deltaTime);
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, currentAngle, 0f));
         Needle.transform.localRotation = targetRotation;
-        Debug.Log("Needle Rotation: " + moveSpeed);
+       // Debug.Log("Needle Rotation: " + moveSpeed);
     }
 
     private void TurnVehicle(float rotationDelta)
