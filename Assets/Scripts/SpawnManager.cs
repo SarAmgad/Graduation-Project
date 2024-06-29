@@ -20,19 +20,19 @@ public class SpawnManager : MonoBehaviour
 
         
 
-    public void SpawnManagerTrigger(Vector3 position, Quaternion rotation)
+    public void SpawnManagerTrigger(GameObject parent, Vector3 position, Quaternion rotation)
     {
-        roadSpawner.SpawnRoad(RoadSpawner.Direction.Forward, position,rotation);
+        roadSpawner.SpawnRoad(RoadSpawner.Direction.Forward,parent, position,rotation);
     }
 
-    public void SpawnManagerTriggerRight(Vector3 position, Quaternion rotation)
+    public void SpawnManagerTriggerRight(GameObject parent, Vector3 position, Quaternion rotation)
     {
-        roadSpawner.SpawnRoad(RoadSpawner.Direction.Right, position, rotation);
+        roadSpawner.SpawnRoad(RoadSpawner.Direction.Right, parent, position, rotation);
     }
 
 
-    public void SpawnManagerTriggerLeft(Vector3 position,Quaternion rotation)
+    public void SpawnManagerTriggerLeft(GameObject parent, Vector3 position,Quaternion rotation)
     {
-        roadSpawner.SpawnRoad(RoadSpawner.Direction.Left, position,rotation);
+        roadSpawner.SpawnRoad(RoadSpawner.Direction.Left, parent, position,rotation);
     }
 }

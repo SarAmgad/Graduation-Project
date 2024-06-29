@@ -6,7 +6,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 
 {
-    static int score = 0;
+    // static int score = 0;
 
     public static int score = 0;
     public float movementSpeed = 10f;
@@ -138,14 +138,14 @@ public class Movement : MonoBehaviour
         }
 
         // Check for other tags if not an audio collider
-        if (other.gameObject.tag == "DetectRight" && gameObject.tag == "Car")
-        {
+        // if (other.gameObject.tag == "DetectRight" && gameObject.tag == "Car")
+        // {
 
 
-            spawnManager.SpawnManagerTriggerRight(position, rotation);
-            Debug.Log("Triggered Entered Right" + score);
+        //     spawnManager.SpawnManagerTriggerRight(position, rotation);
+        //     Debug.Log("Triggered Entered Right" + score);
 
-        }
+        // }
         // else if (other.gameObject.tag == "DetectLeft" && gameObject.tag == "Car")
         // {
         //     // Vector3 position = other.transform.localPosition;
