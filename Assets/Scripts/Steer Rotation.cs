@@ -317,7 +317,10 @@ public class SteerRotation : MonoBehaviour
     float currentLeftHandRotation;
     Vector3 forwardMovement;
     public Movement movement;
-    Vector2 joyStickValueR = new Vector2(0, 0);
+    public Vector2 joyStickValueR = new Vector2(0, 0);
+    public float speedAngle = 0;
+    private float currentAngle = -180f;
+    public float smoothSpeed = 2f;
 
 
     void Start()
@@ -336,7 +339,8 @@ public class SteerRotation : MonoBehaviour
         CheckLeftHandOnWheel();
         CheckRightHandOnWheel();
         // VehicleRigidBody.velocity = forwardMovement;
-        if(movement.isEdgeDetected){
+        if (movement.isEdgeDetected)
+        {
             moveSpeed = 0;
         }
         // if (!leftHandOnWheel && !rightHandOnWheel)
@@ -403,34 +407,36 @@ public class SteerRotation : MonoBehaviour
 
     private void CheckRightHandOnWheel()
     {
-        if (_inputData._rightController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out joyStickValueR))
+        // if (_inputData._rightController.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out joyStickValueR))
+        // {
+        UpdateSpeedometer(joyStickValueR.y);
+        if (joyStickValueR.y == 0)
         {
-            UpdateSpeedometer(joyStickValueR.y);            
-            if(joyStickValueR.y == 0){
-                moveSpeed = 0;
-            }
-            else if (joyStickValueR.y < 0)
-            {
-                //VehicleRigidBody.velocity = Vector3.zero;
-                joyStickValueR = -joyStickValueR;
-                moveSpeed = 10;
-                movement.isAccelerating = false;
-                movement.isDecelerating = true;
-            }
-            else
-            {
-                moveSpeed = 60;
-                VehicleRigidBody.velocity = forwardMovement;
-                movement.isAccelerating = true;
-                movement.isDecelerating = false;
-
-            }
-            forwardMovement = 10 * joyStickValueR.y * moveSpeed * Time.deltaTime * Vehicle.transform.forward;
-            //VehicleRigidBody.velocity = forwardMovement * 2;
-            // 
-            // VehicleRigidBody.velocity = new Vector3(0,0,forwardMovement.z * moveSpeed);
-            // Debug.Log("Velcity "+VehicleRigidBody.velocity);
+            moveSpeed = 0;
         }
+        else if (joyStickValueR.y < 0)
+        {
+            //VehicleRigidBody.velocity = Vector3.zero;
+            joyStickValueR = -joyStickValueR;
+            moveSpeed = 10;
+            movement.isAccelerating = false;
+            movement.isDecelerating = true;
+            speedAngle += 10 + joyStickValueR.y;
+        }
+        else
+        {
+            moveSpeed = 60;
+            VehicleRigidBody.velocity = forwardMovement;
+            movement.isAccelerating = true;
+            movement.isDecelerating = false;
+            speedAngle -= 10 + joyStickValueR.y;
+        }
+        forwardMovement = 10 * joyStickValueR.y * moveSpeed * Time.deltaTime * Vehicle.transform.forward;
+        //VehicleRigidBody.velocity = forwardMovement * 2;
+        // 
+        // VehicleRigidBody.velocity = new Vector3(0,0,forwardMovement.z * moveSpeed);
+        // Debug.Log("Velcity "+VehicleRigidBody.velocity);
+        // }
     }
 
     private void ConvertHandRotationToSteeringWheelRotation(float rotationDelta)
@@ -491,6 +497,8 @@ public class SteerRotation : MonoBehaviour
 
     void UpdateSpeedometer(float moveSpeed)
     {
+
+        moveSpeed = Mathf.Clamp01(moveSpeed);
         float targetAngle;
         if (moveSpeed >= 0 && moveSpeed <= 0.5f)
         {
@@ -500,13 +508,18 @@ public class SteerRotation : MonoBehaviour
         {
             targetAngle = 360f * moveSpeed + 160f;
         }
+        else if (moveSpeed < -1)
+        {
+            targetAngle = 0;
+        }
         else
         {
             targetAngle = Needle.transform.localRotation.y;
         }
-
-        Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, targetAngle, 0f));
+        currentAngle = Mathf.LerpAngle(currentAngle, targetAngle, smoothSpeed * Time.deltaTime);
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, currentAngle, 0f));
         Needle.transform.localRotation = targetRotation;
+        Debug.Log("Needle Rotation: " + moveSpeed);
     }
 
     private void TurnVehicle(float rotationDelta)
@@ -522,5 +535,5 @@ public class SteerRotation : MonoBehaviour
         }
         Debug.Log("Vehicle Rotate: " + rotationDelta);
         VehicleRigidBody.MoveRotation(Quaternion.RotateTowards(Vehicle.transform.rotation, Quaternion.Euler(0, Math.Abs(turn + rotationDelta), 0), Time.deltaTime * turnDampening));
-    }
+    }
 }
