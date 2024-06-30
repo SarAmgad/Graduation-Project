@@ -33,7 +33,7 @@ public class StartingScene : MonoBehaviour
 
     public void StartModule2()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(7);
     }
 
 
@@ -54,6 +54,10 @@ public class StartingScene : MonoBehaviour
     public void Tutorial()
     {
         SceneManager.LoadScene(1);
+    }
+    public void Tutorial2()
+    {
+        SceneManager.LoadScene(6);
     }
 
     public void Exit()
