@@ -16,9 +16,9 @@ public class NiddleWithRandomRange : MonoBehaviour
         {
             isColliding = true;
             checkCollisionCoroutine ??= StartCoroutine(CheckCollisionDuration());
-            Debug.Log("Needleee CollisionnnnnnEntered. 1");
+           //Debug.log("Needleee CollisionnnnnnEntered. 1");
         }
-        Debug.Log("Needleee CollisionnnnnnEntered. 2");
+       //Debug.log("Needleee CollisionnnnnnEntered. 2");
 
     }
 
@@ -42,7 +42,7 @@ public class NiddleWithRandomRange : MonoBehaviour
         if (isColliding)
         {
             score++;
-            Debug.Log(" Needleee Collisionnnnnn. 3" + score);
+           //Debug.log(" Needleee Collisionnnnnn. 3" + score);
         }
     }
 

@@ -34,12 +34,12 @@ public class SlowDownSign : MonoBehaviour
 
         if (other.CompareTag("Car"))
         {
-            Debug.Log("Nameeee" + other.name);
+           //Debug.log("Nameeee" + other.name);
             Transform parentTransform = other.gameObject.transform.parent;
             GameObject parentObject = parentTransform.gameObject;
             Rigidbody rigidParent = parentObject.GetComponent<Rigidbody>();
             meshRendererSlowDownSign.enabled = true;
-            Debug.Log("Vehicle entered the slow down.");
+           //Debug.log("Vehicle entered the slow down.");
             initialVelocity = rigidParent.velocity;
         }
     }
@@ -52,20 +52,20 @@ public class SlowDownSign : MonoBehaviour
             Transform parentTransform = otherGameObject.transform.parent;
             GameObject parentObject = parentTransform.gameObject;
             Rigidbody rigidParent = parentObject.GetComponent<Rigidbody>();
-            Debug.Log("Car velocity "+rigidParent.velocity);
+           //Debug.log("Car velocity "+rigidParent.velocity);
             if ((rigidParent.velocity.z - initialVelocity.z) < slowDownThreshold)
             {
                 if (!IsScoreUpdated)
                 {
 
-                    // Debug.Log("Current " + other.attachedRigidbody.velocity.z);
-                    // Debug.Log("Initial " + initialVelocity.z);
+                    ////Debug.log("Current " + other.attachedRigidbody.velocity.z);
+                    ////Debug.log("Initial " + initialVelocity.z);
 
                     isSlowedDown = true;
                     StopSign.scoreForDetectedSigns ++;
                     IsScoreUpdated = true;
-                    Debug.Log("Vehicle stopped" + score);
-                    Debug.Log("Initial " + initialVelocity.z);
+                   //Debug.log("Vehicle stopped" + score);
+                   //Debug.log("Initial " + initialVelocity.z);
                     
 
                 }

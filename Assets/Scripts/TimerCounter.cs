@@ -9,7 +9,7 @@ public class TimerCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time = 120f;
+        time = 200f;
     }
 
     // Update is called once per frame
@@ -18,11 +18,11 @@ public class TimerCounter : MonoBehaviour
         if(time <= 0){
             timerUI.SetActive(true); 
             StartCoroutine(Delay(2f)); 
-            Debug.Log("time finished");          
+           //Debug.log("time finished");          
         }
         else {
             time -= Time.deltaTime;
-            Debug.Log("Time " + time);
+           //Debug.log("Time " + time);
         }
         
     }

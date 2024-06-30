@@ -100,7 +100,7 @@ public class Movement : MonoBehaviour
         // Check if the collider is an audio collider
         if (other.gameObject.tag == "RightAudio")
         {
-            audioSource.volume = 0.2f;
+            audioSource.volume = 0.4f;
             isRightDetected = true;
             if (!isRightAudio)
             {
@@ -116,7 +116,7 @@ public class Movement : MonoBehaviour
         }
         else if (other.gameObject.tag == "LeftAudio")
         {
-            audioSource.volume = 0.2f;
+            audioSource.volume = 0.4f;
             if (!isLeftAudio)
             {
                 other.GetComponent<AudioSource>().Play();
@@ -131,7 +131,7 @@ public class Movement : MonoBehaviour
             isLeftDetected = true;
         }
 
-        audioSource.volume = 0.6f;
+        audioSource.volume = 0.2f;
         isLeftAudio = false;
         isRightAudio = false;
 
@@ -199,49 +199,4 @@ public class Movement : MonoBehaviour
     }
 
 
-    // IEnumerator DelayCheckRotation()
-    // {
-    //     yield return new WaitForSeconds(2f);
-    //     CheckRightRotation();
-    //     CheckLeftRotation();
-    //     finalVehicleRotation = gameObject.transform.localEulerAngles.y;
-    //     ////debug.log("Initiall" + initialVehicleRotation);
-    //     IsScoreUpdated = false;
-    // }
-    // void CheckRightRotation()
-    // {
-    //     ////debug.log("finalVehicle" + finalVehicleRotation);
-    //     if (isRightAudio && (finalVehicleRotation > initialVehicleRotation))
-    //     {
-    //         ////debug.log("Right Rotation" + finalVehicleRotation + "Initiall+30" + (initialVehicleRotation + 30));
-    //         ////debug.log("Initiall" + initialVehicleRotation);
-    //         score++;
-
-    //         ////debug.log("Scoreeeeeeee" + score);
-    //     }
-    //     else
-    //     {
-    //         if (score == 0)
-    //             score = 0;
-    //         else
-    //             score--;
-    //         ////debug.log("Left Rotation" + score);
-    //     }
-    // }
-    // void CheckLeftRotation()
-    // {
-    //     if (!isRightAudio && (finalVehicleRotation < initialVehicleRotation))
-    //     {
-    //         score++;
-    //         ////debug.log("Scoreeeeeeee" + score);
-    //     }
-    //     else
-    //     {
-    //         if (score == 0)
-    //             score = 0;
-    //         else
-    //             score--;
-    //         ////debug.log("Left Rotation" + score);
-    //     }
-    // }
 }
