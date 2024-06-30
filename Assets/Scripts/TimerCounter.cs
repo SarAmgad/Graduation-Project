@@ -29,10 +29,10 @@ public class TimerCounter : MonoBehaviour
 
     IEnumerator Delay(float delay){
         yield return new WaitForSeconds(delay);
+        PlayerPrefs.DeleteKey("score");
+        PlayerPrefs.SetInt("score", Movement.score);
+        PlayerPrefs.DeleteKey("scoreForDetectedSigns");
+        PlayerPrefs.SetInt("scoreForDetectedSigns", StopSign.scoreForDetectedSigns);
         StartingScene.BackToStart();
-        
-        // Backtostart
-        // StopSign.scoreForDetectedSigns
-        // movement.score
     }
 }
