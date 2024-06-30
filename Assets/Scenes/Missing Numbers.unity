@@ -8535,9 +8535,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 214102305}
+      - m_Target: {fileID: 8964018088295406856}
         m_TargetAssemblyTypeName: StartingScene, Assembly-CSharp
-        m_MethodName: Quest
+        m_MethodName: BackToStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9962,6 +9962,7 @@ GameObject:
   - component: {fileID: 8964018088295406855}
   - component: {fileID: 121685225466311818}
   - component: {fileID: 1877473334941864559}
+  - component: {fileID: 8964018088295406856}
   m_Layer: 8
   m_Name: Continue
   m_TagString: Untagged
@@ -10704,6 +10705,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4196456618925137888}
   m_CullTransparentMesh: 1
+--- !u!114 &8964018088295406856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196456618925137888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b9612d4e61ad24e8be8c84dc2f839d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9068511430776990679
 MonoBehaviour:
   m_ObjectHideFlags: 0

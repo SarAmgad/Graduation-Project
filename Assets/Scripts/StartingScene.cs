@@ -31,8 +31,13 @@ public class StartingScene : MonoBehaviour
         level2 = false;
     }
 
+    public void StartModule2()
+    {
+        SceneManager.LoadScene(6);
+    }
 
-    public void BackToStart()
+
+    public static void BackToStart()
     {
         SceneManager.LoadScene(1);
         level1 = false;
