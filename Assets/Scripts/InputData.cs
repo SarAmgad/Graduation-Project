@@ -23,7 +23,7 @@ public class InputData : MonoBehaviour
         if (!_leftController.isValid)
         {
             InitializeInputDevice(InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Left, ref _leftController);
-          //  Debug.Log("Left Controller Initialized");
+          // //Debug.log("Left Controller Initialized");
         }
 
         if (!_HMD.isValid)
@@ -41,7 +41,7 @@ public class InputData : MonoBehaviour
         //We check if any devices are found here to avoid errors.
         if (devices.Count > 0)
         {
-        //    Debug.Log("Found    " + devices.Count + " devices with the requested characteristics");
+        //   //Debug.log("Found    " + devices.Count + " devices with the requested characteristics");
             inputDevice = devices[0];
         }
     }

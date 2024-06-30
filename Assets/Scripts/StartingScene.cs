@@ -39,7 +39,7 @@ public class StartingScene : MonoBehaviour
 
     public static void BackToStart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
         level1 = false;
         level2 = false;
     }
@@ -53,7 +53,7 @@ public class StartingScene : MonoBehaviour
 
     public void Tutorial()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void Exit()

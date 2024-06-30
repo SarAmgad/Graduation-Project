@@ -10,20 +10,21 @@ public class NiddleWithRandomRange : MonoBehaviour
 
     public static int score = 0;
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.GetComponent<Renderer>().material == specialMaterial)
+        if (other.GetComponent<Renderer>().material == specialMaterial)
         {
             isColliding = true;
             checkCollisionCoroutine ??= StartCoroutine(CheckCollisionDuration());
-            Debug.Log("Needleee CollisionnnnnnEntered. 1");
+           //Debug.log("Needleee CollisionnnnnnEntered. 1");
         }
-        Debug.Log("Needleee CollisionnnnnnEntered. 2");
+       //Debug.log("Needleee CollisionnnnnnEntered. 2");
+
     }
 
-    void OnCollisionExit(Collision collision)
+    void OnTriggerExit(Collider other)
     {
-        if (collision.collider.GetComponent<Renderer>().material == specialMaterial)
+        if (other.GetComponent<Renderer>().material == specialMaterial)
         {
             isColliding = false;
             if (checkCollisionCoroutine != null)
@@ -41,7 +42,7 @@ public class NiddleWithRandomRange : MonoBehaviour
         if (isColliding)
         {
             score++;
-            Debug.Log(" Needleee Collisionnnnnn. 3" + score);
+           //Debug.log(" Needleee Collisionnnnnn. 3" + score);
         }
     }
 
