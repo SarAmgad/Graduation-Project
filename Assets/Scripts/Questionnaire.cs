@@ -164,8 +164,8 @@ public class Questionnaire : MonoBehaviour
             writer.WriteLine($"third timer {PlayerPrefs.GetFloat("third timer")}");
             writer.WriteLine($"Mistakes, {PlayerPrefs.GetFloat("mistakes")}");
 
-            // writer.WriteLine($"Score for voices, {PlayerPrefs.GetFloat("score")}");
-            // writer.WriteLine($"Score fo signs, {PlayerPrefs.GetFloat("sign score")}");
+            // writer.WriteLine($"Score for voices, {PlayerPrefs.GetInt("score")}");
+            // writer.WriteLine($"Score fo signs, {PlayerPrefs.GetInt("sign score")}");
         }
 
         questionsCanvas.SetActive(false);
