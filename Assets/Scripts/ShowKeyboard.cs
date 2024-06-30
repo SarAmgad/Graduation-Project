@@ -25,7 +25,7 @@ public class ShowKeyboard : MonoBehaviour
     public void SaveEmail()
     {
         Debug.Log(emailField.text);
-        if (emailField.text != "")
+        if (emailField.text != "" || nameField.text != "")
         {
             PlayerPrefs.DeleteKey("name");
             PlayerPrefs.DeleteKey("email");
