@@ -55,19 +55,19 @@ Material:
     - _Centre_Gaps_Amount: 50
     - _Centre_Noise_Amount: 0
     - _Centre_Normal_Height: 58.8
-    - _Centre_Roughness: 0.955
+    - _Centre_Roughness: 0.903
     - _Centre_Width: 0.05
     - _Edge_Gap: 0.15
     - _Edge_Noise_Amount: 0
     - _Edge_Normal_Height: 33.72
-    - _Edge_Roughness: 0.414
+    - _Edge_Roughness: 0.336
     - _Edge_Width: 0.09
     - _Normal_Strength: 0.01
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Road_Noise_Amount: 200
     - _Road_Normal_Height: -0.33
-    - _Road_Roughness: 0.424
+    - _Road_Roughness: 0.383
     m_Colors:
     - _Centre_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Edge_Color: {r: 1, g: 0.6744842, b: 0, a: 0}
