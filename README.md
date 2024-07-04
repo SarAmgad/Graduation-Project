@@ -37,7 +37,7 @@ The game includes two cognitive training modules:
        <div style="text-align: center;">
        <img src="images/MissingNumbers.PNG" alt="Missing Numbers Game" width="250"/>
        <br>
-       <span style="font-style: italic;"> Sample of Instructions for Missing Number Game
+       *Sample of Instructions for Missing Number Game*
        </span>
        </div>
 
@@ -47,7 +47,7 @@ The game includes two cognitive training modules:
    <div style="text-align: center;">
        <img src="images/InstructionsForDividedAttention.PNG" alt="Missing Numbers Game" width="250"/>
        <br>
-       <span style="font-style: italic;"> Sample of Instructions for Divided Attention Game
+       *Sample of Instructions for Divided Attention Game*
        </span>
     </div>
 
