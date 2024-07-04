@@ -17,29 +17,34 @@ The game includes two cognitive training modules:
      a) In the first level, a list appear with items you should search for in a living room, and you can return back to the list if you forget what you are searching for.
 
      b) In the second level, you should memorize the items on the list and search for them in an office you can't return back to the list if you forget what you are searching for.
-     <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+     <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
      <!-- First image with caption -->
-     <div style="text-align: center; margin: 10px">
-     <img src="images/InstructionsForFirstModule.PNG" alt="Instructions for First Level" width="250"/>
+     <div style="text-align: center; margin: 20px">
+     <img src="images/InstructionsForFirstModule.PNG" alt="Instructions for First Level" width="270"/>
      <br>
-     <span style="font-style: italic;"> Sample of Instructions for First Level</span>
+     
+     *Sample of Instructions for First Level*
+
      </div>
-     <div style="text-align: center; margin: 10px">
+     <div style="text-align: center; margin: 20px">
      <img src="images/SecondModuleInstructions.PNG" alt="Instructions for Second Level" width="250"/>
      <br>
-     <span style="font-style: italic;"> Sample of Instructions for Second Level</span>
+
+     *Sample of Instructions for Second Level*
+
      </div>
      </div>
 
    - ***Missing Numbers***:
 
      In this game, you are required to find the missing number from 1 to 20 but write them in an ascending order.
-       <div style="text-align: center;">
+    <div style="text-align: center;">
        <img src="images/MissingNumbers.PNG" alt="Missing Numbers Game" width="250"/>
        <br>
-       *Sample of Instructions for Missing Number Game*
-       </span>
-       </div>
+
+   *Sample of Instructions for Missing Number Game*
+
+    </div>
 
 2. **Divided attenion module**:
 
@@ -47,7 +52,7 @@ The game includes two cognitive training modules:
    <div style="text-align: center;">
        <img src="images/InstructionsForDividedAttention.PNG" alt="Missing Numbers Game" width="250"/>
        <br>
-       *Sample of Instructions for Divided Attention Game*
+       <span style="font-style: italic;"> Sample of Instructions for Divided Attention Game
        </span>
     </div>
 
