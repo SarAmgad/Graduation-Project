@@ -18,21 +18,36 @@ The game includes two cognitive training modules:
      a) In the first level, a list appear with items you should search for in a living room, and you can return back to the list if you forget what you are searching for.
 
      b) In the second level, you should memorize the items on the list and search for them in an office you can't return back to the list if you forget what you are searching for.
+<<<<<<< HEAD
      <div style="align-items: center; justify-content: center; flex-wrap: wrap;">
      <!-- First image with caption -->
      <div style="text-align: center;">
      <img src="images/InstructionsForFirstModule.PNG" alt="Instructions for First Level" width="210"/>
      <br>
      
+=======
+     <div style="align-items: center; justify-content: center; ">
+     <!-- First image with caption -->
+     <div style="text-align: center; align-items: center; display:flex">
+     <img src="images/InstructionsForFirstModule.PNG" alt="Instructions for First Level" width="210"/>
+
+
+>>>>>>> 7ff1659a125967799c7b61969abd94edc8c312ec
      *Sample of Instructions for First Level*
+
+     <img src="images/LivingRoomScene.PNG" alt="Instructions for First Level" width="200"/>
+
+     *The first scene*
 
      </div>
      <div style="text-align: center;">
      <img src="images/SecondModuleInstructions.PNG" alt="Instructions for Second Level" width="210"/>
+<<<<<<< HEAD
      <br>
+=======
+>>>>>>> 7ff1659a125967799c7b61969abd94edc8c312ec
 
      *Sample of Instructions for Second Level*
-
      </div>
      </div>
 
@@ -41,7 +56,11 @@ The game includes two cognitive training modules:
      In this game, you are required to find the missing number from 1 to 20 but write them in an ascending order.
           <div style="text-align: center; align-items: center;">
              <img src="images/MissingNumbers.PNG" alt="Missing Numbers Game" width="220"/>
+<<<<<<< HEAD
              <br>
+=======
+
+>>>>>>> 7ff1659a125967799c7b61969abd94edc8c312ec
       *Sample of Instructions for Missing Number Game*
              </div>
 
