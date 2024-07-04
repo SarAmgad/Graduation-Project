@@ -8,6 +8,7 @@ This VR game is developed as part of our graduation project titled "Investigatin
 
 **Game Description:**
 
+
 The game includes two cognitive training modules:
 
 1. **Visual-Spatial attention**, module which consists of two games:
@@ -17,34 +18,34 @@ The game includes two cognitive training modules:
      a) In the first level, a list appear with items you should search for in a living room, and you can return back to the list if you forget what you are searching for.
 
      b) In the second level, you should memorize the items on the list and search for them in an office you can't return back to the list if you forget what you are searching for.
-     <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+     <div style="align-items: center; justify-content: center; ">
      <!-- First image with caption -->
-     <div style="text-align: center; margin: 10px">
-     <img src="images/InstructionsForFirstModule.PNG" alt="Instructions for First Level" width="270"/>
-     <br>
-     
+     <div style="text-align: center; align-items: center; display:flex">
+     <img src="images/InstructionsForFirstModule.PNG" alt="Instructions for First Level" width="210"/>
+
+
      *Sample of Instructions for First Level*
 
+     <img src="images/LivingRoomScene.PNG" alt="Instructions for First Level" width="200"/>
+
+     *The first scene*
+
      </div>
-     <div style="text-align: center; margin: 10px">
-     <img src="images/SecondModuleInstructions.PNG" alt="Instructions for Second Level" width="250"/>
-     <br>
+     <div style="text-align: center;">
+     <img src="images/SecondModuleInstructions.PNG" alt="Instructions for Second Level" width="210"/>
 
      *Sample of Instructions for Second Level*
-
      </div>
      </div>
 
    - ***Missing Numbers***:
 
      In this game, you are required to find the missing number from 1 to 20 but write them in an ascending order.
-    <div style="text-align: center;">
-       <img src="images/MissingNumbers.PNG" alt="Missing Numbers Game" width="250"/>
-       <br>
+          <div style="text-align: center; align-items: center;">
+             <img src="images/MissingNumbers.PNG" alt="Missing Numbers Game" width="220"/>
 
-   *Sample of Instructions for Missing Number Game*
-
-    </div>
+      *Sample of Instructions for Missing Number Game*
+             </div>
 
 2. **Divided attenion module**:
 
