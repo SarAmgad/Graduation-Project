@@ -10,7 +10,7 @@ public class StopSign : MonoBehaviour
     bool IsScoreUpdated = false;
     public static int scoreForDetectedSigns;
     private Vector3 initialVelocity = new Vector3();
-    MeshRenderer meshRendererStopSign;
+    public MeshRenderer meshRendererStopSign;
 
     void Start()
     {
