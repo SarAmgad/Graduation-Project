@@ -8,11 +8,13 @@ public class NiddleWithRandomRange : MonoBehaviour
     private Coroutine checkCollisionCoroutine;
     private bool isColliding = false;
 
+    public StopSign stopSign;
+
     public static int score = 0;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Renderer>().material == specialMaterial)
+        if (other.GetComponent<Renderer>().enabled == true)
         {
             isColliding = true;
             checkCollisionCoroutine ??= StartCoroutine(CheckCollisionDuration());
@@ -24,7 +26,7 @@ public class NiddleWithRandomRange : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<Renderer>().material == specialMaterial)
+        if (other.GetComponent<Renderer>().enabled == true)
         {
             isColliding = false;
             if (checkCollisionCoroutine != null)

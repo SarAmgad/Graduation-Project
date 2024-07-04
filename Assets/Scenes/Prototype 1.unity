@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 220284511}
   - component: {fileID: 220284510}
   - component: {fileID: 220284512}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Plane (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1182,7 +1182,7 @@ GameObject:
   - component: {fileID: 266190399}
   - component: {fileID: 266190401}
   - component: {fileID: 266190400}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Forward
   m_TagString: Forward
   m_Icon: {fileID: 0}
@@ -1280,7 +1280,7 @@ GameObject:
   - component: {fileID: 311076279}
   - component: {fileID: 311076278}
   - component: {fileID: 311076281}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: edge (7)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -1486,7 +1486,7 @@ GameObject:
   - component: {fileID: 347351649}
   - component: {fileID: 347351648}
   - component: {fileID: 347351650}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Plane (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1588,7 +1588,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 377342407}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: forward empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1650,7 +1650,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 455997829}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SteeringWheelDirectionalObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1825,7 +1825,7 @@ GameObject:
   - component: {fileID: 541424199}
   - component: {fileID: 541424198}
   - component: {fileID: 541424201}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: edge (10)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -2093,7 +2093,7 @@ GameObject:
   - component: {fileID: 752021741}
   - component: {fileID: 752021740}
   - component: {fileID: 752021739}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Plane (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2198,7 +2198,7 @@ GameObject:
   - component: {fileID: 772883686}
   - component: {fileID: 772883685}
   - component: {fileID: 772883687}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Plane (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2304,7 +2304,7 @@ GameObject:
   - component: {fileID: 774845578}
   - component: {fileID: 774845577}
   - component: {fileID: 774845580}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: edge (3)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -2601,7 +2601,7 @@ GameObject:
   - component: {fileID: 788301663}
   - component: {fileID: 788301662}
   - component: {fileID: 788301665}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: edge (2)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -2803,7 +2803,7 @@ GameObject:
   - component: {fileID: 789244877}
   - component: {fileID: 789244876}
   - component: {fileID: 789244879}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: edge (8)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -3599,7 +3599,7 @@ GameObject:
   - component: {fileID: 1001145833}
   - component: {fileID: 1001145832}
   - component: {fileID: 1001145834}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: LeftAudio
   m_TagString: LeftAudio
   m_Icon: {fileID: 0}
@@ -3838,7 +3838,7 @@ Transform:
   m_GameObject: {fileID: 1037856123}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -3.2927214e-10, z: -0.000000004939084, w: 1}
-  m_LocalPosition: {x: -22.14, y: 5.82, z: 3.9}
+  m_LocalPosition: {x: -22.2, y: 5.82, z: 8.7}
   m_LocalScale: {x: 39.37009, y: 39.37008, z: 39.37009}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3963,7 +3963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3730159393356484680, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3759663638330071920, guid: 19091bb1f3e241d4dacae13a54573f82, type: 3}
       propertyPath: m_Layer
@@ -4018,7 +4018,7 @@ GameObject:
   - component: {fileID: 1064901183}
   - component: {fileID: 1064901182}
   - component: {fileID: 1064901184}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: RightAudio (1)
   m_TagString: RightAudio
   m_Icon: {fileID: 0}
@@ -4351,7 +4351,7 @@ GameObject:
   - component: {fileID: 1162306300}
   - component: {fileID: 1162306299}
   - component: {fileID: 1162306302}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: edge
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -4744,7 +4744,7 @@ GameObject:
   - component: {fileID: 1235447357}
   - component: {fileID: 1235447359}
   - component: {fileID: 1235447358}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: DetectRight
   m_TagString: DetectRight
   m_Icon: {fileID: 0}
@@ -4845,7 +4845,7 @@ GameObject:
   - component: {fileID: 1286302343}
   - component: {fileID: 1286302345}
   - component: {fileID: 1286302344}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Cube
   m_Icon: {fileID: 0}
@@ -5124,7 +5124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1322918429}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5194,7 +5194,7 @@ GameObject:
   - component: {fileID: 1338284286}
   - component: {fileID: 1338284285}
   - component: {fileID: 1338284288}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: edge (4)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -5459,7 +5459,7 @@ GameObject:
   - component: {fileID: 1386218529}
   - component: {fileID: 1386218528}
   - component: {fileID: 1386218527}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Forward(2)
   m_TagString: Forward
   m_Icon: {fileID: 0}
@@ -5653,7 +5653,7 @@ GameObject:
   - component: {fileID: 1392871982}
   - component: {fileID: 1392871981}
   - component: {fileID: 1392871984}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: edge (1)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -5855,7 +5855,7 @@ GameObject:
   - component: {fileID: 1398937085}
   - component: {fileID: 1398937084}
   - component: {fileID: 1398937087}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: edge (5)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -6181,7 +6181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1442405079}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: -60 empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6297,7 +6297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1466037305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6311,7 +6311,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1442842939}
-  - {fileID: 1819250269}
   - {fileID: 1131615580}
   - {fileID: 1316743018}
   m_Father: {fileID: 3088243108074745204}
@@ -6757,7 +6756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1570812438}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: 60 empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6927,7 +6926,7 @@ GameObject:
   - component: {fileID: 1640496881}
   - component: {fileID: 1640496883}
   - component: {fileID: 1640496882}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: DetectRight(1)
   m_TagString: DetectRight
   m_Icon: {fileID: 0}
@@ -7883,7 +7882,7 @@ GameObject:
   - component: {fileID: 1786654717}
   - component: {fileID: 1786654716}
   - component: {fileID: 1786654719}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: edge (11)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -8103,61 +8102,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1209372855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1819250268
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1819250269}
-  - component: {fileID: 1819250270}
-  m_Layer: 6
-  m_Name: SpeedChange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1819250269
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819250268}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.17296, y: -852.04407, z: -0.7287962}
-  m_LocalScale: {x: 9.087436, y: 20.580774, z: 0.026310332}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1466037305}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1819250270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819250268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29fac1d6a867a3e45903542e8cd1407a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObjects:
-  - {fileID: 192830754}
-  - {fileID: 668940456}
-  - {fileID: 69613252}
-  - {fileID: 346769251}
-  - {fileID: 1076724765}
-  - {fileID: 1518281900}
-  specialMaterial: {fileID: 2100000, guid: 432152f32c2fe6f4e8ed519a2ab18351, type: 2}
-  durationForLight: 3
-  durationForNoLight: 6
-  initialDelay: 3
 --- !u!1001 &1829879632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8285,7 +8229,7 @@ GameObject:
   - component: {fileID: 1830891807}
   - component: {fileID: 1830891806}
   - component: {fileID: 1830891809}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: edge (6)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -8517,7 +8461,7 @@ GameObject:
   - component: {fileID: 1836768385}
   - component: {fileID: 1836768384}
   - component: {fileID: 1836768386}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: RightAudio
   m_TagString: RightAudio
   m_Icon: {fileID: 0}
@@ -8710,7 +8654,7 @@ GameObject:
   - component: {fileID: 1847783443}
   - component: {fileID: 1847783442}
   - component: {fileID: 1847783441}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Forward(2) (1)
   m_TagString: DetectLeft
   m_Icon: {fileID: 0}
@@ -8933,7 +8877,7 @@ GameObject:
   - component: {fileID: 1874685918}
   - component: {fileID: 1874685920}
   - component: {fileID: 1874685919}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: ForwardLeft
   m_TagString: ForwardLeft
   m_Icon: {fileID: 0}
@@ -9091,7 +9035,7 @@ GameObject:
   - component: {fileID: 1923889913}
   - component: {fileID: 1923889912}
   - component: {fileID: 1923889911}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Plane (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9252,7 +9196,7 @@ GameObject:
   - component: {fileID: 1965483348}
   - component: {fileID: 1965483347}
   - component: {fileID: 1965483350}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: edge (12)
   m_TagString: Edge
   m_Icon: {fileID: 0}
@@ -9452,7 +9396,7 @@ GameObject:
   - component: {fileID: 2013240228}
   - component: {fileID: 2013240230}
   - component: {fileID: 2013240229}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: DetectLeft
   m_TagString: DetectLeft
   m_Icon: {fileID: 0}
@@ -10187,7 +10131,7 @@ GameObject:
   - component: {fileID: 4378778146620271872}
   - component: {fileID: 5209039523536675601}
   - component: {fileID: 4730942445652964751}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Polygon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10620,7 +10564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5348575607151330673, guid: 404dac48fe1322c4390c1db11a5b6ca0, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12916,6 +12860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   specialMaterial: {fileID: 2100000, guid: 432152f32c2fe6f4e8ed519a2ab18351, type: 2}
+  stopSign: {fileID: 0}
 --- !u!1 &3742420040101707013
 GameObject:
   m_ObjectHideFlags: 0
@@ -13209,7 +13154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4432814065364254672}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14268,7 +14213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5707040256579379132}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: triangle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14740,7 +14685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 408229989105592298, guid: 19d134d782b08d94f9075f0f32e96c59, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 408229989105592298, guid: 19d134d782b08d94f9075f0f32e96c59, type: 3}
       propertyPath: m_IsActive
@@ -16593,7 +16538,7 @@ GameObject:
   - component: {fileID: 5652991210272050540}
   - component: {fileID: 4250773325120209789}
   - component: {fileID: 3679530088893175267}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Polygon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

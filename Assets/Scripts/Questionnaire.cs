@@ -58,7 +58,7 @@ public class Questionnaire : MonoBehaviour
             new() { Id = 21, Text = "I consider my experience a success.", Dimension = "RW" },
             new() { Id = 22, Text = "This experience did not work out the way I had planned.", Dimension = "RW" },
             new() { Id = 23, Text = "My experience was rewarding.", Dimension = "RW" },
-            new() { Id = 24, Text = "My experience was rewarding.", Dimension = "RW" },
+            new() { Id = 24, Text = "I would recommend this game to my family and friends.", Dimension = "RW" },
             new() { Id = 25, Text = "I continued to use the VR game out of curiosity.", Dimension = "RW" },
             new() { Id = 26, Text = "The content of the VR game incited my curiosity.", Dimension = "RW" },
             new() { Id = 27, Text = "I was really drawn into this experience.", Dimension = "RW" },
@@ -168,7 +168,6 @@ public class Questionnaire : MonoBehaviour
             writer.WriteLine($"Score for voices, {PlayerPrefs.GetInt("score")}");
             writer.WriteLine($"Score fo signs, {PlayerPrefs.GetInt("scoreForDetectedSigns")}");
         }
-
         questionsCanvas.SetActive(false);
         Endcanvas.SetActive(true);
         StartCoroutine(Delay(5f));

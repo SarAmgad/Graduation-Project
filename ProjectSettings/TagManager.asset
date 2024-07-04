@@ -19,6 +19,16 @@ TagManager:
   - Trophy
   - Can
   - Found
+  - Forward
+  - Edge
+  - Car
+  - LeftAudio
+  - RightAudio
+  - DetectRight
+  - DetectLeft
+  - ForwardLeft
+  - PlayerHandR
+  - PlayerHandL
   layers:
   - Default
   - TransparentFX
@@ -31,8 +41,8 @@ TagManager:
   - Object
   - Floor
   - Grabbable
-  - 
-  - 
+  - Needle
+  - Road
   - 
   - 
   - 
