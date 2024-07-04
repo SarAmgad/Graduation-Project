@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cb8564d454baf27384c94bf3dc3a7621c3c88762039753ba53e0a7a6817a2e84
-size 2425
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpawnManager : MonoBehaviour
+{
+    RoadSpawner roadSpawner;
+    RoadSpawner Direction;
+    
+    void Start()
+    {
+        roadSpawner = GetComponent<RoadSpawner>();
+    }
+
+    
+    void Update()
+    {
+        
+    }
+
+        
+
+    public void SpawnManagerTrigger(GameObject parent)
+    {
+        roadSpawner.SpawnRoad(RoadSpawner.Direction.Forward, parent);
+    }
+
+    public void SpawnManagerTriggerRight(GameObject parent)
+    {
+        roadSpawner.SpawnRoad(RoadSpawner.Direction.Right, parent);
+    }
+
+
+    public void SpawnManagerTriggerLeft(GameObject parent)
+    {
+        roadSpawner.SpawnRoad(RoadSpawner.Direction.Left, parent);
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "name": "PlayerInputActions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "8043c0b2-5442-46e3-a388-3f10c771fd05",
+            "actions": [
+                {
+                    "name": "RightHandThumbstick",
+                    "type": "Value",
+                    "id": "b236ca02-fc4e-4df6-9711-20fd258cc200",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LeftHandThumbstick",
+                    "type": "Value",
+                    "id": "078c2525-3bef-479c-b2a3-f409895e2588",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "137f6ff5-dd91-4533-8fab-e10d12d6578d",
+                    "path": "<XRController>{RightHand}/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightHandThumbstick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2b42e4b-6714-44f6-a64d-fbb2e054885b",
+                    "path": "<XRController>{LeftHand}/thumbstick",
+                    "interactions": "SlowTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftHandThumbstick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

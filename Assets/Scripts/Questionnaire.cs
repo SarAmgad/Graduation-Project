@@ -41,16 +41,16 @@ public class Questionnaire : MonoBehaviour
             new() { Id = 4, Text = "The time I spent using the VR game just slipped away.", Dimension = "FA" },
             new() { Id = 5, Text = "I was absorbed in this experience.", Dimension = "FA" },
             new() { Id = 6, Text = "During this experience I let myself go.", Dimension = "FA" },
-            new() { Id = 7, Text = "I felt frustrated while using this the VR game.", Dimension = "PU" },
-            new() { Id = 8, Text = "I found this the VR game confusing to use.", Dimension = "PU" },
+            new() { Id = 7, Text = "I felt frustrated while using this VR game.", Dimension = "PU" },
+            new() { Id = 8, Text = "I found this VR game confusing to use.", Dimension = "PU" },
             new() { Id = 9, Text = "I felt annoyed while using the VR game.", Dimension = "PU" },
-            new() { Id = 10, Text = "I felt discouraged while using this the VR game.", Dimension = "PU" },
-            new() { Id = 11, Text = "Using this the VR game was taxing.", Dimension = "PU" },
+            new() { Id = 10, Text = "I felt discouraged while using this VR game.", Dimension = "PU" },
+            new() { Id = 11, Text = "Using this VR game was taxing.", Dimension = "PU" },
             new() { Id = 12, Text = "This experience was demanding.", Dimension = "PU" },
-            new() { Id = 13, Text = "I felt in control while using this the VR game.", Dimension = "PU" },
+            new() { Id = 13, Text = "I felt in control while using this VR game.", Dimension = "PU" },
             new() { Id = 14, Text = "I could not do some of the things I needed to do while using the VR game.", Dimension = "PU" },
-            new() { Id = 15, Text = "This the VR game was attractive.", Dimension = "AE" },
-            new() { Id = 16, Text = "This the VR game was aesthestically appealing.", Dimension = "AE" },
+            new() { Id = 15, Text = "This VR game was attractive.", Dimension = "AE" },
+            new() { Id = 16, Text = "This VR game was aesthestically appealing.", Dimension = "AE" },
             new() { Id = 17, Text = "I liked the graphics and images of the VR game.", Dimension = "AE" },
             new() { Id = 18, Text = "The VR game appealed to my visual senses.", Dimension = "AE" },
             new() { Id = 19, Text = "The screen layout of the VR game was visually pleasing.", Dimension = "AE" },
@@ -158,7 +158,15 @@ public class Questionnaire : MonoBehaviour
                 int answer = i < selecteIndecies.Count ? selecteIndecies[i] + 1 : -1;
                 writer.WriteLine($"\"{id}\",\"{question}\",\"{dimension}\",\"{answer}\"");
             }
+            Debug.Log(email);
             writer.WriteLine($"email, {email}");
+            writer.WriteLine($"first timer, {PlayerPrefs.GetFloat("first timer")}");
+            writer.WriteLine($"second timer, {PlayerPrefs.GetFloat("second timer")}");
+            writer.WriteLine($"third timer {PlayerPrefs.GetFloat("third timer")}");
+            writer.WriteLine($"Mistakes, {PlayerPrefs.GetFloat("mistakes")}");
+
+            writer.WriteLine($"Score for voices, {PlayerPrefs.GetInt("score")}");
+            writer.WriteLine($"Score fo signs, {PlayerPrefs.GetInt("scoreForDetectedSigns")}");
         }
 
         questionsCanvas.SetActive(false);
@@ -170,7 +178,7 @@ public class Questionnaire : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Endcanvas.SetActive(false);
-        SceneManager.LoadScene(0);
+        StartingScene.BackToStart();
     }
 
     static T[] ShuffleArray<T>(T[] array)

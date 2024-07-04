@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0e38ec09ccb171c569c79fab312ff54a30bd40d0b0e2698b0dc4a424a59d9902
-size 856
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CharacterLegs : MonoBehaviour
+{
+    private Animator animator;
+
+    [SerializeField]
+    private float footOffset = 0;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    private void OnAnimatorIK(int layerIndex)
+    {
+        AvatarIKGoal[] feet = new AvatarIKGoal[] { AvatarIKGoal.LeftFoot, AvatarIKGoal.RightFoot };
+        foreach(AvatarIKGoal foot in feet)
+        {
+            Vector3 footPosition = animator.GetIKPosition(foot);
+            RaycastHit hit;
+            Physics.Raycast(footPosition + Vector3.up, Vector3.down, out hit);
+            animator.SetIKPositionWeight(foot, 1);
+            animator.SetIKPosition(foot, hit.point + new Vector3(0, footOffset, 0));
+        }
+    }
+}

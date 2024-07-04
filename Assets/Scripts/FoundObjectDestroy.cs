@@ -13,7 +13,7 @@ public class FoundObjectDestroy : MonoBehaviour
     private GameObject FoundPanel;
     public static List<GameObject> objectsList = new List<GameObject>();
     XRGrabInteractable grabbedObject;
-    private List<string> objects = new List<string>() {"Statue", "Statue2", "Book", "Cup", "Bottle", "Lens", "Headphones", "Hammer", "Alarm", "Trophy", "Can"};
+    public static List<string> objects = new List<string>() {"Statue", "Statue2", "Book", "Cup", "Bottle", "Lens", "Headphones", "Hammer", "Alarm", "Trophy", "Can"};
     private void Start()
     {
         // FoundPanel = GetCanvas(FoundPanel, "XR Origin (XR Rig)/Camera Offset/Main Camera/Found Canvas");
@@ -33,10 +33,10 @@ public class FoundObjectDestroy : MonoBehaviour
                 Found();
             }
             
-            if (!objectsList.Contains(grabbedObject.gameObject))
-            {
-                objectsList.Add(grabbedObject.gameObject);
-            }
+            // if (!objectsList.Contains(grabbedObject.gameObject))
+            // {
+            //     objectsList.Add(grabbedObject.gameObject);
+            // }
             
             StartCoroutine(Delay(1f));
         }
@@ -70,6 +70,10 @@ public class FoundObjectDestroy : MonoBehaviour
         if(grabbedObject)
         {
             Destroy(grabbedObject.gameObject);
+            if (!objectsList.Contains(grabbedObject.gameObject))
+            {
+                objectsList.Add(grabbedObject.gameObject);
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,31 +11,31 @@ public class UIManager : MonoBehaviour
     private GameObject endCanvas;
     private GameObject list;
     private GameObject menu;
+    private GameObject instructions;
+
     private int COUNT;
     private TrackedPoseDriver trackedPoseDriver;
     private XRGrabInteractable[] grabInteractables;
+    public static bool flag = true;
 
 
     private void Awake()
     {
-        // trackedPoseDriver = GameObject.Find("XR Origin (XR Rig)/Camera Offset/Main Camera").GetComponent<TrackedPoseDriver>();
         trackedPoseDriver = GameObject.Find("XR Origin Hands/Camera Offset/Main Camera").GetComponent<TrackedPoseDriver>();
         grabInteractables = FindObjectsOfType<XRGrabInteractable>();
     }
 
     void Start()
     {
-        // FoundPanel = GetCanvas(FoundPanel, "XR Origin (XR Rig)/Camera Offset/Main Camera/Found Canvas");
         FoundPanel = GetCanvas(FoundPanel, "XR Origin Hands/Camera Offset/Main Camera/Found Canvas");
 
-        // endCanvas = GetCanvas(endCanvas, "XR Origin (XR Rig)/Camera Offset/Main Camera/End Canvas");
         endCanvas = GetCanvas(endCanvas, "XR Origin Hands/Camera Offset/Main Camera/End Canvas");
 
-        // list = GetCanvas(list, "XR Origin (XR Rig)/Camera Offset/Main Camera/XRCanvas");
         list = GetCanvas(list, "XR Origin Hands/Camera Offset/Main Camera/XRCanvas");
 
-        // menu = GetCanvas(menu, "XR Origin (XR Rig)/Camera Offset/Main Camera/Menu");
-        menu = GetCanvas(menu, "XR Origin Hands/Camera Offset/Main Camera/XRCanvas");
+        menu = GetCanvas(menu, "XR Origin Hands/Camera Offset/Main Camera/Menu");
+
+        instructions = GetCanvas(instructions, "XR Origin Hands/Camera Offset/Main Camera/Instructions");
 
 
         Tracking();
@@ -45,6 +46,8 @@ public class UIManager : MonoBehaviour
     {
         if (FoundObjectDestroy.objectsList.Count != 0 && FoundObjectDestroy.objectsList.Count == COUNT && !FoundPanel.activeSelf)
         {
+            if (flag)
+                SoundEffects.Complete();
             endCanvas.SetActive(true);
         }
 
@@ -72,10 +75,8 @@ public class UIManager : MonoBehaviour
 
     private void Tracking()
     {
-        if (list.activeSelf || menu.activeSelf || endCanvas.activeSelf)
+        if (list.activeSelf || menu.activeSelf || endCanvas.activeSelf || instructions.activeSelf)
         {
-            Debug.Log("Tracking");
-            // trackedPoseDriver.trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
             foreach (XRGrabInteractable obj in grabInteractables)
             {
                 if (obj)

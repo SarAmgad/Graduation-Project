@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dd35a610a7a2c563604c86194cbd2be0b5d0e045c29a4cbb6e36a4de2924ea59
-size 967
+using UnityEngine;
+using UnityEngine.InputSystem.XR;
+
+public class List : MonoBehaviour
+{
+//_____________ Inspector Vars _____________
+    [SerializeField] private GameObject preview;
+
+//_____________ Private Vars _____________
+    private TrackedPoseDriver trackedPoseDriver;
+
+    private void Awake()
+    {
+        trackedPoseDriver = gameObject.transform.parent.GetComponent<TrackedPoseDriver>();
+    }
+
+    public void ListMenu()
+    {
+        trackedPoseDriver.trackingType = TrackedPoseDriver.TrackingType.RotationAndPosition;
+    }
+
+    public void Preview(GameObject gameObject)
+    {
+        if (preview.transform.childCount > 0)
+        {
+            foreach (Transform child in preview.GetComponentInChildren<Transform>())
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        Instantiate(gameObject, preview.transform.position, gameObject.transform.rotation, preview.transform);
+    }
+}
