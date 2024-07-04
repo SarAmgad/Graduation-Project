@@ -19,14 +19,14 @@ The game includes two cognitive training modules:
      b) In the second level, you should memorize the items on the list and search for them in an office you can't return back to the list if you forget what you are searching for.
      <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
      <!-- First image with caption -->
-     <div style="text-align: center; margin: 20px">
+     <div style="text-align: center; margin: 10px">
      <img src="images/InstructionsForFirstModule.PNG" alt="Instructions for First Level" width="270"/>
      <br>
      
      *Sample of Instructions for First Level*
 
      </div>
-     <div style="text-align: center; margin: 20px">
+     <div style="text-align: center; margin: 10px">
      <img src="images/SecondModuleInstructions.PNG" alt="Instructions for Second Level" width="250"/>
      <br>
 
