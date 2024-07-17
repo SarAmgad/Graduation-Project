@@ -2,7 +2,7 @@
 
 **Project Overview:**
 
-This VR game is developed as part of our graduation project titled "Investigating the Influence of Immersion Level on the Engagement Level in Cognitive Training." The aim of this study is to compare the impact of immersion on engagement by evaluating participant interaction with a VR game and a desktop-based training tool (RehaCom).
+This VR game is developed as part of our graduation project titled "Investigating the Influence of Immersion Level on the Engagement Level in Cognitive Training." The aim of this study is to compare the impact of immersion on engagement by evaluating participant interaction with a VR game and a desktop-based training tool (RehaCom). The evaluation of RehaCom is performed using a <a href="https://github.com/Gehad28/questionnaire-website">web-based questionnaire</a>, while that of the VR is performed using an in-VR one.
 
 ---
 
